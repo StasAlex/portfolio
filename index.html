@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stanislav Alexandronets — Shopify · WordPress · React Developer</title>
+<meta name="description" content="Stanislav Alexandronets — eCommerce & Frontend Developer. Shopify, WordPress and React/Next.js. 5+ years building and customizing online stores.">
+<style>
+:root{--ink:#0f172a;--mut:#64748b;--pri:#6366f1;--pri2:#4338ca;--dk:#0b1020;--bg:#f7f8fc;--card:#fff;--line:#e6e8f0;--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+
+/* scroll progress */
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#6366f1,#a855f7);z-index:60}
+
+/* custom cursor */
+#cdot,#cring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:70;transform:translate(-50%,-50%);mix-blend-mode:difference}
+#cdot{width:7px;height:7px;background:#fff}
+#cring{width:34px;height:34px;border:1.5px solid #fff;transition:width .25s var(--ease),height .25s var(--ease),background .25s}
+#cring.big{width:56px;height:56px;background:rgba(255,255,255,.12)}
+@media(hover:none){#cdot,#cring{display:none}}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;display:flex;justify-content:center;transition:.3s}
+nav .bar{margin-top:14px;display:flex;gap:4px;background:rgba(255,255,255,.7);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px;padding:6px}
+nav a{font-size:13px;text-decoration:none;color:#475569;padding:7px 14px;border-radius:999px;transition:.25s var(--ease)}
+nav a:hover{color:var(--pri2)}
+nav a.on{background:var(--pri);color:#fff}
+
+/* hero */
+.hero{position:relative;background:linear-gradient(135deg,#4f46e5,#0b1020);color:#fff;padding:70px 0 64px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;will-change:transform}
+.b1{width:340px;height:340px;background:#7c3aed;top:-90px;right:-40px}
+.b2{width:280px;height:280px;background:#22d3ee;bottom:-120px;left:-60px;opacity:.35}
+.hero .wrap{position:relative;display:flex;gap:26px;align-items:center;flex-wrap:wrap;z-index:2}
+.ava{width:104px;height:104px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;flex:0 0 auto;overflow:hidden}
+.ava img{width:100%;height:100%;object-fit:cover}
+h1{margin:0;font-size:clamp(28px,5vw,40px);letter-spacing:.3px}
+.role{font-size:clamp(15px,2.4vw,18px);opacity:.92;margin:6px 0 16px;font-weight:500}
+.ctc{display:flex;gap:9px;flex-wrap:wrap}
+.ctc a{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,.13);padding:9px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.22);transition:transform .2s var(--ease),background .2s}
+.ctc a:hover{background:rgba(255,255,255,.28)}
+
+section{padding:52px 0 8px}
+h2.t{font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--pri);margin:0 0 20px;font-weight:800}
+.sum{font-size:clamp(15px,2.3vw,17px);color:#334155;max-width:780px}
+
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s}
+.card:hover{transform:translateY(-8px);box-shadow:0 18px 40px -18px rgba(79,70,229,.45);border-color:#c7d2fe}
+.card h3{margin:0 0 12px;font-size:15.5px;display:flex;align-items:center;gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--pri);box-shadow:0 0 0 4px #eef2ff}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:12.5px;background:#eef2ff;color:var(--pri2);padding:5px 11px;border-radius:20px;border:1px solid #e0e7ff;transition:transform .2s var(--ease),background .2s}
+.chip:hover{transform:translateY(-3px) scale(1.06);background:#e0e7ff}
+
+.exp{position:relative;padding-left:24px;border-left:2px solid var(--line);margin-left:5px}
+.job{position:relative;padding:0 0 24px}
+.job::before{content:"";position:absolute;left:-30px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--pri);border:2px solid #fff;box-shadow:0 0 0 3px #c7d2fe}
+.job .co{font-weight:700;font-size:16px}
+.job .meta{font-size:13px;color:var(--mut);margin:3px 0 7px}
+.job ul{margin:0;padding-left:18px;font-size:14.5px;color:#475569}
+
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tab{font-size:13px;border:1px solid var(--line);background:#fff;color:#475569;padding:8px 16px;border-radius:999px;cursor:pointer;transition:.25s var(--ease)}
+.tab:hover{border-color:#c7d2fe}
+.tab.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),opacity .35s,border-color .3s;transform-style:preserve-3d}
+.pc:hover{box-shadow:0 20px 40px -20px rgba(79,70,229,.5);border-color:#c7d2fe}
+.pc.hide{display:none}
+.pc .tag{font-size:11px;font-weight:800;letter-spacing:.6px;color:var(--pri);text-transform:uppercase}
+.pc .nm{font-weight:700;font-size:15px;margin:4px 0}
+.pc a{color:var(--pri2);font-size:12.5px;text-decoration:none;word-break:break-all;border-bottom:1px solid transparent;transition:.2s}
+.pc a:hover{border-color:var(--pri2)}
+.pc p{margin:7px 0 0;font-size:12.5px;color:#64748b}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.li{font-size:14.5px;color:#475569;margin:4px 0}
+.li b{color:var(--ink)}
+footer{background:var(--dk);color:#c7d2fe;margin-top:34px;padding:30px 0;text-align:center;font-size:13px}
+footer a{color:#fff;text-decoration:none;margin:0 9px}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:560px){.two{grid-template-columns:1fr}nav .bar{gap:0}nav a{padding:7px 10px}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="cdot"></div><div id="cring"></div>
+
+<nav><div class="bar">
+  <a href="#about" class="on">About</a><a href="#skills">Skills</a><a href="#exp">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="blob b1" data-par="0.03"></div><div class="blob b2" data-par="0.05"></div>
+  <div class="wrap">
+    <div class="ava" data-mag="20">SA<!-- заменить на <img src="photo.jpg" alt="Stanislav Alexandronets"> --></div>
+    <div>
+      <h1>Stanislav Alexandronets</h1>
+      <div class="role">Shopify · WordPress · React Developer — eCommerce</div>
+      <div class="ctc">
+        <a data-mag="14" href="mailto:stas.alex28@gmail.com">✉ stas.alex28@gmail.com</a>
+        <a data-mag="14" href="tel:+380504443938">📞 +380 50 444 3938</a>
+        <a data-mag="14" href="https://www.linkedin.com/in/stanislav-alexandronets/" target="_blank" rel="noopener">LinkedIn</a>
+        <a data-mag="14" href="https://github.com/StasAlex" target="_blank" rel="noopener">GitHub</a>
+        <a data-mag="14" href="https://t.me/stas_alex" target="_blank" rel="noopener">Telegram</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="about" class="reveal">
+    <h2 class="t">About</h2>
+    <p class="sum">eCommerce &amp; Frontend Developer with <b>5+ years</b> building and customizing online stores. I develop custom Shopify themes &amp; apps, WordPress sites, and modern React/Next.js interfaces — with a focus on clean, maintainable code, performance and API integrations.</p>
+  </section>
+
+  <section id="skills">
+    <h2 class="t reveal">Skills</h2>
+    <div class="grid3">
+      <div class="card reveal"><h3><span class="dot"></span>Shopify &amp; eCommerce</h3>
+        <div class="chips"><span class="chip">Liquid</span><span class="chip">OS 2.0</span><span class="chip">Theme dev</span><span class="chip">Sections</span><span class="chip">Metafields</span><span class="chip">App integration</span><span class="chip">AJAX cart</span><span class="chip">Magento 2</span></div></div>
+      <div class="card reveal"><h3><span class="dot"></span>WordPress</h3>
+        <div class="chips"><span class="chip">PHP</span><span class="chip">ACF</span><span class="chip">Custom themes</span><span class="chip">WooCommerce</span><span class="chip">Custom fields</span><span class="chip">REST API</span></div></div>
+      <div class="card reveal"><h3><span class="dot"></span>React &amp; Frontend</h3>
+        <div class="chips"><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">JavaScript</span><span class="chip">Tailwind</span><span class="chip">GSAP</span><span class="chip">Headless CMS</span><span class="chip">Git</span></div></div>
+    </div>
+  </section>
+
+  <section id="exp">
+    <h2 class="t reveal">Experience</h2>
+    <div class="exp">
+      <div class="job reveal"><div class="co">Shopify Theme Developer — Valmax</div><div class="meta">Dec 2025 – Present</div>
+        <ul><li>Custom Shopify theme development &amp; client solutions</li><li>Debugging and bugfixing across live stores</li></ul></div>
+      <div class="job reveal"><div class="co">Shopify Theme Developer — DevIT</div><div class="meta">Jul 2025 – Nov 2025</div>
+        <ul><li>Theme development and Shopify app development</li><li>Debugging and bugfixing</li></ul></div>
+      <div class="job reveal"><div class="co">Shopify Theme Developer — Bystrov Agency</div><div class="meta">Jan 2025 – May 2025</div>
+        <ul><li>Shopify theme development &amp; client solutions</li><li>Debugging and bugfixing</li></ul></div>
+      <div class="job reveal"><div class="co">eCommerce Frontend Developer — WEB4PRO</div><div class="meta">Jul 2020 – Dec 2025</div>
+        <ul><li>Magento 2 frontend development for 10+ clients</li><li>Shopify &amp; WordPress custom development</li></ul></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="t reveal">Selected Projects</h2>
+    <div class="tabs reveal">
+      <button class="tab on" data-f="all">All</button>
+      <button class="tab" data-f="shopify">Shopify</button>
+      <button class="tab" data-f="wordpress">WordPress</button>
+      <button class="tab" data-f="react">React / Next</button>
+      <button class="tab" data-f="magento">Magento</button>
+    </div>
+    <div class="pgrid" id="pgrid">
+      <div class="pc reveal" data-cat="shopify" data-mag="10"><div class="tag">Shopify</div><div class="nm">Very Blessed</div><p>Design, custom sections, apps.</p></div>
+      <div class="pc reveal" data-cat="shopify" data-mag="10"><div class="tag">Shopify</div><div class="nm">Ohhhobby</div><a href="https://ohhhobby.de" target="_blank" rel="noopener">ohhhobby.de</a><p>Built from scratch, Shopify Payments, custom sections.</p></div>
+      <div class="pc reveal" data-cat="shopify" data-mag="10"><div class="tag">Shopify</div><div class="nm">Meister-Cody</div><a href="https://www.meistercody.com" target="_blank" rel="noopener">meistercody.com</a><p>Custom sections, apps, forms.</p></div>
+      <div class="pc reveal" data-cat="wordpress" data-mag="10"><div class="tag">WordPress</div><div class="nm">Lonukraine</div><a href="http://lonukraine.com" target="_blank" rel="noopener">lonukraine.com</a><p>From scratch, custom scroll feature.</p></div>
+      <div class="pc reveal" data-cat="wordpress" data-mag="10"><div class="tag">WordPress</div><div class="nm">Alba-Soboni</div><a href="https://www.alba-soboni.com" target="_blank" rel="noopener">alba-soboni.com</a><p>Redesign, step checkout, mega menu.</p></div>
+      <div class="pc reveal" data-cat="react" data-mag="10"><div class="tag">React / Next.js</div><div class="nm">AutoHunter</div><a href="https://auto-hunter.vercel.app" target="_blank" rel="noopener">auto-hunter.vercel.app</a><p>Next.js + DatoCMS headless.</p></div>
+      <div class="pc reveal" data-cat="react" data-mag="10"><div class="tag">React / Next.js</div><div class="nm">Moiveo</div><a href="https://movie-app-psi-self14.vercel.app" target="_blank" rel="noopener">demo</a><p>React + TMDB API.</p></div>
+      <div class="pc reveal" data-cat="magento" data-mag="10"><div class="tag">Magento 2</div><div class="nm">Nuko E-market</div><a href="https://nuko.lv" target="_blank" rel="noopener">nuko.lv</a><p>3-level breadcrumbs, PWA-like mobile.</p></div>
+      <div class="pc reveal" data-cat="magento" data-mag="10"><div class="tag">Magento 2</div><div class="nm">Juvenile Planet</div><a href="https://juvenileplanet.com" target="_blank" rel="noopener">juvenileplanet.com</a><p>Checkout redesign, gift message.</p></div>
+    </div>
+  </section>
+
+  <section id="edu">
+    <div class="two">
+      <div class="reveal"><h2 class="t">Education</h2>
+        <div class="li"><b>Meta Frontend Developer</b> — Coursera, 2024</div>
+        <div class="li"><b>Frontend Advanced</b> — Udemy, 2023</div>
+        <div class="li"><b>JavaScript</b> — Hillel IT School, 2018–2019</div>
+        <div class="li"><b>Telecommunications</b> — KNURE, 1996–2001</div>
+        <div style="margin-top:12px"><span class="chip">Meta Frontend Developer</span> <span class="chip">React Advanced</span> <span class="chip">Frontend PRO</span></div>
+      </div>
+      <div class="reveal"><h2 class="t">Languages</h2>
+        <div class="li"><b>Ukrainian</b> — Native</div>
+        <div class="li"><b>English</b> — Intermediate</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div style="font-size:15px;color:#fff;margin-bottom:6px">Let’s build something great.</div>
+  Stanislav Alexandronets — Shopify · WordPress · React Developer<br><br>
+  <a href="mailto:stas.alex28@gmail.com">Email</a>·
+  <a href="https://t.me/stas_alex" target="_blank" rel="noopener">Telegram</a>·
+  <a href="https://github.com/StasAlex" target="_blank" rel="noopener">GitHub</a>·
+  <a href="https://www.linkedin.com/in/stanislav-alexandronets/" target="_blank" rel="noopener">LinkedIn</a>
+</footer>
+
+<script>
+(function(){
+  // scroll progress
+  var prog=document.getElementById('prog');
+  addEventListener('scroll',function(){
+    var h=document.documentElement,st=h.scrollTop,sh=h.scrollHeight-h.clientHeight;
+    prog.style.width=(sh>0?(st/sh*100):0)+'%';
+  },{passive:true});
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(function(el,i){ el.style.transitionDelay=(i%6*60)+'ms'; io.observe(el); });
+
+  // nav active + smooth
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  addEventListener('scroll',function(){
+    var y=scrollY+120, cur=0;
+    secs.forEach(function(s,i){ if(s&&s.offsetTop<=y) cur=i; });
+    links.forEach(function(a,i){ a.classList.toggle('on',i===cur); });
+  },{passive:true});
+
+  // custom cursor with spring
+  var dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  addEventListener('mousemove',function(e){ mx=e.clientX;my=e.clientY; dot.style.left=mx+'px';dot.style.top=my+'px'; });
+  (function loop(){ rx+=(mx-rx)*.18; ry+=(my-ry)*.18; ring.style.left=rx+'px';ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+  document.querySelectorAll('a,button,.card,.pc,.chip').forEach(function(el){
+    el.addEventListener('mouseenter',function(){ring.classList.add('big');});
+    el.addEventListener('mouseleave',function(){ring.classList.remove('big');});
+  });
+
+  // magnetic elements (pulled by mouse)
+  document.querySelectorAll('[data-mag]').forEach(function(el){
+    var s=parseFloat(el.getAttribute('data-mag'))||14;
+    el.addEventListener('mousemove',function(e){
+      var r=el.getBoundingClientRect();
+      var x=(e.clientX-r.left-r.width/2)/r.width*s;
+      var y=(e.clientY-r.top-r.height/2)/r.height*s;
+      el.style.transform='translate('+x+'px,'+y+'px)';
+    });
+    el.addEventListener('mouseleave',function(){ el.style.transform=''; });
+  });
+
+  // hero blobs parallax
+  var blobs=[].slice.call(document.querySelectorAll('.blob'));
+  addEventListener('mousemove',function(e){
+    var cx=(e.clientX/innerWidth-.5),cy=(e.clientY/innerHeight-.5);
+    blobs.forEach(function(b){var p=parseFloat(b.getAttribute('data-par'))*100; b.style.transform='translate('+(cx*p)+'px,'+(cy*p)+'px)';});
+  });
+
+  // project tabs filter
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var cards=[].slice.call(document.querySelectorAll('#pgrid .pc'));
+  tabs.forEach(function(t){ t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.classList.remove('on');}); t.classList.add('on');
+    var f=t.getAttribute('data-f');
+    cards.forEach(function(c){
+      var show=(f==='all'||c.getAttribute('data-cat')===f);
+      if(show){ c.classList.remove('hide'); c.style.opacity=0; c.style.transform='scale(.96)';
+        requestAnimationFrame(function(){ c.style.opacity=1; c.style.transform=''; }); }
+      else c.classList.add('hide');
+    });
+  }); });
+})();
+</script>
+</body>
+</html>
