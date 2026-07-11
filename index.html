@@ -102,6 +102,12 @@ footer .wrap{position:relative;z-index:2}
 footer a{color:#fff;text-decoration:none;margin:0 9px}
 footer .big{font-size:18px;font-weight:700;margin-bottom:8px;background:linear-gradient(90deg,#fff,#f0abfc,#a5f3fc);-webkit-background-clip:text;background-clip:text;color:transparent}
 
+/* stacking panels — секции наезжают друг на друга при скролле */
+.panel{position:sticky;top:64px;background:var(--card);border:1px solid var(--line);border-radius:30px;
+  padding:34px 30px 26px;margin-bottom:22px;
+  box-shadow:0 -16px 42px -24px rgba(99,70,230,.30), 0 30px 64px -36px rgba(15,16,32,.5)}
+.panel::after{content:"";position:absolute;left:50%;top:12px;transform:translateX(-50%);width:44px;height:5px;border-radius:5px;background:linear-gradient(90deg,var(--g1),var(--g3));opacity:.35}
+main.wrap{padding-bottom:40vh}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 @media(max-width:560px){.two{grid-template-columns:1fr}nav .bar{gap:0}nav a{padding:7px 9px;font-size:12px}}
@@ -135,12 +141,12 @@ footer .big{font-size:18px;font-weight:700;margin-bottom:8px;background:linear-g
 </header>
 
 <main class="wrap">
-  <section id="about" class="reveal">
+  <section id="about" class="panel reveal">
     <h2 class="t">About</h2>
     <p class="sum">eCommerce &amp; Frontend Developer with <b>5+ years</b> building and customizing online stores. I develop custom Shopify themes &amp; apps, WordPress sites, and modern React/Next.js interfaces — plus data &amp; feed automation for marketplaces. Focus on clean, maintainable code, performance and API integrations.</p>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="panel">
     <h2 class="t reveal">Skills</h2>
     <div class="grid3">
       <div class="card reveal"><h3><span class="dot"></span>Shopify &amp; eCommerce</h3>
@@ -154,7 +160,7 @@ footer .big{font-size:18px;font-weight:700;margin-bottom:8px;background:linear-g
     </div>
   </section>
 
-  <section id="exp">
+  <section id="exp" class="panel">
     <h2 class="t reveal">Experience</h2>
     <div class="exp">
       <div class="job reveal"><div class="co">Shopify Theme Developer — Valmax</div><div class="meta">Dec 2025 – Present</div>
@@ -168,7 +174,7 @@ footer .big{font-size:18px;font-weight:700;margin-bottom:8px;background:linear-g
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="panel">
     <h2 class="t reveal">Selected Projects</h2>
     <div class="tabs reveal">
       <button class="tab on" data-f="all">All</button>
@@ -197,7 +203,7 @@ footer .big{font-size:18px;font-weight:700;margin-bottom:8px;background:linear-g
     </div>
   </section>
 
-  <section id="edu">
+  <section id="edu" class="panel">
     <div class="two">
       <div class="reveal"><h2 class="t">Education</h2>
         <div class="li"><b>Meta Frontend Developer</b> — Coursera, 2024</div>
