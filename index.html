@@ -6,73 +6,88 @@
 <title>Stanislav Alexandronets — Shopify · WordPress · React Developer</title>
 <meta name="description" content="Stanislav Alexandronets — eCommerce & Frontend Developer. Shopify, WordPress and React/Next.js. 5+ years building and customizing online stores.">
 <style>
-:root{--ink:#0f172a;--mut:#64748b;--pri:#6366f1;--pri2:#4338ca;--dk:#0b1020;--bg:#f7f8fc;--card:#fff;--line:#e6e8f0;--ease:cubic-bezier(.22,1,.36,1)}
+:root{--ink:#0f172a;--mut:#64748b;--pri:#6366f1;--pri2:#4338ca;--dk:#0b1020;--bg:#f6f7fc;--card:#fff;--line:#e6e8f0;--ease:cubic-bezier(.22,1,.36,1);
+ --g1:#6366f1;--g2:#a855f7;--g3:#ec4899;--g4:#22d3ee}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;overflow-x:hidden}
 a{color:inherit}
 .wrap{max-width:960px;margin:0 auto;padding:0 22px}
 
-/* scroll progress */
-#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#6366f1,#a855f7);z-index:60}
-
-/* custom cursor */
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));z-index:60}
 #cdot,#cring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:70;transform:translate(-50%,-50%);mix-blend-mode:difference}
 #cdot{width:7px;height:7px;background:#fff}
 #cring{width:34px;height:34px;border:1.5px solid #fff;transition:width .25s var(--ease),height .25s var(--ease),background .25s}
-#cring.big{width:56px;height:56px;background:rgba(255,255,255,.12)}
+#cring.big{width:58px;height:58px;background:rgba(255,255,255,.12)}
 @media(hover:none){#cdot,#cring{display:none}}
 
-/* nav */
-nav{position:sticky;top:0;z-index:50;display:flex;justify-content:center;transition:.3s}
-nav .bar{margin-top:14px;display:flex;gap:4px;background:rgba(255,255,255,.7);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px;padding:6px}
+nav{position:sticky;top:0;z-index:50;display:flex;justify-content:center}
+nav .bar{margin-top:14px;display:flex;gap:4px;background:rgba(255,255,255,.72);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:999px;padding:6px;box-shadow:0 8px 30px -14px rgba(80,60,200,.35)}
 nav a{font-size:13px;text-decoration:none;color:#475569;padding:7px 14px;border-radius:999px;transition:.25s var(--ease)}
 nav a:hover{color:var(--pri2)}
-nav a.on{background:var(--pri);color:#fff}
+nav a.on{background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff}
 
-/* hero */
-.hero{position:relative;background:linear-gradient(135deg,#4f46e5,#0b1020);color:#fff;padding:70px 0 64px;overflow:hidden}
-.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;will-change:transform}
-.b1{width:340px;height:340px;background:#7c3aed;top:-90px;right:-40px}
-.b2{width:280px;height:280px;background:#22d3ee;bottom:-120px;left:-60px;opacity:.35}
+.hero{position:relative;background:#0b1020;color:#fff;padding:76px 0 66px;overflow:hidden}
+.aurora{position:absolute;inset:-40%;background:
+  radial-gradient(40% 40% at 20% 30%,rgba(99,102,241,.55),transparent 60%),
+  radial-gradient(45% 45% at 80% 25%,rgba(168,85,247,.5),transparent 60%),
+  radial-gradient(40% 40% at 65% 80%,rgba(236,72,153,.4),transparent 60%),
+  radial-gradient(45% 45% at 25% 85%,rgba(34,211,238,.4),transparent 60%);
+  filter:blur(30px);animation:hue 16s linear infinite;will-change:filter}
+@keyframes hue{to{filter:blur(30px) hue-rotate(360deg)}}
+.blob{position:absolute;border-radius:50%;filter:blur(55px);opacity:.5;will-change:transform}
+.b1{width:320px;height:320px;background:var(--g2);top:-80px;right:-30px}
+.b2{width:260px;height:260px;background:var(--g4);bottom:-110px;left:-50px;opacity:.4}
 .hero .wrap{position:relative;display:flex;gap:26px;align-items:center;flex-wrap:wrap;z-index:2}
-.ava{width:104px;height:104px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;flex:0 0 auto;overflow:hidden}
+.ava{width:106px;height:106px;border-radius:50%;background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;flex:0 0 auto;overflow:hidden;box-shadow:0 0 0 6px rgba(255,255,255,.05)}
 .ava img{width:100%;height:100%;object-fit:cover}
-h1{margin:0;font-size:clamp(28px,5vw,40px);letter-spacing:.3px}
-.role{font-size:clamp(15px,2.4vw,18px);opacity:.92;margin:6px 0 16px;font-weight:500}
+h1{margin:0;font-size:clamp(28px,5.4vw,42px);letter-spacing:.3px;
+  background:linear-gradient(90deg,#fff,#c7d2fe,#f0abfc,#a5f3fc,#fff);background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 8s linear infinite}
+@keyframes sheen{to{background-position:300% 0}}
+.role{font-size:clamp(15px,2.4vw,18px);opacity:.92;margin:7px 0 16px;font-weight:500}
 .ctc{display:flex;gap:9px;flex-wrap:wrap}
-.ctc a{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,.13);padding:9px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.22);transition:transform .2s var(--ease),background .2s}
-.ctc a:hover{background:rgba(255,255,255,.28)}
+.ctc a{color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,.12);padding:9px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.22);transition:transform .2s var(--ease),background .2s}
+.ctc a:hover{background:rgba(255,255,255,.26)}
 
 section{padding:52px 0 8px}
-h2.t{font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--pri);margin:0 0 20px;font-weight:800}
+h2.t{font-size:12px;text-transform:uppercase;letter-spacing:3px;margin:0 0 20px;font-weight:800;display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(90deg,var(--g1),var(--g3));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2.t::before{content:"";width:26px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--g1),var(--g3))}
 .sum{font-size:clamp(15px,2.3vw,17px);color:#334155;max-width:780px}
+.sum b{background:linear-gradient(90deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
 
 .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s}
-.card:hover{transform:translateY(-8px);box-shadow:0 18px 40px -18px rgba(79,70,229,.45);border-color:#c7d2fe}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.card::before{content:"";position:absolute;inset:0;border-radius:16px;padding:1.4px;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g4));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s}
+.card:hover{transform:translateY(-8px);box-shadow:0 22px 46px -20px rgba(120,70,230,.5)}
+.card:hover::before{opacity:1}
 .card h3{margin:0 0 12px;font-size:15.5px;display:flex;align-items:center;gap:8px}
-.dot{width:9px;height:9px;border-radius:50%;background:var(--pri);box-shadow:0 0 0 4px #eef2ff}
+.dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g3));box-shadow:0 0 0 4px #f1eefe}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
-.chip{font-size:12.5px;background:#eef2ff;color:var(--pri2);padding:5px 11px;border-radius:20px;border:1px solid #e0e7ff;transition:transform .2s var(--ease),background .2s}
-.chip:hover{transform:translateY(-3px) scale(1.06);background:#e0e7ff}
+.chip{font-size:12.5px;background:#f1eefe;color:var(--pri2);padding:5px 11px;border-radius:20px;border:1px solid #e5ddfb;transition:transform .2s var(--ease),background .2s,color .2s}
+.chip:hover{transform:translateY(-3px) scale(1.06);background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;border-color:transparent}
 
-.exp{position:relative;padding-left:24px;border-left:2px solid var(--line);margin-left:5px}
+.exp{position:relative;padding-left:24px;margin-left:5px}
+.exp::before{content:"";position:absolute;left:0;top:4px;bottom:14px;width:2px;background:linear-gradient(var(--g1),var(--g3))}
 .job{position:relative;padding:0 0 24px}
-.job::before{content:"";position:absolute;left:-30px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--pri);border:2px solid #fff;box-shadow:0 0 0 3px #c7d2fe}
+.job::before{content:"";position:absolute;left:-30px;top:5px;width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g3));border:2px solid #fff;box-shadow:0 0 0 3px #d8c9fb}
 .job .co{font-weight:700;font-size:16px}
 .job .meta{font-size:13px;color:var(--mut);margin:3px 0 7px}
 .job ul{margin:0;padding-left:18px;font-size:14.5px;color:#475569}
 
 .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
 .tab{font-size:13px;border:1px solid var(--line);background:#fff;color:#475569;padding:8px 16px;border-radius:999px;cursor:pointer;transition:.25s var(--ease)}
-.tab:hover{border-color:#c7d2fe}
-.tab.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tab:hover{border-color:#c7b6f7}
+.tab.on{background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));background-size:200% 100%;color:#fff;border-color:transparent;animation:slide 4s linear infinite}
+@keyframes slide{to{background-position:200% 0}}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.pc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),opacity .35s,border-color .3s;transform-style:preserve-3d}
-.pc:hover{box-shadow:0 20px 40px -20px rgba(79,70,229,.5);border-color:#c7d2fe}
+.pc{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),opacity .35s}
+.pc::before{content:"";position:absolute;inset:0;border-radius:14px;padding:1.4px;background:linear-gradient(135deg,var(--g1),var(--g3),var(--g4));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s}
+.pc:hover{box-shadow:0 22px 44px -22px rgba(120,70,230,.55)}
+.pc:hover::before{opacity:1}
 .pc.hide{display:none}
-.pc .tag{font-size:11px;font-weight:800;letter-spacing:.6px;color:var(--pri);text-transform:uppercase}
+.pc .tag{font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;background:linear-gradient(90deg,var(--g1),var(--g3));-webkit-background-clip:text;background-clip:text;color:transparent}
 .pc .nm{font-weight:700;font-size:15px;margin:4px 0}
 .pc a{color:var(--pri2);font-size:12.5px;text-decoration:none;word-break:break-all;border-bottom:1px solid transparent;transition:.2s}
 .pc a:hover{border-color:var(--pri2)}
@@ -81,12 +96,15 @@ h2.t{font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--pri)
 .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .li{font-size:14.5px;color:#475569;margin:4px 0}
 .li b{color:var(--ink)}
-footer{background:var(--dk);color:#c7d2fe;margin-top:34px;padding:30px 0;text-align:center;font-size:13px}
+footer{position:relative;background:var(--dk);color:#c7d2fe;margin-top:34px;padding:34px 0;text-align:center;font-size:13px;overflow:hidden}
+footer .aurora{opacity:.5}
+footer .wrap{position:relative;z-index:2}
 footer a{color:#fff;text-decoration:none;margin:0 9px}
+footer .big{font-size:18px;font-weight:700;margin-bottom:8px;background:linear-gradient(90deg,#fff,#f0abfc,#a5f3fc);-webkit-background-clip:text;background-clip:text;color:transparent}
 
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
-@media(max-width:560px){.two{grid-template-columns:1fr}nav .bar{gap:0}nav a{padding:7px 10px}}
+@media(max-width:560px){.two{grid-template-columns:1fr}nav .bar{gap:0}nav a{padding:7px 9px;font-size:12px}}
 </style>
 </head>
 <body>
@@ -98,6 +116,7 @@ footer a{color:#fff;text-decoration:none;margin:0 9px}
 </div></nav>
 
 <header class="hero" id="top">
+  <div class="aurora"></div>
   <div class="blob b1" data-par="0.03"></div><div class="blob b2" data-par="0.05"></div>
   <div class="wrap">
     <div class="ava" data-mag="20">SA<!-- заменить на <img src="photo.jpg" alt="Stanislav Alexandronets"> --></div>
@@ -118,7 +137,7 @@ footer a{color:#fff;text-decoration:none;margin:0 9px}
 <main class="wrap">
   <section id="about" class="reveal">
     <h2 class="t">About</h2>
-    <p class="sum">eCommerce &amp; Frontend Developer with <b>5+ years</b> building and customizing online stores. I develop custom Shopify themes &amp; apps, WordPress sites, and modern React/Next.js interfaces — with a focus on clean, maintainable code, performance and API integrations.</p>
+    <p class="sum">eCommerce &amp; Frontend Developer with <b>5+ years</b> building and customizing online stores. I develop custom Shopify themes &amp; apps, WordPress sites, and modern React/Next.js interfaces — plus data &amp; feed automation for marketplaces. Focus on clean, maintainable code, performance and API integrations.</p>
   </section>
 
   <section id="skills">
@@ -130,6 +149,8 @@ footer a{color:#fff;text-decoration:none;margin:0 9px}
         <div class="chips"><span class="chip">PHP</span><span class="chip">ACF</span><span class="chip">Custom themes</span><span class="chip">WooCommerce</span><span class="chip">Custom fields</span><span class="chip">REST API</span></div></div>
       <div class="card reveal"><h3><span class="dot"></span>React &amp; Frontend</h3>
         <div class="chips"><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">JavaScript</span><span class="chip">Tailwind</span><span class="chip">GSAP</span><span class="chip">Headless CMS</span><span class="chip">Git</span></div></div>
+      <div class="card reveal"><h3><span class="dot"></span>Automation &amp; Data</h3>
+        <div class="chips"><span class="chip">Python</span><span class="chip">XML / YML feeds</span><span class="chip">GitHub Actions</span><span class="chip">Rozetka</span><span class="chip">Prom</span><span class="chip">Dropshipping</span><span class="chip">SEO</span></div></div>
     </div>
   </section>
 
@@ -155,17 +176,24 @@ footer a{color:#fff;text-decoration:none;margin:0 9px}
       <button class="tab" data-f="wordpress">WordPress</button>
       <button class="tab" data-f="react">React / Next</button>
       <button class="tab" data-f="magento">Magento</button>
+      <button class="tab" data-f="automation">Automation</button>
     </div>
     <div class="pgrid" id="pgrid">
       <div class="pc reveal" data-cat="shopify" data-mag="10"><div class="tag">Shopify</div><div class="nm">Very Blessed</div><p>Design, custom sections, apps.</p></div>
       <div class="pc reveal" data-cat="shopify" data-mag="10"><div class="tag">Shopify</div><div class="nm">Ohhhobby</div><a href="https://ohhhobby.de" target="_blank" rel="noopener">ohhhobby.de</a><p>Built from scratch, Shopify Payments, custom sections.</p></div>
       <div class="pc reveal" data-cat="shopify" data-mag="10"><div class="tag">Shopify</div><div class="nm">Meister-Cody</div><a href="https://www.meistercody.com" target="_blank" rel="noopener">meistercody.com</a><p>Custom sections, apps, forms.</p></div>
+      <div class="pc reveal" data-cat="shopify" data-mag="10"><div class="tag">Shopify</div><div class="nm">eParvin</div><a href="https://www.eparvin.de" target="_blank" rel="noopener">eparvin.de</a><p>From scratch, custom Liquid &amp; filters.</p></div>
       <div class="pc reveal" data-cat="wordpress" data-mag="10"><div class="tag">WordPress</div><div class="nm">Lonukraine</div><a href="http://lonukraine.com" target="_blank" rel="noopener">lonukraine.com</a><p>From scratch, custom scroll feature.</p></div>
       <div class="pc reveal" data-cat="wordpress" data-mag="10"><div class="tag">WordPress</div><div class="nm">Alba-Soboni</div><a href="https://www.alba-soboni.com" target="_blank" rel="noopener">alba-soboni.com</a><p>Redesign, step checkout, mega menu.</p></div>
+      <div class="pc reveal" data-cat="wordpress" data-mag="10"><div class="tag">WordPress</div><div class="nm">123Student</div><a href="https://123student.se" target="_blank" rel="noopener">123student.se</a><p>Redesign, CSS/JS refactor, discounts.</p></div>
       <div class="pc reveal" data-cat="react" data-mag="10"><div class="tag">React / Next.js</div><div class="nm">AutoHunter</div><a href="https://auto-hunter.vercel.app" target="_blank" rel="noopener">auto-hunter.vercel.app</a><p>Next.js + DatoCMS headless.</p></div>
       <div class="pc reveal" data-cat="react" data-mag="10"><div class="tag">React / Next.js</div><div class="nm">Moiveo</div><a href="https://movie-app-psi-self14.vercel.app" target="_blank" rel="noopener">demo</a><p>React + TMDB API.</p></div>
+      <div class="pc reveal" data-cat="react" data-mag="10"><div class="tag">React</div><div class="nm">Little Lemon</div><a href="https://little-lemon-liard.vercel.app" target="_blank" rel="noopener">little-lemon-liard.vercel.app</a><p>Meta capstone, custom Figma design.</p></div>
       <div class="pc reveal" data-cat="magento" data-mag="10"><div class="tag">Magento 2</div><div class="nm">Nuko E-market</div><a href="https://nuko.lv" target="_blank" rel="noopener">nuko.lv</a><p>3-level breadcrumbs, PWA-like mobile.</p></div>
-      <div class="pc reveal" data-cat="magento" data-mag="10"><div class="tag">Magento 2</div><div class="nm">Juvenile Planet</div><a href="https://juvenileplanet.com" target="_blank" rel="noopener">juvenileplanet.com</a><p>Checkout redesign, gift message.</p></div>
+      <div class="pc reveal" data-cat="magento" data-mag="10"><div class="tag">Magento 2</div><div class="nm">Nemo</div><a href="https://nemotile.com" target="_blank" rel="noopener">nemotile.com</a><p>From scratch, custom filters &amp; JS.</p></div>
+      <div class="pc reveal" data-cat="automation" data-mag="10"><div class="tag">Automation</div><div class="nm">WebSklad → Prom Feed</div><a href="https://stasalex.github.io/prom-feed/" target="_blank" rel="noopener">stasalex.github.io/prom-feed</a><p>Auto dropship feed: Python filter + tiered markup + GitHub Actions (rebuild every 4h) → Prom autoimport.</p></div>
+      <div class="pc reveal" data-cat="automation" data-mag="10"><div class="tag">Automation</div><div class="nm">Rozetka Bulk Listing</div><p>Telegram export → SEO titles &amp; descriptions (UA/RU) → ImgBB image hosting → Rozetka Marketplace XLSX. 21 products in one pass.</p></div>
+      <div class="pc reveal" data-cat="automation" data-mag="10"><div class="tag">Automation</div><div class="nm">Feed &amp; SEO tooling</div><p>Python parsers for product feeds, image pipelines, price rules and bilingual SEO content generation.</p></div>
     </div>
   </section>
 
@@ -187,80 +215,53 @@ footer a{color:#fff;text-decoration:none;margin:0 9px}
 </main>
 
 <footer id="contact">
-  <div style="font-size:15px;color:#fff;margin-bottom:6px">Let’s build something great.</div>
-  Stanislav Alexandronets — Shopify · WordPress · React Developer<br><br>
-  <a href="mailto:stas.alex28@gmail.com">Email</a>·
-  <a href="https://t.me/stas_alex" target="_blank" rel="noopener">Telegram</a>·
-  <a href="https://github.com/StasAlex" target="_blank" rel="noopener">GitHub</a>·
-  <a href="https://www.linkedin.com/in/stanislav-alexandronets/" target="_blank" rel="noopener">LinkedIn</a>
+  <div class="aurora"></div>
+  <div class="wrap">
+    <div class="big">Let’s build something great.</div>
+    Stanislav Alexandronets — Shopify · WordPress · React Developer<br><br>
+    <a href="mailto:stas.alex28@gmail.com">Email</a>·
+    <a href="https://t.me/stas_alex" target="_blank" rel="noopener">Telegram</a>·
+    <a href="https://github.com/StasAlex" target="_blank" rel="noopener">GitHub</a>·
+    <a href="https://www.linkedin.com/in/stanislav-alexandronets/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
 </footer>
 
 <script>
 (function(){
-  // scroll progress
   var prog=document.getElementById('prog');
-  addEventListener('scroll',function(){
-    var h=document.documentElement,st=h.scrollTop,sh=h.scrollHeight-h.clientHeight;
-    prog.style.width=(sh>0?(st/sh*100):0)+'%';
-  },{passive:true});
+  addEventListener('scroll',function(){var h=document.documentElement,st=h.scrollTop,sh=h.scrollHeight-h.clientHeight;prog.style.width=(sh>0?(st/sh*100):0)+'%';},{passive:true});
 
-  // reveal on scroll
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:.14});
-  document.querySelectorAll('.reveal').forEach(function(el,i){ el.style.transitionDelay=(i%6*60)+'ms'; io.observe(el); });
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=(i%6*60)+'ms';io.observe(el);});
 
-  // nav active + smooth
   var links=[].slice.call(document.querySelectorAll('nav a'));
   var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
-  addEventListener('scroll',function(){
-    var y=scrollY+120, cur=0;
-    secs.forEach(function(s,i){ if(s&&s.offsetTop<=y) cur=i; });
-    links.forEach(function(a,i){ a.classList.toggle('on',i===cur); });
-  },{passive:true});
+  addEventListener('scroll',function(){var y=scrollY+120,cur=0;secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i;});links.forEach(function(a,i){a.classList.toggle('on',i===cur);});},{passive:true});
 
-  // custom cursor with spring
   var dot=document.getElementById('cdot'),ring=document.getElementById('cring');
   var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
-  addEventListener('mousemove',function(e){ mx=e.clientX;my=e.clientY; dot.style.left=mx+'px';dot.style.top=my+'px'; });
-  (function loop(){ rx+=(mx-rx)*.18; ry+=(my-ry)*.18; ring.style.left=rx+'px';ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
-  document.querySelectorAll('a,button,.card,.pc,.chip').forEach(function(el){
-    el.addEventListener('mouseenter',function(){ring.classList.add('big');});
-    el.addEventListener('mouseleave',function(){ring.classList.remove('big');});
-  });
+  addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+  document.querySelectorAll('a,button,.card,.pc,.chip').forEach(function(el){el.addEventListener('mouseenter',function(){ring.classList.add('big');});el.addEventListener('mouseleave',function(){ring.classList.remove('big');});});
 
-  // magnetic elements (pulled by mouse)
   document.querySelectorAll('[data-mag]').forEach(function(el){
     var s=parseFloat(el.getAttribute('data-mag'))||14;
-    el.addEventListener('mousemove',function(e){
-      var r=el.getBoundingClientRect();
-      var x=(e.clientX-r.left-r.width/2)/r.width*s;
-      var y=(e.clientY-r.top-r.height/2)/r.height*s;
-      el.style.transform='translate('+x+'px,'+y+'px)';
-    });
-    el.addEventListener('mouseleave',function(){ el.style.transform=''; });
+    el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();var x=(e.clientX-r.left-r.width/2)/r.width*s;var y=(e.clientY-r.top-r.height/2)/r.height*s;el.style.transform='translate('+x+'px,'+y+'px)';});
+    el.addEventListener('mouseleave',function(){el.style.transform='';});
   });
 
-  // hero blobs parallax
   var blobs=[].slice.call(document.querySelectorAll('.blob'));
-  addEventListener('mousemove',function(e){
-    var cx=(e.clientX/innerWidth-.5),cy=(e.clientY/innerHeight-.5);
-    blobs.forEach(function(b){var p=parseFloat(b.getAttribute('data-par'))*100; b.style.transform='translate('+(cx*p)+'px,'+(cy*p)+'px)';});
-  });
+  addEventListener('mousemove',function(e){var cx=(e.clientX/innerWidth-.5),cy=(e.clientY/innerHeight-.5);blobs.forEach(function(b){var p=parseFloat(b.getAttribute('data-par'))*100;b.style.transform='translate('+(cx*p)+'px,'+(cy*p)+'px)';});});
 
-  // project tabs filter
   var tabs=[].slice.call(document.querySelectorAll('.tab'));
   var cards=[].slice.call(document.querySelectorAll('#pgrid .pc'));
-  tabs.forEach(function(t){ t.addEventListener('click',function(){
-    tabs.forEach(function(x){x.classList.remove('on');}); t.classList.add('on');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.classList.remove('on');});t.classList.add('on');
     var f=t.getAttribute('data-f');
-    cards.forEach(function(c){
-      var show=(f==='all'||c.getAttribute('data-cat')===f);
-      if(show){ c.classList.remove('hide'); c.style.opacity=0; c.style.transform='scale(.96)';
-        requestAnimationFrame(function(){ c.style.opacity=1; c.style.transform=''; }); }
-      else c.classList.add('hide');
-    });
-  }); });
+    cards.forEach(function(c){var show=(f==='all'||c.getAttribute('data-cat')===f);
+      if(show){c.classList.remove('hide');c.style.opacity=0;c.style.transform='scale(.96)';requestAnimationFrame(function(){c.style.opacity=1;c.style.transform='';});}
+      else c.classList.add('hide');});
+  });});
 })();
 </script>
 </body>
