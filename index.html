@@ -25,32 +25,32 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
 <style>
 :root{
-  --bg:#f6f5f1;        /* warm off-white */
-  --panel:#fffdf9;     /* card */
-  --ink:#18181b;       /* near-black */
-  --ink2:#3f3f46;      /* strong body */
-  --mut:#71717a;       /* muted */
-  --line:#e5e2d9;      /* warm hairline */
-  --line2:#efece4;
-  --accent:#b5502f;    /* restrained terracotta, used sparingly */
-  --accent-soft:#f0e7df;
-  --nav-bg:rgba(246,245,241,.82);
+  --bg:#f7f6f3;        /* refined near-white */
+  --panel:#ffffff;     /* card */
+  --ink:#17171a;       /* near-black */
+  --ink2:#3c3c43;      /* strong body */
+  --mut:#6f6f77;       /* muted */
+  --line:#e7e4dd;      /* hairline */
+  --line2:#f0eee8;
+  --accent:#8a2434;    /* burgundy, used sparingly */
+  --accent-soft:#f2e5e8;
+  --nav-bg:rgba(247,246,243,.82);
   --disp:"Space Grotesk",system-ui,sans-serif;
   --body:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
   --maxw:1040px;
 }
 :root[data-theme="dark"]{
-  --bg:#1a1815;        /* warm near-black */
-  --panel:#232019;
-  --ink:#f4f1ea;
-  --ink2:#cbc6bb;
-  --mut:#938d81;
-  --line:#332f27;
-  --line2:#2a271f;
-  --accent:#d97a54;    /* slightly warmer/brighter for dark */
-  --accent-soft:#33261d;
-  --nav-bg:rgba(26,24,21,.82);
+  --bg:#0f0f11;        /* black */
+  --panel:#181819;
+  --ink:#f3f2ef;
+  --ink2:#c7c6c2;
+  --mut:#8d8c88;
+  --line:#28282b;
+  --line2:#1f1f21;
+  --accent:#c14a5c;    /* burgundy, brighter for dark */
+  --accent-soft:#2b191d;
+  --nav-bg:rgba(15,15,17,.82);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -65,6 +65,17 @@ a{color:inherit;text-decoration:none}
 
 /* thin scroll progress */
 #prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:80}
+
+/* cursor-reactive particle network (behind content) */
+#net{position:fixed;inset:0;z-index:0;pointer-events:none}
+header,.stats,main,footer{position:relative;z-index:1}
+
+/* card spotlight — follows the cursor inside the block */
+.pc,.sk{position:relative;overflow:hidden}
+.pc::after,.sk::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(200px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 15%,transparent),transparent 72%)}
+.pc:hover::after,.sk:hover::after{opacity:1}
+@media(prefers-reduced-motion:reduce){#net{display:none}}
 
 /* nav */
 nav{position:sticky;top:0;z-index:60;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -197,6 +208,7 @@ footer .cp{color:var(--mut);font-size:12px;margin-top:14px}
 </style>
 </head>
 <body>
+<canvas id="net"></canvas>
 <div id="prog"></div>
 
 <nav>
@@ -231,7 +243,7 @@ footer .cp{color:var(--mut);font-size:12px;margin-top:14px}
           <a href="tel:+380504443938">📞 +380 50 444 3938</a>
           <a href="https://www.linkedin.com/in/stanislav-alexandronets/" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://github.com/StasAlex" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://t.me/stas_alex" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://t.me/avetorix" target="_blank" rel="noopener">Telegram</a>
         </div>
       </div>
     </div>
@@ -370,7 +382,7 @@ footer .cp{color:var(--mut);font-size:12px;margin-top:14px}
       <div class="det reveal">
         <a href="mailto:stas.alex28@gmail.com"><span class="kk">Email</span><span class="vv">stas.alex28@gmail.com</span></a>
         <a href="tel:+380504443938"><span class="kk">Phone</span><span class="vv">+380 50 444 3938</span></a>
-        <a href="https://t.me/stas_alex" target="_blank" rel="noopener"><span class="kk">Telegram</span><span class="vv">@stas_alex</span></a>
+        <a href="https://t.me/avetorix" target="_blank" rel="noopener"><span class="kk">Telegram</span><span class="vv">@avetorix</span></a>
         <a href="https://www.linkedin.com/in/stanislav-alexandronets/" target="_blank" rel="noopener"><span class="kk">LinkedIn</span><span class="vv">stanislav-alexandronets</span></a>
         <a href="https://github.com/StasAlex" target="_blank" rel="noopener"><span class="kk">GitHub</span><span class="vv">StasAlex</span></a>
       </div>
@@ -383,7 +395,7 @@ footer .cp{color:var(--mut);font-size:12px;margin-top:14px}
     <div class="fn">Stanislav Alexandronets — Shopify · WordPress · React Developer</div>
     <div class="fl">
       <a href="mailto:stas.alex28@gmail.com">Email</a>·
-      <a href="https://t.me/stas_alex" target="_blank" rel="noopener">Telegram</a>·
+      <a href="https://t.me/avetorix" target="_blank" rel="noopener">Telegram</a>·
       <a href="https://github.com/StasAlex" target="_blank" rel="noopener">GitHub</a>·
       <a href="https://www.linkedin.com/in/stanislav-alexandronets/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
@@ -422,6 +434,51 @@ footer .cp{color:var(--mut);font-size:12px;margin-top:14px}
   });
 
   document.getElementById('yr').textContent=new Date().getFullYear();
+
+  /* card spotlight — track cursor position inside each card */
+  document.querySelectorAll('.pc,.sk').forEach(function(el){
+    el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();
+      el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px');});
+  });
+
+  /* cursor-reactive particle network */
+  (function(){
+    var c=document.getElementById('net');
+    if(!c||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+    var ctx=c.getContext('2d'),w,h,dpr,parts=[],mouse={x:-999,y:-999};
+    function accentRGBA(a){
+      var v=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim().replace('#','')||'8a2434';
+      if(v.length===3)v=v.split('').map(function(x){return x+x;}).join('');
+      var r=parseInt(v.substr(0,2),16),g=parseInt(v.substr(2,2),16),b=parseInt(v.substr(4,2),16);
+      return 'rgba('+r+','+g+','+b+','+a+')';
+    }
+    function resize(){
+      dpr=Math.min(devicePixelRatio||1,2);w=innerWidth;h=innerHeight;
+      c.width=w*dpr;c.height=h*dpr;c.style.width=w+'px';c.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);
+      var n=Math.min(60,Math.round(w/28));parts=[];
+      for(var i=0;i<n;i++)parts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35});
+    }
+    addEventListener('resize',resize,{passive:true});
+    addEventListener('mousemove',function(e){mouse.x=e.clientX;mouse.y=e.clientY;},{passive:true});
+    addEventListener('mouseout',function(e){if(!e.relatedTarget){mouse.x=mouse.y=-999;}});
+    function loop(){
+      if(document.hidden){requestAnimationFrame(loop);return;}
+      ctx.clearRect(0,0,w,h);
+      var dot=accentRGBA(.55),D=132,DM=175,i,j;
+      for(i=0;i<parts.length;i++){var p=parts[i];p.x+=p.vx;p.y+=p.vy;
+        if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+        ctx.beginPath();ctx.arc(p.x,p.y,1.5,0,6.283);ctx.fillStyle=dot;ctx.fill();}
+      for(i=0;i<parts.length;i++){var a=parts[i];
+        for(j=i+1;j<parts.length;j++){var b=parts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);
+          if(d<D){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+            ctx.strokeStyle=accentRGBA(.13*(1-d/D));ctx.lineWidth=1;ctx.stroke();}}
+        var mx=a.x-mouse.x,my=a.y-mouse.y,md=Math.hypot(mx,my);
+        if(md<DM){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(mouse.x,mouse.y);
+          ctx.strokeStyle=accentRGBA(.3*(1-md/DM));ctx.lineWidth=1;ctx.stroke();}}
+      requestAnimationFrame(loop);
+    }
+    resize();loop();
+  })();
 })();
 </script>
 </body>
