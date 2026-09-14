@@ -107,7 +107,7 @@ h1{font-family:var(--disp);font-weight:600;color:var(--ink);margin:0;font-size:c
 @media(max-width:640px){.stats .grid{grid-template-columns:1fr 1fr}.stat{border-left:0;padding:20px 0;border-top:1px solid var(--line2)}.stat:nth-child(-n+2){border-top:0}.stat:nth-child(odd){padding-right:16px}}
 
 /* sections */
-section{padding:64px 0}
+section{padding:clamp(60px,7vw,92px) 0 60px;scroll-margin-top:72px}
 section+section{border-top:1px solid var(--line)}
 .head{display:flex;align-items:baseline;gap:14px;margin:0 0 34px}
 .head .k{font-family:var(--disp);font-size:13px;color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
