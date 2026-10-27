@@ -34,7 +34,9 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden}
+.fx,.foot{overflow-x:clip}
+@media(hover:none),(pointer:coarse){.cursor{display:none}}
 html:not(.motion){scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html:not(.motion){scroll-behavior:auto}}
 body{margin:0;background:var(--porcelain);color:var(--ink);font:300 var(--fs-body)/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
@@ -227,6 +229,15 @@ html.menu-open{overflow:hidden}
 .hs__card:hover .hs__img img{transform:scale(1.06)}
 .stats__stars span{display:inline-block}
 .stats__big{display:inline-block}
+.branch-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:var(--wrap);margin-inline:auto;padding:clamp(96px,14vh,140px) var(--gut) 0;
+  & button{padding:13px 24px;border:1px solid color-mix(in srgb,var(--m-fg) 35%,transparent);border-radius:var(--r-sm);background:none;color:var(--m-fg);font:400 15px/1 var(--body);cursor:pointer;transition:background-color .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease)}
+  & button:hover{border-color:var(--m-ac)}
+  & button[aria-selected="true"]{background:var(--m-ac);border-color:var(--m-ac);color:var(--m-bg)}
+}
+.branch-tabs + .morph__panel,.branch-tabs ~ .morph__panel{min-height:auto;padding-top:clamp(32px,5vh,56px)}
+#contacts .morph__panel[hidden]{display:none}
+html:not(.motion) .branch-tabs{background:var(--ink)}
+html:not(.motion) .branch-tabs button{color:var(--porcelain)}
 .spot{position:relative;
   &::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--brass-2) 22%,transparent),transparent 65%);opacity:0;transition:opacity .6s var(--ease)}
   &:hover::after{opacity:1}
@@ -441,6 +452,35 @@ main>section{scroll-margin-top:0}
     navLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id));
   }), { rootMargin: '-45% 0px -50% 0px' });
   navLinks.forEach(a => { const t = $(a.getAttribute('href')); if (t) io.observe(t); });
+  // Branch switcher: one contacts panel at a time
+  const branchPanels = $$('#contacts .morph__panel');
+  if (branchPanels.length > 1) {
+    const tabs = document.createElement('div');
+    tabs.className = 'branch-tabs';
+    tabs.setAttribute('role', 'tablist');
+    tabs.setAttribute('aria-label', 'Оберіть салон');
+    const btns = branchPanels.map((panel, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.textContent = ($('.morph__title small', panel) || $('dd', panel)).textContent.trim();
+      panel.id = panel.id || `branch-${i}`;
+      panel.setAttribute('role', 'tabpanel');
+      b.setAttribute('aria-controls', panel.id);
+      b.addEventListener('click', () => showBranch(i));
+      tabs.appendChild(b);
+      return b;
+    });
+    function showBranch(n) {
+      btns.forEach((b, i) => b.setAttribute('aria-selected', String(i === n)));
+      branchPanels.forEach((panel, i) => { panel.hidden = i !== n; });
+      if (window.gsap && !reduce) window.gsap.from(branchPanels[n].children, { y: 30, opacity: 0, duration: 0.7, ease: 'expo.out', stagger: 0.08 });
+      if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+    }
+    $('#contacts').prepend(tabs);
+    btns.forEach((b, i) => b.setAttribute('aria-selected', String(i === 0)));
+    branchPanels.forEach((panel, i) => { panel.hidden = i !== 0; });
+  }
   // Mobile menu with circular reveal
   const menu = $('#menu');
   const toggle = $('.menu-toggle');

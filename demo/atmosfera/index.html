@@ -34,7 +34,9 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden}
+.fx,.foot{overflow-x:clip}
+@media(hover:none),(pointer:coarse){.cursor{display:none}}
 html:not(.motion){scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html:not(.motion){scroll-behavior:auto}}
 body{margin:0;background:var(--porcelain);color:var(--ink);font:300 var(--fs-body)/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
