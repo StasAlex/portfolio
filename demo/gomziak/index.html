@@ -182,11 +182,62 @@ html:not(.motion) .morph .morph__time{color:var(--p-ac)}
   & p{max-width:52ch;opacity:.7}
   & h2{font:400 var(--fs-h3)/1.2 var(--display);margin-bottom:12px}
 }
-.site-header{position:absolute;inset:0 0 auto;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px var(--gut);color:var(--white)}
-.site-brand{font:400 26px var(--display);text-decoration:none}
-.site-header nav{display:flex;align-items:center;gap:28px}
-.site-header nav a{text-decoration:none;font-size:14px}
-.site-header .header-cta{padding:12px 20px;border:1px solid #ffffff80;border-radius:999px}
+.site-header{position:fixed;inset:0 0 auto;z-index:50;padding:14px var(--gut);color:var(--white);pointer-events:none;transition:color .45s var(--ease);
+  & .site-header__bar{pointer-events:auto;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px;max-width:calc(var(--wrap) + 48px);margin-inline:auto;padding:7px 7px 7px 22px;border:1px solid transparent;border-radius:var(--r-sm);transition:background-color .45s var(--ease),border-color .45s var(--ease),box-shadow .45s var(--ease),backdrop-filter .45s var(--ease)}
+  & nav{display:flex;align-items:center;gap:clamp(16px,2vw,30px);white-space:nowrap}
+  & .site-header__actions{display:flex;align-items:center;justify-content:flex-end;gap:10px}
+  & nav a{position:relative;text-decoration:none;font-size:14px}
+  & nav>a:not(.header-cta)::after{content:"";position:absolute;inset:auto 0 -6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+  & nav>a:not(.header-cta):hover::after,& nav>a.is-active::after{transform:scaleX(1);transform-origin:left}
+  & .header-cta{padding:11px 20px;white-space:nowrap;text-decoration:none;font-size:14px;border:1px solid #ffffff80;border-radius:var(--r-sm);transition:background-color .45s var(--ease),border-color .45s var(--ease),color .45s var(--ease)}
+}
+.site-header.is-scrolled{
+  & .site-header__bar{background:color-mix(in srgb,var(--ink) 64%,transparent);border-color:#ffffff1f;box-shadow:0 12px 32px -16px #0008;backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4)}
+  & .header-cta{background:var(--brass);border-color:var(--brass);color:var(--white)}
+}
+.site-header.is-light{color:var(--ink);
+  & .header-cta{border-color:color-mix(in srgb,var(--ink) 35%,transparent)}
+  &.is-scrolled .site-header__bar{background:color-mix(in srgb,var(--porcelain) 74%,transparent);border-color:color-mix(in srgb,var(--ink) 10%,transparent);box-shadow:0 12px 32px -18px #0004}
+}
+.site-header.is-menu{color:var(--white);
+  & .site-header__bar{background:transparent;border-color:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+.site-brand{display:flex;align-items:baseline;gap:.4em;min-width:0;font:400 24px/1 var(--display);text-decoration:none;white-space:nowrap;
+  & small{overflow:hidden;text-overflow:ellipsis;font:400 12px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+}
+.menu-toggle{display:none;place-items:center;width:46px;height:46px;padding:0;border:1px solid currentColor;border-radius:50%;background:none;color:inherit;cursor:pointer;
+  & span{grid-area:1/1;width:18px;height:1.5px;background:currentColor;transition:transform .45s var(--ease)}
+  & span:first-child{transform:translateY(-4px)}
+  & span:last-child{transform:translateY(4px)}
+  &[aria-expanded="true"] span:first-child{transform:rotate(45deg)}
+  &[aria-expanded="true"] span:last-child{transform:rotate(-45deg)}
+}
+.menu{position:fixed;inset:0;z-index:45;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:110px var(--gut) 48px;background:var(--ink);color:var(--white);visibility:hidden;clip-path:circle(0 at calc(100% - var(--gut) - 23px) 38px);transition:clip-path .75s var(--ease),visibility 0s .75s;
+  & a{font:400 clamp(40px,11vw,76px)/1.08 var(--display);text-decoration:none;opacity:0;transform:translateY(32px);transition:opacity .4s,transform .6s var(--ease)}
+  & .menu__cta{margin-top:28px;font:500 17px/1 var(--body);color:var(--brass-2)}
+  &.is-open{visibility:visible;clip-path:circle(160% at calc(100% - var(--gut) - 23px) 38px);transition:clip-path .75s var(--ease)}
+  &.is-open a{opacity:1;transform:none;transition-delay:calc(.18s + var(--i,0) * .06s)}
+}
+html.menu-open{overflow:hidden}
+.split__img,.hs__img{overflow:hidden}
+.course{transition:background-color .4s var(--ease),border-color .4s var(--ease)
+  &:hover{background:color-mix(in srgb,var(--white) 45%,transparent);border-color:var(--brass)}
+}
+.hs__img img{transition:transform .8s var(--ease)}
+.hs__card:hover .hs__img img{transform:scale(1.06)}
+.stats__stars span{display:inline-block}
+.stats__big{display:inline-block}
+.spot{position:relative;
+  &::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--brass-2) 22%,transparent),transparent 65%);opacity:0;transition:opacity .6s var(--ease)}
+  &:hover::after{opacity:1}
+}
+main>section{scroll-margin-top:0}
+.ticker{overflow:hidden;padding:22px 0;background:var(--ink);color:var(--porcelain);border-block:1px solid #ffffff14;white-space:nowrap;
+  & .ticker__row{display:inline-flex;will-change:transform}
+  & span{display:inline-flex;align-items:center;font:400 clamp(28px,4vw,58px)/1 var(--display)}
+  & span::after{content:"✦";margin-inline:.8em;font-size:.42em;color:var(--brass-2)}
+  & span:nth-child(even){color:transparent;-webkit-text-stroke:1px var(--porcelain)}
+}
 .hero .hero__text{right:25%;bottom:9vh}
 .hero .hero__title{font-size:clamp(64px,12vw,190px);line-height:.86}
 .hero .hero__sub{max-width:42ch;margin-bottom:26px}
@@ -227,7 +278,7 @@ html:not(.motion) .morph .morph__time{color:var(--p-ac)}
 .morph__map{height:70svh;max-height:700px;overflow:hidden;border-radius:var(--r-lg)}
 .foot .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
 @media(max-width:760px){
- .site-header{padding-top:18px}.site-brand{font-size:23px}.site-header nav>a:not(.header-cta){display:none}
+ .site-header{padding:10px 12px}.site-brand{font-size:21px}.site-header .header-cta{padding:10px 14px}.site-brand small{display:none}
  .hero{min-height:740px;height:100svh}.hero .hero__text{right:var(--gut);bottom:64px}
  .hero .hero__title{font-size:clamp(60px,15vw,108px);max-width:90%}
  .hero .hero__sub{font-size:15px;max-width:31ch}.hero .hero__card{top:20%;bottom:auto;right:7%;width:29vw;max-width:160px}
@@ -263,14 +314,18 @@ html:not(.motion) .morph .morph__time{color:var(--p-ac)}
 .branch-actions{display:grid;gap:14px}.branch-actions h3{font:400 28px var(--display)}
 .morph__title small{display:block;font:300 16px/1.5 var(--body);margin-top:16px}
 .hero-highlights{position:absolute;left:var(--gut);bottom:22px;display:flex;gap:16px;color:white;font-size:12px;flex-wrap:wrap;padding-right:var(--gut)}
-.hero .hero__title{overflow-wrap:anywhere}.site-brand{min-width:0}.site-brand small{font-size:.6em}
+.hero .hero__title{overflow-wrap:anywhere}
 .btn--round{background:var(--ink)!important;border-color:var(--ink)!important;color:var(--porcelain)!important}
-@media(max-width:1023px){.site-header nav>a:not(.header-cta){display:none}}
+@media(max-width:1023px){.site-header nav{display:none}.site-header .site-header__bar{grid-template-columns:minmax(0,1fr) auto}.menu-toggle{display:inline-grid}.site-header .site-header__bar{padding-left:18px}}
+@media(min-width:1024px){.menu{display:none}}
+@media(min-width:1024px) and (max-width:1199px){.site-brand small{display:none}}
+.motion .hs .fx__head{padding-top:clamp(84px,11svh,104px)}
 @media(max-width:760px){.people-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}.course-grid{grid-template-columns:1fr}.hero-highlights{font-size:11px;gap:6px 12px;bottom:16px}.hero .hero__title{font-size:clamp(46px,13vw,88px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style></head><body>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><a class="site-brand" href="#top">Gomziak <small>beauty studio</small></a><nav aria-label="Розділи"><a href="#services">Послуги</a><a href="#works">Роботи</a><a href="#masters">Майстри</a><a href="#courses">Курси</a><a href="#reviews">Відгуки</a><a href="#contacts">Контакти</a><a class="header-cta" href="https://n609965.alteg.io/" target="_blank" rel="noopener">Записатися</a></nav></header>
+<header class="site-header"><div class="site-header__bar"><a class="site-brand" href="#top">Gomziak <small>beauty studio</small></a><nav aria-label="Розділи"><a href="#services">Послуги</a><a href="#works">Роботи</a><a href="#masters">Майстри</a><a href="#courses">Курси</a><a href="#reviews">Відгуки</a><a href="#contacts">Контакти</a></nav><div class="site-header__actions"><a class="header-cta" href="https://n609965.alteg.io/" target="_blank" rel="noopener">Записатися</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Меню"><span></span><span></span></button></div></div></header>
+<div class="menu" id="menu" aria-label="Меню"><a href="#services">Послуги</a><a href="#works">Роботи</a><a href="#masters">Майстри</a><a href="#courses">Курси</a><a href="#reviews">Відгуки</a><a href="#contacts">Контакти</a><a class="menu__cta" href="https://n609965.alteg.io/" target="_blank" rel="noopener">Записатися онлайн →</a></div>
 <main>
 <section class="fx hero" id="top" aria-labelledby="hero-title">
  <div class="hero__bg"><img src="img/hero.webp" width="900" height="1196" alt="Зала манікюру Gomziak Studio: білі столи, червоні крісла і лампи" fetchpriority="high"></div><div class="hero__shade"></div>
@@ -279,6 +334,7 @@ html:not(.motion) .morph .morph__time{color:var(--p-ac)}
  <ul class="hero-highlights"><li>Гарантія на манікюр 14 днів</li><li>Безкоштовна парковка поруч</li><li>8 майстрів</li></ul>
  <a class="hero-scroll" href="#services">Відкрийте Gomziak</a>
 </section>
+<div class="ticker" aria-hidden="true"><div class="ticker__row"><span>Манікюр</span><span>Нарощення нігтів</span><span>Педикюр</span><span>Вії</span><span>Брови</span><span>Перманентний макіяж</span><span>Миттєва засмага</span><span>Волосся і косметологія</span></div></div>
 <section class="fx split" id="services" aria-labelledby="services-title">
  <header class="fx__head"><h2 class="fx__title" id="services-title">Ваш час для себе</h2></header>
  <div class="wrap split__body"><div><p class="split__headline">Нігті, вії, брови та навчання</p><ul class="service-list"><li>Манікюр</li><li>Нарощення нігтів</li><li>Педикюр</li><li>Вії</li><li>Брови</li><li>Перманентний макіяж</li><li>Миттєва засмага</li><li>Волосся і косметологія</li></ul></div><div class="split__side"><figure class="split__img"><img src="img/studio-hall.webp" alt="Зала Gomziak Studio з робочими місцями майстрів" width="1200" height="798" loading="lazy"></figure><p class="split__copy">Студія краси у Львові, де важливий результат. Манікюр, педикюр, вії, брови і перманент на Шевченка, 111а.</p></div></div>
@@ -350,6 +406,57 @@ html:not(.motion) .morph .morph__time{color:var(--p-ac)}
   }
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+  // Fixed header: glass bar after scroll, text colour follows the section underneath
+  const header = $('.site-header');
+  const skip = n => n.closest('.site-header, .menu, .cursor, .progress');
+  function luma(c) {
+    const m = c.match(/[\d.]+/g);
+    if (!m) return null;
+    let [r, g, b, a = 1] = m.map(Number);
+    if (c.startsWith('color(')) { r *= 255; g *= 255; b *= 255; }
+    return a < 0.5 ? null : (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+  }
+  let headerTick = false;
+  function paintHeader() {
+    headerTick = false;
+    if (header.classList.contains('is-menu')) return;
+    const y = header.offsetHeight / 2;
+    const hit = document.elementsFromPoint(innerWidth / 2, y).find(n => !skip(n));
+    let light = false;
+    for (let n = hit; n && n !== root; n = n.parentElement) {
+      const l = luma(getComputedStyle(n).backgroundColor);
+      if (l !== null) { light = l > 0.55; break; }
+    }
+    header.classList.toggle('is-light', light);
+    header.classList.toggle('is-scrolled', scrollY > 40);
+  }
+  const queueHeader = () => { if (!headerTick) { headerTick = true; requestAnimationFrame(paintHeader); } };
+  addEventListener('scroll', queueHeader, { passive: true });
+  addEventListener('resize', queueHeader);
+  paintHeader();
+  // Highlights the nav link of the section in view
+  const navLinks = $$('.site-header nav > a[href^="#"]');
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    navLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  navLinks.forEach(a => { const t = $(a.getAttribute('href')); if (t) io.observe(t); });
+  // Mobile menu with circular reveal
+  const menu = $('#menu');
+  const toggle = $('.menu-toggle');
+  let lenis = null;
+  $$('a', menu).forEach((a, i) => a.style.setProperty('--i', i));
+  function setMenu(open) {
+    menu.classList.toggle('is-open', open);
+    header.classList.toggle('is-menu', open);
+    root.classList.toggle('menu-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    if (lenis) open ? lenis.stop() : lenis.start();
+    if (!open) queueHeader();
+  }
+  toggle.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
+  $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('is-open')) setMenu(false); });
   const galleryTrack = $('.hs__track');
   const galleryMeter = $('.hs__meter span');
   const galleryRange = $('.hs__range');
@@ -406,7 +513,6 @@ html:not(.motion) .morph .morph__time{color:var(--p-ac)}
   updateGalleryMeter();
   if (!motion) return;
   // Lenis smooth scroll synced with ScrollTrigger
-  let lenis = null;
   if (window.Lenis) {
     lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
     lenis.on('scroll', ST.update);
@@ -430,7 +536,7 @@ html:not(.motion) .morph .morph__time{color:var(--p-ac)}
     .to('#top .fx__head', { yPercent: -30, opacity: 0, ease: 'none' }, 0);
   G.from('.hero__card', { opacity: 0, rotate: -5, duration: 1.6, ease: 'expo.out', delay: 0.3 });
   G.from('.hero__sub, .hero__text .btn', { opacity: 0, y: 24, stagger: 0.15, duration: 1.2, delay: 0.45 });
-  G.from('.hero__title', { yPercent: 40, opacity: 0, duration: 1.6, ease: 'expo.out', delay: 0.15 });
+  G.from($$('.sc', split($('.hero__title'), true)), { yPercent: 120, rotate: 10, duration: 1.3, ease: 'expo.out', stagger: 0.035, delay: 0.15 });
   // 02 Split-text reveal
   const headline = split($('.split__headline'), true);
   G.from($$('.sc', headline), {
@@ -489,7 +595,108 @@ html:not(.motion) .morph .morph__time{color:var(--p-ac)}
     scrollTrigger: { trigger: '#care', start: 'top 85%', end: 'bottom 55%', scrub: true }
   });
   }
-  $$('.batch-reveal').forEach(el => G.from(el, { y: 28, opacity: 0, duration: 0.8, scrollTrigger: { trigger: el, start: 'top 95%', once: true } }));
+  // Scroll-reactive services ticker
+  const tickRow = $('.ticker__row');
+  if (tickRow) {
+    tickRow.innerHTML += tickRow.innerHTML;
+    const loop = G.to(tickRow, { xPercent: -50, duration: 38, ease: 'none', repeat: -1 });
+    let boost = G.to({}, {});
+    const kick = v => {
+      boost.kill();
+      loop.timeScale(G.utils.clamp(-6, 6, v / 6 || 1));
+      boost = G.to(loop, { timeScale: v < 0 ? -1 : 1, duration: 1.2, ease: 'power2.out' });
+    };
+    if (lenis) lenis.on('scroll', e => { if (Math.abs(e.velocity) > 1) kick(e.velocity); });
+  }
+  // Masters photos open like a curtain
+  $$('.people-grid img').forEach(img => G.fromTo(img,
+    { clipPath: 'inset(100% 0% 0% 0%)', scale: 1.25 },
+    { clipPath: 'inset(0% 0% 0% 0%)', scale: 1, duration: 1.3, ease: 'expo.out', scrollTrigger: { trigger: img, start: 'top 92%', once: true } }));
+  // Section titles rise letter by letter
+  $$('.fx__title').forEach(t => G.from($$('.sc', split(t, true)), {
+    yPercent: 115, rotate: 8, duration: 0.9, ease: 'expo.out', stagger: 0.02,
+    scrollTrigger: { trigger: t, start: 'top 90%', once: true }
+  }));
+  // Service chips pop in
+  if ($('.service-list')) G.from('.service-list li', { scale: 0.6, y: 20, opacity: 0, duration: 0.6, ease: 'back.out(2)', stagger: 0.05, scrollTrigger: { trigger: '.service-list', start: 'top 92%', once: true } });
+  // Inner parallax of the services photo
+  if ($('.split__img img')) G.fromTo('.split__img img', { yPercent: -8, scale: 1.18 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.split__img', start: 'top bottom', end: 'bottom top', scrub: true } });
+  // Course cards flip up in 3D
+  if ($('.course')) G.from('.course', { rotateX: -40, y: 70, opacity: 0, transformPerspective: 1000, transformOrigin: '50% 100%', duration: 1.1, ease: 'expo.out', stagger: 0.12, scrollTrigger: { trigger: '.course-grid', start: 'top 88%', once: true } });
+  // Rating stars pop one by one
+  const stars = $('.stats__stars');
+  if (stars) {
+    if (!stars.children.length) stars.innerHTML = [...stars.textContent.trim()].map(c => `<span>${c}</span>`).join('');
+    G.from(stars.children, { scale: 0, rotate: -120, opacity: 0, duration: 0.7, ease: 'back.out(3)', stagger: 0.12, scrollTrigger: { trigger: stars, start: 'top 88%', once: true } });
+  }
+  // Booking block expands from a card to full width
+  G.fromTo('#booking', { clipPath: 'inset(0% 5% 0% 5% round 48px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'none', scrollTrigger: { trigger: '#booking', start: 'top bottom', end: 'top 25%', scrub: true } });
+  // Footer brand rises letter by letter
+  const footTitle = $('.foot h2');
+  if (footTitle) G.from($$('.sc', split(footTitle, true)), { yPercent: 120, duration: 0.9, ease: 'expo.out', stagger: 0.03, scrollTrigger: { trigger: '.foot', start: 'top 95%', once: true } });
+  // 3D tilt of course and master cards under the pointer
+  mm.add('(hover: hover) and (pointer: fine)', () => {
+    $$('.course, .people-grid li').forEach(card => {
+      G.set(card, { transformPerspective: 900 });
+      const rx = G.quickTo(card, 'rotationX', { duration: 0.5, ease: 'power3' });
+      const ry = G.quickTo(card, 'rotationY', { duration: 0.5, ease: 'power3' });
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        ry(((e.clientX - r.left) / r.width - 0.5) * 10);
+        rx(-((e.clientY - r.top) / r.height - 0.5) * 10);
+      });
+      card.addEventListener('pointerleave', () => { rx(0); ry(0); });
+    });
+  });
+  // Masters columns drift at different speeds
+  $$('.people-grid li').forEach((li, i) => G.to(li, {
+    yPercent: [-4, -14, -8, -18][i % 4], ease: 'none',
+    scrollTrigger: { trigger: '.people-grid', start: 'top bottom', end: 'bottom top', scrub: true }
+  }));
+  // Course cards drift in alternating directions
+  $$('.course').forEach((c, i) => G.to(c, {
+    yPercent: i % 2 ? -10 : 4, ease: 'none',
+    scrollTrigger: { trigger: '.course-grid', start: 'top bottom', end: 'bottom top', scrub: true }
+  }));
+  // Studio caption floats slower than the photo
+  if ($('.zoom__caption')) G.to('.zoom__caption', { yPercent: -25, ease: 'none', scrollTrigger: { trigger: '#studio', start: 'top top', end: 'bottom top', scrub: true } });
+  // Gallery cards and ticker lean with scroll speed
+  if (lenis) {
+    const lean = $$('.hs__card, .ticker__row').map(el => G.quickTo(el, 'skewX', { duration: 0.6, ease: 'power3' }));
+    lenis.on('scroll', e => { const v = G.utils.clamp(-10, 10, -e.velocity * 0.35); lean.forEach(f => f(v)); });
+  }
+  // Pointer parallax: layers follow the mouse with different depth
+  mm.add('(hover: hover) and (pointer: fine)', () => {
+    function follow(area, layers) {
+      if (!area) return;
+      const qs = layers.map(([sel, depth, rot]) => $$(sel, area).map(el => ({
+        x: G.quickTo(el, 'x', { duration: 1, ease: 'power3' }),
+        y: G.quickTo(el, 'y', { duration: 1, ease: 'power3' }),
+        r: rot ? G.quickTo(el, 'rotation', { duration: 1, ease: 'power3' }) : null, depth, rot
+      }))).flat();
+      area.addEventListener('pointermove', e => {
+        const b = area.getBoundingClientRect();
+        const nx = (e.clientX - b.left) / b.width - 0.5, ny = (e.clientY - b.top) / b.height - 0.5;
+        qs.forEach(q => { q.x(nx * q.depth); q.y(ny * q.depth); if (q.r) q.r(nx * q.rot); });
+      });
+      area.addEventListener('pointerleave', () => qs.forEach(q => { q.x(0); q.y(0); if (q.r) q.r(0); }));
+    }
+    follow($('#top'), [['.hero__bg img', -30], ['.hero__card', 70, 8], ['.hero__title', 18], ['.hero-highlights', -14]]);
+    follow($('#services'), [['.split__img', 26], ['.split__headline', -12], ['.service-list', 10]]);
+    follow($('#studio'), [['.zoom__frame img', -40], ['.zoom__caption', 24]]);
+    follow($('#reviews'), [['.stats__big', 30, -4], ['.stats__stars', 14]]);
+    follow($('.foot'), [['h2', 24]]);
+    // Soft light that follows the cursor
+    $$('.split, .stats, .courses, .people, .foot').forEach(sec => {
+      sec.classList.add('spot');
+      sec.addEventListener('pointermove', e => {
+        const b = sec.getBoundingClientRect();
+        sec.style.setProperty('--mx', `${e.clientX - b.left}px`);
+        sec.style.setProperty('--my', `${e.clientY - b.top}px`);
+      });
+    });
+  });
+  $$('.batch-reveal:not(.fx__title):not(.course)').forEach(el => G.from(el, { y: 28, opacity: 0, duration: 0.8, scrollTrigger: { trigger: el, start: 'top 95%', once: true } }));
   // 11 Magnetic buttons and cursor follower (fine pointers only)
   mm.add('(hover: hover) and (pointer: fine)', () => {
     const cur = $('.cursor');
