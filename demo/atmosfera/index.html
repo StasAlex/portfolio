@@ -1,441 +1,552 @@
 <!doctype html>
-<html lang="uk">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Атмосфера — салон краси у Львові</title>
-<meta name="description" content="Салон краси Атмосфера у Львові: дві адреси — Т. Шевченка 15-17 і Залізнична 9. Макіяж, зачіски, фарбування волосся. Запис у Viber або телефоном.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Салон краси «Атмосфера» у Львові: макіяж, зачіски, фарбування</title><meta name="description" content="Салон краси «Атмосфера» у Львові: макіяж, зачіски, фарбування волосся, манікюр, педикюр і брови. Два салони: вул. Шевченка, 15-17 та вул. Залізнична, 9."><meta name="theme-color" content="#1b2236">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Geologica:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --plum:#2b1533;
-  --plum-soft:#4a2a55;
-  --orchid:#a8478f;
-  --pearl:#f6f1f7;
-  --mist:#dfe3f1;
-  --champagne:#d9b98c;
-  --line:rgba(43,21,51,.14);
-  --text:#2b1533;
-  --muted:#6d5a73;
-  --display:"Unbounded",system-ui,sans-serif;
-  --body:"Manrope",system-ui,sans-serif;
-  --wrap:1120px;
-  --gutter:clamp(16px,4vw,40px);
+  --ink:#1b2236;
+  --ink-2:#2a3350;
+  --porcelain:#eceef1;
+  --porcelain-2:#dfe2e8;
+  --powder:#e8c4bd;
+  --powder-2:#f4ddd7;
+  --brass:#b0843f;
+  --brass-2:#d7b178;
+  --sage:#7f9479;
+  --espresso:#2e211b;
+  --white:#ffffff;
+  --display:"Forum",Georgia,serif;
+  --body:"Geologica",system-ui,sans-serif;
+  --gut:clamp(16px,4vw,56px);
+  --wrap:1280px;
+  --r-lg:28px;
+  --r-md:18px;
+  --r-sm:999px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --fs-display:clamp(64px,13vw,220px);
+  --fs-h2:clamp(36px,5.6vw,88px);
+  --fs-h3:clamp(22px,2.4vw,34px);
+  --fs-lead:clamp(18px,1.6vw,22px);
+  --fs-body:clamp(15px,1.05vw,17px);
+  --fs-small:13px;
+  --ink:#2b1533;--porcelain:#f6f1f7;--powder:color-mix(in srgb,#a8478f 18%,white);--powder-2:#f6f1f7;--brass:#d9b98c;--brass-2:#d9b98c;--espresso:#2b1533;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--pearl);color:var(--text);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;padding-bottom:84px}
+html{-webkit-text-size-adjust:100%}
+html:not(.motion){scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html:not(.motion){scroll-behavior:auto}}
+body{margin:0;background:var(--porcelain);color:var(--ink);font:300 var(--fs-body)/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--orchid);outline-offset:3px;border-radius:6px}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
-h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.1;margin:0}
-h2{font-size:clamp(28px,4.4vw,44px);letter-spacing:-.01em}
-p{margin:0}
-
-.top{position:sticky;top:0;z-index:20;background:rgba(246,241,247,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-.logo{font-family:var(--display);font-weight:700;font-size:20px;text-decoration:none;letter-spacing:.02em}
-.top nav{display:flex;gap:24px;font-size:15px}
-.top nav a{text-decoration:none;color:var(--muted)}
-.top nav a:hover{color:var(--text)}
-
-.switch{display:inline-flex;padding:4px;border-radius:999px;background:#fff;border:1px solid var(--line);gap:2px}
-.switch button{font:500 14px/1 var(--body);border:0;background:transparent;color:var(--muted);padding:10px 16px;border-radius:999px;cursor:pointer;transition:background .25s,color .25s;white-space:nowrap}
-.switch button[aria-pressed="true"]{background:var(--plum);color:var(--pearl)}
-
-.hero{position:relative;overflow:hidden;padding:clamp(48px,9vw,110px) 0 clamp(56px,8vw,96px)}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.shot{position:relative;margin:0 0 32px;width:min(100%,400px);aspect-ratio:4/5;justify-self:center}
-.shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 18%;border-radius:999px 999px 28px 28px;box-shadow:0 40px 80px -30px rgba(122,58,122,.55)}
-.shot::after{content:"";position:absolute;inset:-14px;border-radius:999px 999px 40px 40px;border:1px solid rgba(168,71,143,.35);pointer-events:none}
-.shot figcaption{position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);font-family:var(--display);font-size:13px;color:var(--muted);white-space:nowrap}
-.slogan{font-family:var(--display);font-weight:300;font-size:clamp(40px,7.4vw,92px);line-height:.98;letter-spacing:-.02em}
-.slogan b{display:block;font-weight:700;letter-spacing:.04em}
-.hero .lead{margin-top:24px;max-width:34ch;font-size:19px;color:var(--muted)}
-.hero .pick{margin-top:32px}
-.hero .pick p{font-size:14px;color:var(--muted);margin-bottom:10px}
-.hero .facts{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px}
-.hero .facts strong{font-family:var(--display);font-weight:500;font-size:22px;display:block}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:700 15px/1 var(--body);text-decoration:none;border:1px solid transparent;cursor:pointer}
-.btn-viber{background:#7360f2;color:#fff}
-.btn-viber:hover{background:#5f4ce0}
-.btn-call{background:transparent;border-color:var(--plum);color:var(--plum)}
-.btn-call:hover{background:var(--plum);color:var(--pearl)}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
-
-.section{padding:clamp(56px,8vw,100px) 0;border-top:1px solid var(--line)}
-.section .head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
-.section .head p{max-width:46ch;color:var(--muted)}
-
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
-.service{padding:28px 24px 32px 0;border-bottom:1px solid var(--line)}
-.service:not(:nth-child(3n)){border-right:1px solid var(--line)}
-.service:not(:nth-child(3n+1)){padding-left:24px}
-.service h3{font-size:22px;margin-bottom:10px}
-.service p{color:var(--muted);font-size:15px}
-.service.ph h3{color:var(--muted);font-weight:300}
-.ph-tag{display:inline-block;margin-top:12px;font-size:12px;padding:3px 10px;border-radius:999px;background:var(--mist);color:var(--plum-soft)}
-
-.price{background:var(--plum);color:var(--pearl);border-top:0}
-.price .head p{color:#cdb9d3}
-.price-note{font-size:14px;color:var(--champagne);margin-bottom:20px}
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
-.tabs button{font:500 14px/1 var(--body);background:transparent;color:#cdb9d3;border:1px solid rgba(246,241,247,.25);padding:10px 16px;border-radius:999px;cursor:pointer}
-.tabs button[aria-selected="true"]{background:var(--pearl);color:var(--plum);border-color:var(--pearl)}
-.plist{list-style:none;margin:0;padding:0;max-width:760px}
-.plist li{display:flex;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px solid rgba(246,241,247,.14)}
-.plist li .n{flex:0 1 auto}
-.plist li .d{flex:1;border-bottom:1px dotted rgba(246,241,247,.3);transform:translateY(-4px)}
-.plist li .v{font-family:var(--display);font-weight:300;font-size:15px;color:var(--champagne);white-space:nowrap}
-.price .branch-hint{margin-top:24px;font-size:15px;color:#cdb9d3}
-.price .branch-hint b{color:var(--pearl)}
-
-.branches{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.branch{border:1px solid var(--line);border-radius:28px;overflow:hidden;background:#fff;transition:border-color .3s,box-shadow .3s}
-.branch.is-active{border-color:var(--orchid);box-shadow:0 0 0 3px rgba(168,71,143,.15)}
-.branch iframe{display:block;width:100%;height:240px;border:0;filter:saturate(.6) hue-rotate(-10deg)}
-.branch .body{padding:24px}
-.branch h3{font-size:22px}
-.branch .addr{margin-top:6px;color:var(--muted)}
-.branch dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:18px 0 0;font-size:15px}
-.branch dt{color:var(--muted)}
-.branch dd{margin:0}
-.branch .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.branch .links .btn{min-height:42px;padding:0 18px;font-size:14px}
-.badge{font-size:12px;color:var(--orchid);font-weight:700;margin-left:8px;opacity:0;transition:opacity .3s}
-.branch.is-active .badge{opacity:1}
-
-.works{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.works figure{position:relative;margin:0;border-radius:24px;overflow:hidden;background:var(--mist);aspect-ratio:4/5}
-.works img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.works figure:hover img{transform:scale(1.04)}
-.works figcaption{position:absolute;left:14px;bottom:14px;padding:6px 12px;border-radius:999px;background:rgba(246,241,247,.92);font-size:13px;font-weight:500;color:var(--plum)}
-
-.mood{background:var(--plum);color:var(--pearl);border-top:0}
-.mood .head p{color:#cdb9d3}
-.strip{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
-.strip figure{margin:0;border-radius:24px;overflow:hidden;height:clamp(300px,38vw,460px)}
-.strip img{display:block;width:100%;height:100%;object-fit:cover}
-.strip figure:first-child img{object-position:50% 70%}
-
-.proof{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,72px);align-items:center}
-.score{font-family:var(--display);font-weight:300;font-size:clamp(80px,14vw,160px);line-height:.9;letter-spacing:-.04em}
-.score small{display:block;font-family:var(--body);font-size:15px;letter-spacing:0;color:var(--muted);margin-top:12px}
-.proof .slots{display:grid;gap:12px}
-.slot{border:1px dashed rgba(43,21,51,.3);border-radius:20px;padding:20px 22px;color:var(--muted);font-size:15px}
-
-.ig{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px}
-.ig a.handle{font-family:var(--display);font-size:clamp(24px,4vw,40px);text-decoration:none}
-.ig a.handle:hover{color:var(--orchid)}
-
-footer{padding:40px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
-
-.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(43,21,51,.96);color:var(--pearl);backdrop-filter:blur(10px)}
-.dock .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:72px}
-.dock .where{font-size:14px;line-height:1.3;min-width:0}
-.dock .where b{display:block;font-family:var(--display);font-weight:500;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.dock .where span{color:#cdb9d3}
-.dock .acts{display:flex;gap:8px;flex-shrink:0}
-.dock .btn{min-height:44px;padding:0 18px}
-.dock .btn-call{border-color:rgba(246,241,247,.5);color:var(--pearl)}
-.dock .btn-call:hover{background:var(--pearl);color:var(--plum)}
-
-@media (max-width:900px){
-  .top nav{display:none}
-  .hero .wrap{grid-template-columns:1fr}
-  .shot{width:min(72vw,320px);order:-1}
-  .works{grid-template-columns:1fr 1fr;gap:12px}
-  .strip{grid-template-columns:1fr 1fr;gap:12px}
-  .strip figure{height:260px}
-  .strip figure:first-child{grid-column:1/-1;height:340px}
-  .services{grid-template-columns:1fr 1fr}
-  .service,.service:not(:nth-child(3n+1)){padding:24px 16px 24px 0;border-right:0}
-  .service:nth-child(odd){border-right:1px solid var(--line)}
-  .service:nth-child(even){padding-left:16px}
-  .branches{grid-template-columns:1fr}
-  .proof{grid-template-columns:1fr}
+h1,h2,h3,p,figure,ol,ul{margin:0}
+ol,ul{padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--brass);outline-offset:4px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.progress{position:fixed;inset:0 0 auto;height:3px;z-index:60;background:transparent;pointer-events:none;
+  & span{display:block;height:100%;background:var(--brass);transform-origin:0 50%;transform:scaleX(0)}
 }
-@media (max-width:560px){
-  body{font-size:16px}
-  .top .switch button{padding:8px 11px;font-size:13px}
-  .logo{font-size:17px}
-  .services{grid-template-columns:1fr}
-  .service:nth-child(n){border-right:0;padding:22px 0}
-  .dock .where span{display:none}
-  .dock .btn{padding:0 14px;font-size:14px}
-  .dock .btn-call .t{display:none}
+.mark{position:fixed;top:18px;left:var(--gut);z-index:55;color:var(--white);mix-blend-mode:difference;font:400 15px/1 var(--display);letter-spacing:.02em;text-decoration:none}
+.fx{position:relative}
+.fx__head{position:relative;z-index:4;max-width:var(--wrap);margin-inline:auto;padding:clamp(80px,12vh,128px) var(--gut) clamp(28px,4vh,52px);
+  & .fx__title{font:400 var(--fs-h2)/.95 var(--display);letter-spacing:-.005em}
+  & .fx__num{color:var(--brass)}
+  & .fx__note{margin-top:.9em;max-width:54ch;font-size:var(--fs-body);opacity:.75}
 }
-@media (prefers-reduced-motion:reduce){
-  *{transition:none!important;scroll-behavior:auto!important}
+.fx__head--over{position:absolute;inset:0 0 auto;margin:0;max-width:none;color:var(--porcelain)}
+.sw{display:inline-block;overflow:hidden;padding-block:.1em .16em;margin-block:-.1em -.16em;vertical-align:top}
+.sc{display:inline-block;will-change:transform}
+.hero{height:100svh;min-height:560px;overflow:hidden;background:var(--ink);color:var(--porcelain);
+  & .hero__bg{position:absolute;inset:-6% 0 0;will-change:transform;
+    & img{width:100%;height:100%;object-fit:cover}
+  }
+  & .hero__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,34,54,.55) 0%,rgba(27,34,54,.1) 40%,rgba(27,34,54,.75) 100%)}
+  & .hero__card{position:absolute;right:clamp(16px,8vw,140px);bottom:14vh;width:clamp(150px,20vw,320px);aspect-ratio:3/4;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 30px 80px rgba(10,12,24,.45);will-change:transform;
+    & img{width:100%;height:100%;object-fit:cover}
+  }
+  & .hero__text{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(32px,8vh,80px);will-change:transform}
+  & .hero__title{font:400 var(--fs-display)/.82 var(--display);letter-spacing:-.02em}
+  & .hero__sub{margin-top:18px;max-width:30ch;font-size:var(--fs-lead);opacity:.85}
 }
-</style>
-</head>
-<body>
-
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="#">Атмосфера</a>
-    <nav aria-label="Розділи">
-      <a href="#services">Послуги</a>
-      <a href="#works">Роботи</a>
-      <a href="#price">Прайс</a>
-      <a href="#branches">Адреси</a>
-      <a href="#reviews">Відгуки</a>
-    </nav>
-    <div class="switch" role="group" aria-label="Оберіть салон">
-      <button type="button" data-pick="shev" aria-pressed="true">Шевченка</button>
-      <button type="button" data-pick="zal" aria-pressed="false">Залізнична</button>
-    </div>
-  </div>
-</header>
-
+@media (max-width:640px){
+  .hero .hero__card{top:44%;bottom:auto;right:16px;width:38vw}
+}
+.split{background:var(--espresso);color:var(--powder-2);overflow:hidden;
+  & .split__body{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,5vw,80px);align-items:end;padding-bottom:clamp(56px,10vh,120px)}
+  & .split__headline{font:400 clamp(48px,8.4vw,140px)/.92 var(--display);letter-spacing:-.015em;color:var(--white)}
+  & .split__side{display:grid;gap:20px}
+  & .split__img{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;
+    & img{width:100%;height:100%;object-fit:cover}
+  }
+  & .split__copy{font-size:var(--fs-body);max-width:36ch;opacity:.8}
+}
+@media (max-width:760px){
+  .split .split__body{grid-template-columns:1fr}
+  .split .split__img{aspect-ratio:16/10}
+}
+.hs{background:var(--ink);color:var(--porcelain);overflow:hidden;
+  & .hs__inner{display:flex;flex-direction:column}
+  & .fx__head{width:100%}
+  & .hs__track{display:flex;gap:clamp(14px,2vw,28px);padding:0 var(--gut) 24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+  & .hs__track::-webkit-scrollbar{display:none}
+  & .hs__card{flex:none;width:min(78vw,calc(min(56svh,560px) * .75));scroll-snap-align:start}
+  & .hs__img{position:relative;aspect-ratio:3/4;border-radius:var(--r-md);overflow:hidden;
+    & img{position:absolute;inset:0 -10%;width:120%;max-width:none;height:100%;object-fit:cover}
+  }
+  & .hs__cap{display:flex;justify-content:space-between;gap:12px;margin-top:14px;font-size:var(--fs-small);
+    & b{font:400 20px/1.2 var(--display)}
+    & span{opacity:.6;white-space:nowrap}
+  }
+  & .hs__meter{margin:auto var(--gut) clamp(24px,5vh,48px);height:1px;background:rgba(255,255,255,.18);
+    & span{display:block;height:100%;background:var(--brass-2);transform-origin:0 50%;transform:scaleX(.08)}
+  }
+  & .hs__hint{display:block;margin:0 var(--gut) 12px;font-size:var(--fs-small);opacity:.55}
+}
+@media (min-width:768px){
+  .motion .hs .hs__track{overflow:visible;scroll-snap-type:none;width:max-content}
+  .motion .hs .hs__hint{display:none}
+}
+.zoom{background:var(--porcelain);overflow:hidden;
+  & .zoom__stage{position:relative;height:100svh;min-height:560px}
+  & .zoom__frame{position:absolute;inset:0;will-change:clip-path;
+    & img{width:100%;height:100%;object-fit:cover;will-change:transform}
+  }
+  & .zoom__shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(27,34,54,.7),rgba(27,34,54,0) 55%)}
+  & .zoom__caption{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(36px,9vh,90px);color:var(--white);
+    & h2{font:400 clamp(40px,7vw,112px)/.92 var(--display)}
+    & p{margin-top:14px;max-width:40ch;font-size:var(--fs-lead);opacity:.85}
+  }
+  & .fx__head{position:absolute;inset:0 0 auto;max-width:none;margin:0}
+}
+.stats{background:var(--porcelain);
+  & .stats__body{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start;padding-bottom:clamp(56px,10vh,120px)}
+  & .stats__big{font:400 clamp(120px,20vw,300px)/.8 var(--display);letter-spacing:-.03em;color:var(--ink)}
+  & .stats__stars{display:flex;gap:6px;margin-top:20px;color:var(--brass)}
+  & .stats__src{margin-top:10px;font-size:var(--fs-small);opacity:.65}
+  & .stats__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:36px;border-bottom:1px solid var(--porcelain-2);
+    & b{display:block;font:400 clamp(36px,4vw,60px)/1 var(--display)}
+    & span{font-size:var(--fs-small);opacity:.7}
+  }
+  & .bars{display:grid;gap:18px;margin-top:32px}
+  & .bar__row{display:flex;justify-content:space-between;font-size:var(--fs-body);margin-bottom:8px}
+  & .bar__track{height:4px;border-radius:4px;background:var(--porcelain-2);overflow:hidden}
+  & .bar__fill{height:100%;background:var(--ink);transform-origin:0 50%;transform:scaleX(var(--v))}
+}
+@media (max-width:760px){
+  .stats .stats__body{grid-template-columns:1fr}
+}
+.hl{background:var(--porcelain);
+  & .hl__inner{display:flex;flex-direction:column}
+  & .hl__text{max-width:var(--wrap);margin-inline:auto;padding:0 var(--gut);font:400 clamp(26px,3.9vw,58px)/1.16 var(--display);color:var(--ink)}
+  & .hl__sign{display:block;margin-top:28px;font:300 var(--fs-body)/1.4 var(--body);opacity:.65}
+}
+.mag{background:var(--powder);color:var(--ink);
+  & .mag__body{display:grid;gap:clamp(28px,5vh,56px);padding-bottom:clamp(56px,12vh,140px)}
+  & .mag__lead{font:400 clamp(40px,6.4vw,104px)/.95 var(--display);max-width:14ch}
+  & .mag__row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+  & .mag__note{font-size:var(--fs-small);opacity:.7}
+}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:64px;padding:0 34px;border-radius:var(--r-sm);border:1px solid var(--ink);font:400 17px/1 var(--body);text-decoration:none;color:var(--ink);background:transparent;cursor:pointer;
+  & .btn__t{display:inline-block;pointer-events:none}
+  &.btn--solid{background:var(--ink);color:var(--porcelain)}
+  &.btn--round{width:150px;height:150px;padding:0;border-radius:50%;background:var(--brass);border-color:var(--brass);color:var(--white)}
+}
+.cursor{position:fixed;left:0;top:0;z-index:70;pointer-events:none;opacity:0;transition:opacity .3s var(--ease);
+  & .cursor__dot{position:absolute;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--ink)}
+  & .cursor__ring{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:1px solid var(--ink);transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background .35s var(--ease)}
+  &.is-on{opacity:1}
+  &.is-hover .cursor__ring{width:88px;height:88px;margin:-44px 0 0 -44px;background:rgba(176,132,63,.18);border-color:var(--brass)}
+}
+@media (hover:hover) and (pointer:fine){
+  .motion .mag,.motion .mag .btn{cursor:none}
+}
+.morph{--m-bg:#2e211b;--m-fg:#f4ddd7;--m-ac:#d7b178;background:var(--m-bg);color:var(--m-fg);
+  & .fx__num{color:var(--m-ac)}
+  & .morph__panel{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:center;max-width:var(--wrap);margin-inline:auto;padding:clamp(48px,10vh,96px) var(--gut)}
+  & .morph__time{font:400 clamp(20px,2vw,28px)/1 var(--display);color:var(--m-ac)}
+  & .morph__title{margin-top:14px;font:400 var(--fs-h2)/.95 var(--display)}
+  & .morph__copy{margin-top:20px;max-width:40ch;opacity:.8}
+  & .morph__img{aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;
+    & img{width:100%;height:100%;object-fit:cover}
+  }
+}
+html:not(.motion) .morph .morph__panel{max-width:none;background:var(--p-bg);color:var(--p-fg);padding-inline:max(var(--gut),calc((100% - var(--wrap)) / 2 + var(--gut)))}
+html:not(.motion) .morph .morph__time{color:var(--p-ac)}
+@media (max-width:760px){
+  .morph .morph__panel{grid-template-columns:1fr}
+  .morph .morph__img{aspect-ratio:4/3}
+}
+.foot{background:var(--ink);color:var(--porcelain);padding:clamp(56px,10vh,96px) 0;
+  & p{max-width:52ch;opacity:.7}
+  & h2{font:400 var(--fs-h3)/1.2 var(--display);margin-bottom:12px}
+}
+.site-header{position:absolute;inset:0 0 auto;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px var(--gut);color:var(--white)}
+.site-brand{font:400 26px var(--display);text-decoration:none}
+.site-header nav{display:flex;align-items:center;gap:28px}
+.site-header nav a{text-decoration:none;font-size:14px}
+.site-header .header-cta{padding:12px 20px;border:1px solid #ffffff80;border-radius:999px}
+.hero .hero__text{right:25%;bottom:9vh}
+.hero .hero__title{font-size:clamp(64px,12vw,190px);line-height:.86}
+.hero .hero__sub{max-width:42ch;margin-bottom:26px}
+.hero .hero__card{bottom:24vh;width:clamp(140px,21vw,320px);transform:rotate(7deg);border:6px solid var(--porcelain)}
+.hero .hero__shade{background:linear-gradient(90deg,#101726a6,transparent),linear-gradient(0deg,#101726e6,transparent 85%)}
+.hero .hero__bg img{object-position:50% 38%}
+.hero .btn{color:white;border-color:#ffffff99;min-height:54px;background:#ffffff12;backdrop-filter:blur(8px)}
+.hero-scroll{position:absolute;right:var(--gut);bottom:40px;color:white;text-decoration:none;font-size:13px;writing-mode:vertical-rl;letter-spacing:.04em}
+.hero-scroll::after{content:'↓';margin-top:18px;font-size:24px}
+.split .service-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.service-list li{padding:8px 14px;border:1px solid #f4ddd74d;border-radius:999px;font-size:14px}
+.split .split__headline{font-size:clamp(50px,7.5vw,120px)}
+.split .split__body{align-items:center}
+.hs .hs__cap{min-height:48px}
+.hs .hs__card{width:min(72vw,420px)}
+@media(min-width:768px){
+  .motion .hs__inner{height:100svh}
+  .motion .hs .fx__head{padding-top:clamp(28px,6svh,64px);padding-bottom:24px}
+  .motion .hs .hs__track{flex:1;min-height:0;padding-bottom:0}
+  .motion .hs .hs__card{width:clamp(160px,calc((100svh - 260px) * .75),420px)}
+  .motion .hs .hs__cap{min-height:0;margin-top:10px}
+  .motion .hs .hs__meter{flex-shrink:0;margin-top:16px;margin-bottom:24px}
+}
+.stats .stats__grid{grid-template-columns:1fr 1fr}
+.stats .stats__body{align-items:center;padding-bottom:32px}
+.rating-link{display:inline-block;margin-top:28px;color:inherit;text-underline-offset:6px}
+.hl .hl__inner{justify-content:center;min-height:0;padding:32px 0 clamp(40px,6vw,64px)}
+.hl .hl__text{width:100%;font-size:clamp(36px,5.4vw,84px)}
+.mag .mag__lead{max-width:17ch}
+.mag .mag__note{max-width:48ch}
+.contact-details{display:grid;gap:22px;margin-top:28px}
+.contact-details dt{font-size:13px;opacity:.65;margin-bottom:4px}
+.contact-details dd{margin:0;font-size:clamp(18px,2vw,25px)}
+.contact-details a{text-underline-offset:5px}
+.hours{display:flex;gap:20px;flex-wrap:wrap}
+.morph .morph__panel{min-height:100svh}
+.contact-map{width:100%;height:100%;min-height:500px;border:0;border-radius:var(--r-lg)}
+.morph__map{height:70svh;max-height:700px;overflow:hidden;border-radius:var(--r-lg)}
+.foot .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+@media(max-width:760px){
+ .site-header{padding-top:18px}.site-brand{font-size:23px}.site-header nav>a:not(.header-cta){display:none}
+ .hero{min-height:740px;height:100svh}.hero .hero__text{right:var(--gut);bottom:64px}
+ .hero .hero__title{font-size:clamp(60px,15vw,108px);max-width:90%}
+ .hero .hero__sub{font-size:15px;max-width:31ch}.hero .hero__card{top:20%;bottom:auto;right:7%;width:29vw;max-width:160px}
+ .hero-scroll{display:none}.hero .hero__bg img{object-position:48% 40%}
+ .hero .hero__shade{background:linear-gradient(0deg,#101726f5 0%,#10172666 65%,#10172666)}
+ .hero .btn{min-height:50px;padding:0 20px;font-size:14px}
+ .split .split__img{aspect-ratio:4/3}.fx__head{padding-top:72px}
+ .hs .hs__inner{min-height:auto}.hs .hs__track{padding-bottom:36px}
+ .hs .hs__img{max-height:55svh}.zoom .zoom__stage{min-height:600px}
+ .stats .stats__body{gap:56px}.mag .btn--round{width:120px;height:120px}
+ .contact-map{min-height:360px}.morph__map{height:50svh}
+}
+.hs .hs__img{width:100%}
+.hs .hs__track{cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-x pan-y}
+.hs .hs__track.is-dragging{cursor:grabbing;scroll-snap-type:none}
+.hs .hs__track img{-webkit-user-drag:none}
+.hs .hs__meter{position:relative;height:24px;background:none}
+.hs .hs__meter::before{content:"";position:absolute;inset:11px 0 auto;height:2px;background:#ffffff2e}
+.hs .hs__meter span{position:absolute;inset:11px 0 auto;height:2px;pointer-events:none}
+.hs__range{position:absolute;inset:-10px 0;width:100%;height:44px;margin:0;opacity:0;cursor:ew-resize}
+.hs__meter:focus-within{outline:2px solid var(--brass-2);outline-offset:4px}
+.people{background:var(--porcelain)}
+.people-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding-bottom:64px}
+.people-grid img,.master-initial{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;margin-bottom:16px}
+.master-initial{display:grid;place-items:center;background:var(--powder);font:400 64px var(--display)}
+.people h3,.courses h3{font:400 clamp(24px,3vw,36px)/1.15 var(--display)}
+.people p{margin-top:8px;opacity:.75}
+.courses{background:var(--powder)}
+.course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.course{padding:28px;border:1px solid #1b223633;border-radius:18px;display:grid;align-content:start;gap:16px}
+.course-price{font-size:22px}.course ul{display:flex;gap:12px;flex-wrap:wrap;font-size:14px}
+.course-more{display:grid;gap:24px;padding-top:28px;padding-bottom:64px}
+.branch-actions{display:grid;gap:14px}.branch-actions h3{font:400 28px var(--display)}
+.morph__title small{display:block;font:300 16px/1.5 var(--body);margin-top:16px}
+.hero-highlights{position:absolute;left:var(--gut);bottom:22px;display:flex;gap:16px;color:white;font-size:12px;flex-wrap:wrap;padding-right:var(--gut)}
+.hero .hero__title{overflow-wrap:anywhere}.site-brand{min-width:0}.site-brand small{font-size:.6em}
+.btn--round{background:var(--ink)!important;border-color:var(--ink)!important;color:var(--porcelain)!important}
+@media(max-width:1023px){.site-header nav>a:not(.header-cta){display:none}}
+@media(max-width:760px){.people-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}.course-grid{grid-template-columns:1fr}.hero-highlights{font-size:11px;gap:6px 12px;bottom:16px}.hero .hero__title{font-size:clamp(46px,13vw,88px)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style></head><body>
+<div class="progress" aria-hidden="true"><span></span></div>
+<header class="site-header"><a class="site-brand" href="#top">Атмосфера <small>салон краси</small></a><nav aria-label="Розділи"><a href="#services">Послуги</a><a href="#works">Роботи</a><a href="#reviews">Відгуки</a><a href="#contacts">Контакти</a><a class="header-cta" href="#booking">Записатися</a></nav></header>
 <main>
-  <!-- Hero: slogan + branch picker + booking for the active branch -->
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <h1 class="slogan">Твоя <b>BEAUTY</b> сфера</h1>
-        <p class="lead">Салон краси у Львові. Макіяж, зачіски і фарбування волосся — у двох салонах неподалік центру.</p>
-        <div class="pick">
-          <p>Куди вам зручніше прийти?</p>
-          <div class="switch" role="group" aria-label="Оберіть салон">
-            <button type="button" data-pick="shev" aria-pressed="true">вул. Т. Шевченка, 15-17</button>
-            <button type="button" data-pick="zal" aria-pressed="false">вул. Залізнична, 9</button>
-          </div>
-        </div>
-        <div class="cta">
-          <a class="btn btn-viber" data-bind="viber" href="viber://chat?number=%2B380685010441">Записатися у Viber</a>
-          <a class="btn btn-call" data-bind="tel" href="tel:+380685010441"><span data-bind="phone">068 501 0441</span></a>
-        </div>
-        <div class="facts">
-          <div><strong data-bind="rating">4.9</strong>рейтинг у Google</div>
-          <div><strong data-bind="reviews">274</strong>відгуки</div>
-          <div><strong>2</strong>салони у Львові</div>
-        </div>
-      </div>
-      <figure class="shot">
-        <img src="img/01.webp" width="361" height="640" alt="Стіна з логотипом Atmosfera Beauty Lounge і букет троянд на стійці рецепції" fetchpriority="high">
-        <figcaption data-bind="short">Шевченка 15-17</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- Services: real ones from Instagram, haircuts is a placeholder -->
-  <section class="section" id="services">
-    <div class="wrap">
-      <div class="head">
-        <h2>Послуги</h2>
-        <p>Те, що ви показуєте в Instagram. Решту напрямів додамо, коли надішлете список.</p>
-      </div>
-      <div class="services">
-        <article class="service">
-          <h3>Макіяж</h3>
-          <p>Денний, вечірній, на весілля чи фотосесію.</p>
-        </article>
-        <article class="service">
-          <h3>Зачіски</h3>
-          <p>Укладки та зачіски для подій.</p>
-        </article>
-        <article class="service">
-          <h3>Фарбування волосся</h3>
-          <p>Hair Coloring: зміна кольору, освіження тону.</p>
-        </article>
-        <article class="service ph">
-          <h3>Стрижки</h3>
-          <p>Опис послуги від вас.</p>
-          <span class="ph-tag">тут буде ваша послуга</span>
-        </article>
-        <article class="service">
-          <h3>Манікюр і педикюр</h3>
-          <p>Покриття, дизайн нігтів, апаратний педикюр.</p>
-        </article>
-        <article class="service">
-          <h3>Брови</h3>
-          <p>Оформлення та фарбування брів.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Atmosphere strip: team and interior -->
-  <section class="section mood">
-    <div class="wrap">
-      <div class="head">
-        <h2>Атмосфера</h2>
-        <p>Команда салону, рожеві крісла й світла зала манікюру.</p>
-      </div>
-      <div class="strip">
-        <figure><img src="img/02.webp" width="361" height="640" loading="lazy" alt="Команда салону Атмосфера в світлому холі"></figure>
-        <figure><img src="img/08.webp" width="360" height="640" loading="lazy" alt="Майстриня педикюру за роботою в рожевому кріслі"></figure>
-        <figure><img src="img/10.webp" width="360" height="400" loading="lazy" alt="Зала манікюру: майстрині працюють з клієнтками за білими столами"></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- Works gallery: real photos from @atmosfera_lv -->
-  <section class="section" id="works">
-    <div class="wrap">
-      <div class="head">
-        <h2>Наші роботи</h2>
-        <p>Фото з Instagram салону: фарбування, укладки, нігті й брови.</p>
-      </div>
-      <div class="works">
-        <figure><img src="img/06.webp" width="361" height="640" loading="lazy" alt="Мідне фарбування волосся: результат на довгому волоссі клієнтки"><figcaption>Фарбування</figcaption></figure>
-        <figure><img src="img/03.webp" width="361" height="640" loading="lazy" alt="Довге світле волосся після фарбування і укладки, вигляд зі спини в кріслі салону"><figcaption>Блонд</figcaption></figure>
-        <figure><img src="img/07.webp" width="360" height="640" loading="lazy" alt="Манікюр: нюдове покриття з перламутровим блиском на квадратних нігтях"><figcaption>Манікюр</figcaption></figure>
-        <figure><img src="img/04.webp" width="360" height="640" loading="lazy" alt="Майстер робить укладку довгого світлого волосся"><figcaption>Укладка</figcaption></figure>
-        <figure><img src="img/05.webp" width="361" height="640" loading="lazy" alt="Майстер наносить фарбу на брови клієнтки пензлем"><figcaption>Брови</figcaption></figure>
-        <figure><img src="img/09.webp" width="360" height="640" loading="lazy" alt="Майстер і клієнтка після процедури біля неонової корони в салоні"><figcaption>Волосся</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- Price list: structure only, prices are placeholders -->
-  <section class="section price" id="price">
-    <div class="wrap">
-      <div class="head">
-        <h2>Прайс</h2>
-        <p>Один прайс замість хайлайтів у сторіз. Ціни можна вказати окремо для кожного салону.</p>
-      </div>
-      <p class="price-note">Ціни не заповнені — тут буде ваш прайс.</p>
-      <div class="tabs" role="tablist" aria-label="Категорії прайсу">
-        <button type="button" role="tab" aria-selected="true" data-tab="mk">Макіяж</button>
-        <button type="button" role="tab" aria-selected="false" data-tab="hair">Зачіски</button>
-        <button type="button" role="tab" aria-selected="false" data-tab="color">Фарбування</button>
-      </div>
-      <ul class="plist" data-panel="mk">
-        <li><span class="n">Денний макіяж</span><span class="d"></span><span class="v">від … грн</span></li>
-        <li><span class="n">Вечірній макіяж</span><span class="d"></span><span class="v">від … грн</span></li>
-        <li><span class="n">Весільний макіяж</span><span class="d"></span><span class="v">від … грн</span></li>
-      </ul>
-      <ul class="plist" data-panel="hair" hidden>
-        <li><span class="n">Укладка</span><span class="d"></span><span class="v">від … грн</span></li>
-        <li><span class="n">Вечірня зачіска</span><span class="d"></span><span class="v">від … грн</span></li>
-        <li><span class="n">Весільна зачіска</span><span class="d"></span><span class="v">від … грн</span></li>
-      </ul>
-      <ul class="plist" data-panel="color" hidden>
-        <li><span class="n">Фарбування в один тон</span><span class="d"></span><span class="v">від … грн</span></li>
-        <li><span class="n">Складне фарбування</span><span class="d"></span><span class="v">від … грн</span></li>
-        <li><span class="n">Тонування</span><span class="d"></span><span class="v">від … грн</span></li>
-      </ul>
-      <p class="branch-hint">Показано для салону: <b data-bind="short">Шевченка 15-17</b></p>
-    </div>
-  </section>
-
-  <!-- Branches: both salons, active one highlighted -->
-  <section class="section" id="branches">
-    <div class="wrap">
-      <div class="head">
-        <h2>Два салони</h2>
-        <p>Оберіть адресу — кнопки запису по всьому сайту переключаться на телефон цього салону.</p>
-      </div>
-      <div class="branches">
-        <article class="branch is-active" data-branch="shev">
-          <iframe title="Карта: вул. Тараса Шевченка, 15-17" loading="lazy" src="https://maps.google.com/maps?q=49.8441987,24.0096542&z=16&output=embed"></iframe>
-          <div class="body">
-            <h3>Шевченка<span class="badge">обрано</span></h3>
-            <p class="addr">вул. Тараса Шевченка, 15-17, Львів</p>
-            <dl>
-              <dt>Телефон</dt><dd>068 501 0441</dd>
-              <dt>Google</dt><dd>4.9 · 274 відгуки</dd>
-              <dt>Графік</dt><dd>тут буде ваш графік роботи</dd>
-            </dl>
-            <div class="links">
-              <a class="btn btn-viber" href="viber://chat?number=%2B380685010441">Viber</a>
-              <a class="btn btn-call" href="tel:+380685010441">Подзвонити</a>
-              <a class="btn btn-call" href="https://maps.google.com/?cid=17152343705439185928" target="_blank" rel="noopener">Маршрут</a>
-            </div>
-            <div class="cta"><button type="button" class="btn btn-call" data-pick="shev" aria-pressed="true">Обрати цей салон</button></div>
-          </div>
-        </article>
-        <article class="branch" data-branch="zal">
-          <iframe title="Карта: вул. Залізнична, 9" loading="lazy" src="https://maps.google.com/maps?q=49.8469924,23.9956796&z=16&output=embed"></iframe>
-          <div class="body">
-            <h3>Залізнична<span class="badge">обрано</span></h3>
-            <p class="addr">вул. Залізнична, 9, Львів</p>
-            <dl>
-              <dt>Телефон</dt><dd>097 320 6020</dd>
-              <dt>Google</dt><dd>4.6 · 48 відгуків</dd>
-              <dt>Графік</dt><dd>тут буде ваш графік роботи</dd>
-            </dl>
-            <div class="links">
-              <a class="btn btn-viber" href="viber://chat?number=%2B380973206020">Viber</a>
-              <a class="btn btn-call" href="tel:+380973206020">Подзвонити</a>
-              <a class="btn btn-call" href="https://maps.google.com/?cid=2809068338458280887" target="_blank" rel="noopener">Маршрут</a>
-            </div>
-            <div class="cta"><button type="button" class="btn btn-call" data-pick="zal" aria-pressed="false">Обрати цей салон</button></div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reviews: real rating, review texts left as placeholders -->
-  <section class="section" id="reviews">
-    <div class="wrap proof">
-      <div class="score">4.9<small>274 відгуки в Google · салон на Шевченка</small></div>
-      <div class="slots">
-        <h2>Що кажуть клієнти</h2>
-        <div class="slot">Тут будуть ваші відгуки з Google — підтягнемо справжні, з іменами та датами.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap ig">
-      <div>
-        <p style="color:var(--muted)">Роботи майстрів і новини</p>
-        <a class="handle" href="https://www.instagram.com/atmosfera_lv/" target="_blank" rel="noopener">@atmosfera_lv</a>
-      </div>
-      <a class="btn btn-call" href="https://www.instagram.com/atmosfera_lv/" target="_blank" rel="noopener">Відкрити Instagram</a>
-    </div>
-  </section>
+<section class="fx hero" id="top" aria-labelledby="hero-title">
+ <div class="hero__bg"><img src="img/01.webp" width="361" height="640" alt="Стіна з логотипом Atmosfera Beauty Lounge і букет троянд на стійці рецепції" fetchpriority="high"></div><div class="hero__shade"></div>
+ <figure class="hero__card"><img src="img/06.webp" width="361" height="640" alt="Мідне фарбування волосся: результат на довгому волоссі клієнтки"></figure>
+ <div class="hero__text"><h1 class="hero__title" id="hero-title">Атмосфера</h1><p class="hero__sub">Твоя BEAUTY сфера. Салон краси у Львові. Макіяж, зачіски і фарбування волосся у двох салонах неподалік центру.</p><a class="btn" href="#booking">Записатися</a></div>
+ <ul class="hero-highlights"><li>2 салони у Львові</li></ul>
+ <a class="hero-scroll" href="#services">Відкрийте Атмосфера</a>
+</section>
+<section class="fx split" id="services" aria-labelledby="services-title">
+ <header class="fx__head"><h2 class="fx__title" id="services-title">Ваш час для себе</h2></header>
+ <div class="wrap split__body"><div><p class="split__headline">Макіяж, зачіски та колір волосся</p><ul class="service-list"><li>Макіяж</li><li>Зачіски</li><li>Фарбування волосся</li><li>Манікюр і педикюр</li><li>Брови</li></ul></div><div class="split__side"><figure class="split__img"><img src="img/02.webp" alt="Команда салону Атмосфера в світлому холі" width="361" height="640" loading="lazy"></figure><p class="split__copy">Твоя BEAUTY сфера. Салон краси у Львові. Макіяж, зачіски і фарбування волосся у двох салонах неподалік центру.</p></div></div>
+</section>
+<section class="fx hs" id="works" aria-labelledby="works-title"><div class="hs__inner">
+ <header class="fx__head"><h2 class="fx__title" id="works-title">Краса в деталях</h2><p class="fx__note">Роботи Атмосфера</p></header>
+ <ul class="hs__track" tabindex="0" aria-label="Фото робіт салону"><li class="hs__card"><figure class="hs__img"><img src="img/06.webp" alt="Мідне фарбування волосся: результат на довгому волоссі клієнтки" width="361" height="640" loading="lazy"></figure><div class="hs__cap"><b>Фарбування</b></div></li><li class="hs__card"><figure class="hs__img"><img src="img/03.webp" alt="Довге світле волосся після фарбування і укладки, вигляд зі спини в кріслі салону" width="361" height="640" loading="lazy"></figure><div class="hs__cap"><b>Блонд</b></div></li><li class="hs__card"><figure class="hs__img"><img src="img/07.webp" alt="Манікюр: нюдове покриття з перламутровим блиском на квадратних нігтях" width="360" height="640" loading="lazy"></figure><div class="hs__cap"><b>Манікюр</b></div></li><li class="hs__card"><figure class="hs__img"><img src="img/04.webp" alt="Майстер робить укладку довгого світлого волосся" width="360" height="640" loading="lazy"></figure><div class="hs__cap"><b>Укладка</b></div></li><li class="hs__card"><figure class="hs__img"><img src="img/05.webp" alt="Майстер наносить фарбу на брови клієнтки пензлем" width="361" height="640" loading="lazy"></figure><div class="hs__cap"><b>Брови</b></div></li><li class="hs__card"><figure class="hs__img"><img src="img/09.webp" alt="Майстер і клієнтка після процедури біля неонової корони в салоні" width="360" height="640" loading="lazy"></figure><div class="hs__cap"><b>Волосся</b></div></li><li class="hs__card"><figure class="hs__img"><img src="img/08.webp" alt="Майстриня педикюру за роботою в рожевому кріслі" width="360" height="640" loading="lazy"></figure><div class="hs__cap"><b></b></div></li><li class="hs__card"><figure class="hs__img"><img src="img/10.webp" alt="Зала манікюру: майстрині працюють з клієнтками за білими столами" width="360" height="400" loading="lazy"></figure><div class="hs__cap"><b></b></div></li></ul><p class="hs__hint">Перетягуйте фото або гортайте коліщатком</p><div class="hs__meter"><span aria-hidden="true"></span><input class="hs__range" type="range" min="0" max="1000" value="0" aria-label="Прокрутка фото робіт"></div>
+</div></section>
+<section class="fx zoom" id="studio" aria-labelledby="studio-title"><div class="zoom__stage">
+ <figure class="zoom__frame"><img src="img/02.webp" alt="Команда салону Атмосфера в світлому холі" width="361" height="640" loading="lazy"></figure>
+ <div class="zoom__shade"></div><div class="zoom__caption"><h2 id="studio-title">Місце, де можна<br>видихнути</h2><p>Атмосфера салон краси · Львів</p></div>
+</div></section>
+<section class="fx stats" id="reviews" aria-labelledby="reviews-title"><header class="fx__head"><h2 class="fx__title" id="reviews-title">Враження, що залишаються</h2></header>
+ <div class="wrap stats__body"><div><div class="stats__big"><span class="count" data-to="4.9" data-dec="1">4,9</span></div><div class="stats__stars" aria-label="4,9 із 5">★★★★★</div><p class="stats__src">Оцінка в Google Maps</p></div><div><div class="stats__grid"><p><b class="count" data-to="274">274</b><span>відгуки у Google</span></p><p><b>Львів</b><span>Атмосфера</span></p></div><a class="rating-link" href="https://maps.google.com/?cid=17152343705439185928" target="_blank" rel="noopener">Читати відгуки в Google Maps</a></div></div>
+</section>
+<section class="fx hl" id="care" aria-label="Професійний догляд"><div class="hl__inner"><p class="hl__text"><span data-split>Макіяж, зачіски, фарбування волосся, манікюр і догляд за бровами.</span><span class="hl__sign">Атмосфера · Львів</span></p></div></section>
+<section class="fx mag" id="booking" aria-labelledby="booking-title"><header class="fx__head"><h2 class="fx__title" id="booking-title">Залиште час для себе</h2></header><div class="wrap mag__body"><p class="mag__lead">Ваш наступний візит починається тут.</p><div class="mag__row"></div><div class="branch-actions"><h3>вул. Т. Шевченка, 15-17</h3><div class="mag__row"><a class="btn" href="viber://chat?number=%2B380685010441" data-magnetic><span class="btn__t">Записатися у Viber</span></a><a class="btn" href="tel:+380685010441" data-magnetic><span class="btn__t">Подзвонити</span></a></div></div><div class="branch-actions"><h3>вул. Залізнична, 9</h3><div class="mag__row"><a class="btn" href="viber://chat?number=%2B380973206020" data-magnetic><span class="btn__t">Записатися у Viber</span></a><a class="btn" href="tel:+380973206020" data-magnetic><span class="btn__t">Подзвонити</span></a></div></div><p class="mag__note">Оберіть салон, до якого вам зручніше прийти.</p></div></section>
+<section class="fx morph" id="contacts" aria-label="Контакти"><div class="morph__panel" style="--p-bg:#1b2236;--p-fg:#eceef1;--p-ac:#d7b178"><div><p class="morph__time">До зустрічі: Львів</p><h2 class="morph__title">Атмосфера<small>вул. Т. Шевченка, 15-17</small></h2><dl class="contact-details"><div><dt>Адреса</dt><dd>вул. Тараса Шевченка, 15-17, Львів</dd></div><div><dt>Телефон</dt><dd><a href="tel:+380685010441">+38 068 501 04 41</a></dd></div></dl><p class="morph__copy"><a href="https://maps.google.com/?cid=17152343705439185928" target="_blank" rel="noopener">Прокласти маршрут</a></p></div><div class="morph__map"><iframe class="contact-map" src="https://maps.google.com/maps?q=49.8441987%2C24.0096542&amp;z=16&amp;output=embed" title="Карта: вул. Тараса Шевченка, 15-17, Львів" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div><div class="morph__panel" style="--p-bg:#1b2236;--p-fg:#eceef1;--p-ac:#d7b178"><div><p class="morph__time">До зустрічі: Львів</p><h2 class="morph__title">Атмосфера<small>вул. Залізнична, 9</small></h2><dl class="contact-details"><div><dt>Адреса</dt><dd>вул. Залізнична, 9, Львів</dd></div><div><dt>Телефон</dt><dd><a href="tel:+380973206020">+38 097 320 60 20</a></dd></div></dl><p class="morph__copy"><a href="https://maps.google.com/?cid=2809068338458280887" target="_blank" rel="noopener">Прокласти маршрут</a></p></div><div class="morph__map"><iframe class="contact-map" src="https://maps.google.com/maps?q=49.8469924%2C23.9956796&amp;z=16&amp;output=embed" title="Карта: вул. Залізнична, 9, Львів" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></section>
 </main>
-
-<footer>
-  <div class="wrap">
-    <span>Салон краси «Атмосфера», Львів</span>
-  </div>
-</footer>
-
-<!-- Booking dock: always shows contacts of the active branch -->
-<div class="dock">
-  <div class="wrap">
-    <div class="where"><b data-bind="addr">вул. Т. Шевченка, 15-17</b><span>Запис у цей салон</span></div>
-    <div class="acts">
-      <a class="btn btn-viber" data-bind="viber" href="viber://chat?number=%2B380685010441">Viber</a>
-      <a class="btn btn-call" data-bind="tel" href="tel:+380685010441" aria-label="Подзвонити"><span aria-hidden="true">☎</span><span class="t">Подзвонити</span></a>
-    </div>
-  </div>
-</div>
-
+<footer class="foot"><div class="wrap"><h2>Атмосфера салон краси</h2><a href="https://www.instagram.com/atmosfera_lv/" target="_blank" rel="noopener">Instagram @atmosfera_lv</a></div></footer>
+<div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
-const B={
-  shev:{short:"Шевченка 15-17",addr:"вул. Т. Шевченка, 15-17",phone:"068 501 0441",tel:"tel:+380685010441",viber:"viber://chat?number=%2B380685010441",rating:"4.9",reviews:"274"},
-  zal:{short:"Залізнична 9",addr:"вул. Залізнична, 9",phone:"097 320 6020",tel:"tel:+380973206020",viber:"viber://chat?number=%2B380973206020",rating:"4.6",reviews:"48"}
-};
-/* Switches every booking control and highlight to the chosen branch */
-function pick(id){
-  const b=B[id];if(!b)return;
-  document.querySelectorAll("[data-pick]").forEach(el=>el.setAttribute("aria-pressed",el.dataset.pick===id));
-  document.querySelectorAll("[data-branch]").forEach(el=>el.classList.toggle("is-active",el.dataset.branch===id));
-  document.querySelectorAll("[data-bind]").forEach(el=>{
-    const k=el.dataset.bind;
-    if(k==="tel"||k==="viber")el.href=b[k];else el.textContent=b[k];
+(() => {
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const G = window.gsap;
+  const ST = window.ScrollTrigger;
+  const motion = !reduce && !!G && !!ST;
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  if (motion) { root.classList.add('motion'); G.registerPlugin(ST); }
+  // Splits text into word spans (and char spans), keeps a screen-reader copy
+  function split(el, chars) {
+    const text = el.textContent.trim().replace(/\s+/g, ' ');
+    el.textContent = '';
+    const sr = document.createElement('span');
+    sr.className = 'sr';
+    sr.textContent = text;
+    const vis = document.createElement('span');
+    vis.setAttribute('aria-hidden', 'true');
+    text.split(' ').forEach((word, i, arr) => {
+      const w = document.createElement('span');
+      w.className = 'sw';
+      if (chars) {
+        [...word].forEach(c => {
+          const s = document.createElement('span');
+          s.className = 'sc';
+          s.textContent = c;
+          w.appendChild(s);
+        });
+      } else {
+        w.textContent = word;
+      }
+      vis.appendChild(w);
+      if (i < arr.length - 1) vis.appendChild(document.createTextNode(' '));
+    });
+    el.append(sr, vis);
+    return vis;
+  }
+  const bar = $('.progress span');
+  function onScroll() {
+    const max = root.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  const galleryTrack = $('.hs__track');
+  const galleryMeter = $('.hs__meter span');
+  const galleryRange = $('.hs__range');
+  let galleryPin = null;
+  function paintGalleryMeter(progress) {
+    galleryMeter.style.transform = `scaleX(${0.08 + progress * 0.92})`;
+    galleryRange.value = Math.round(progress * 1000);
+  }
+  function galleryDistance() {
+    return Math.max(0, galleryTrack.scrollWidth - (galleryPin ? innerWidth : galleryTrack.clientWidth));
+  }
+  function galleryProgress() {
+    const max = galleryDistance();
+    return galleryPin ? galleryPin.progress : (max > 0 ? Math.max(0, Math.min(1, galleryTrack.scrollLeft / max)) : 0);
+  }
+  function setGalleryProgress(progress) {
+    progress = Math.max(0, Math.min(1, progress));
+    if (galleryPin) window.scrollTo(0, galleryPin.start + progress * (galleryPin.end - galleryPin.start));
+    else galleryTrack.scrollLeft = progress * galleryDistance();
+  }
+  function updateGalleryMeter() {
+    if (!galleryPin) paintGalleryMeter(galleryProgress());
+  }
+  galleryTrack.addEventListener('scroll', updateGalleryMeter, { passive: true });
+  addEventListener('resize', updateGalleryMeter);
+  galleryRange.addEventListener('input', () => setGalleryProgress(galleryRange.value / 1000));
+  let drag = null;
+  galleryTrack.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'mouse' || e.button !== 0 || !galleryDistance()) return;
+    drag = { x: e.clientX, progress: galleryProgress() };
+    galleryTrack.setPointerCapture(e.pointerId);
+    galleryTrack.classList.add('is-dragging');
+    e.preventDefault();
   });
-  try{localStorage.setItem("atm-branch",id)}catch(e){}
-}
-document.querySelectorAll("[data-pick]").forEach(el=>el.addEventListener("click",()=>pick(el.dataset.pick)));
-/* Price tabs */
-document.querySelectorAll("[data-tab]").forEach(t=>t.addEventListener("click",()=>{
-  document.querySelectorAll("[data-tab]").forEach(x=>x.setAttribute("aria-selected",x===t));
-  document.querySelectorAll("[data-panel]").forEach(p=>p.hidden=p.dataset.panel!==t.dataset.tab);
-}));
-try{const s=localStorage.getItem("atm-branch");if(s)pick(s)}catch(e){}
-</script>
-</body>
-</html>
+  galleryTrack.addEventListener('pointermove', e => {
+    if (drag) setGalleryProgress(drag.progress + (drag.x - e.clientX) / galleryDistance());
+  });
+  ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(type => {
+    galleryTrack.addEventListener(type, () => {
+      drag = null;
+      galleryTrack.classList.remove('is-dragging');
+    });
+  });
+  galleryTrack.addEventListener('wheel', e => {
+    if (galleryPin || e.ctrlKey || !galleryDistance()) return;
+    const delta = (Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY) *
+      (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? galleryTrack.clientWidth : 1);
+    const progress = galleryProgress();
+    if ((delta < 0 && progress > 0) || (delta > 0 && progress < 1)) {
+      e.preventDefault();
+      galleryTrack.scrollLeft += delta;
+    }
+  }, { passive: false });
+  updateGalleryMeter();
+  if (!motion) return;
+  // Lenis smooth scroll synced with ScrollTrigger
+  let lenis = null;
+  if (window.Lenis) {
+    lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+    lenis.on('scroll', ST.update);
+    G.ticker.add(t => lenis.raf(t * 1000));
+    G.ticker.lagSmoothing(0);
+  }
+  $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const t = $(a.getAttribute('href'));
+    if (!t || !lenis) return;
+    e.preventDefault();
+    const box = t.parentElement.classList.contains('pin-spacer') ? t.parentElement : t;
+    lenis.scrollTo(box, { duration: 1.4 });
+  }));
+  const mm = G.matchMedia();
+  // 01 Hero parallax
+  G.set('.hero__bg', { scale: 1.18 });
+  G.timeline({ scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: true } })
+    .to('.hero__bg', { scale: 1, yPercent: 16, ease: 'none' }, 0)
+    .to('.hero__card', { yPercent: -90, ease: 'none' }, 0)
+    .to('.hero__text', { yPercent: -60, opacity: 0, ease: 'none' }, 0)
+    .to('#top .fx__head', { yPercent: -30, opacity: 0, ease: 'none' }, 0);
+  G.from('.hero__card', { opacity: 0, rotate: -5, duration: 1.6, ease: 'expo.out', delay: 0.3 });
+  G.from('.hero__sub, .hero__text .btn', { opacity: 0, y: 24, stagger: 0.15, duration: 1.2, delay: 0.45 });
+  G.from('.hero__title', { yPercent: 40, opacity: 0, duration: 1.6, ease: 'expo.out', delay: 0.15 });
+  // 02 Split-text reveal
+  const headline = split($('.split__headline'), true);
+  G.from($$('.sc', headline), {
+    yPercent: 120, rotate: 6, duration: 0.8, ease: 'expo.out', stagger: 0.008,
+    scrollTrigger: { trigger: '.split__headline', start: 'top 95%', once: true }
+  });
+  G.from(['.split__img', '.split__copy'], {
+    y: 40, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.12,
+    scrollTrigger: { trigger: '.split__body', start: 'top 95%', once: true }
+  });
+  // 04 Pinned horizontal gallery (desktop); swipe on narrow screens
+  mm.add('(min-width: 768px)', () => {
+    const track = $('.hs__track');
+    const dist = () => Math.max(0, track.scrollWidth - innerWidth);
+    const tween = G.to(track, {
+      x: () => -dist(), ease: 'none',
+      scrollTrigger: {
+        trigger: '#works', start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.8, invalidateOnRefresh: true,
+        onUpdate: s => paintGalleryMeter(s.progress)
+      }
+    });
+    galleryPin = tween.scrollTrigger;
+    $$('.hs__img img').forEach(img => {
+      G.fromTo(img, { xPercent: -6 }, {
+        xPercent: 6, ease: 'none',
+        scrollTrigger: { trigger: img.parentElement, containerAnimation: tween, start: 'left right', end: 'right left', scrub: true }
+      });
+    });
+    return () => { galleryPin = null; updateGalleryMeter(); };
+  });
+  if ($('#studio')) {
+  // 06 Scroll-scrubbed zoom from card to full screen
+  G.timeline({ scrollTrigger: { trigger: '#studio', start: 'top 85%', end: 'top top', scrub: 0.35 } })
+    .fromTo('.zoom__frame', { clipPath: 'inset(8% 8% 8% 8% round 28px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'power2.inOut', duration: 1 }, 0)
+    .fromTo('.zoom__frame img', { scale: 1.3 }, { scale: 1, ease: 'power2.inOut', duration: 1 }, 0)
+    .fromTo('.zoom__shade', { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.6)
+    .from('.zoom__caption > *', { y: 40, opacity: 0, stagger: 0.08, duration: 0.3 }, 0.7);
+  }
+  // 08 Counters and progress lines
+  const fmt = (v, d) => v.toLocaleString('uk-UA', { minimumFractionDigits: d, maximumFractionDigits: d });
+  ST.create({
+    trigger: '#reviews .stats__body', start: 'top 75%', once: true,
+    onEnter: () => {
+      $$('#reviews .count').forEach(el => {
+        const to = parseFloat(el.dataset.to), d = +(el.dataset.dec || 0), o = { v: 0 };
+        G.to(o, { v: to, duration: 2, ease: 'expo.out', onUpdate: () => { el.textContent = fmt(o.v, d); } });
+      });
+    }
+  });
+  $$('#reviews .count').forEach(el => { el.textContent = fmt(0, +(el.dataset.dec || 0)); });
+  if ($('#care')) {
+  // Highlight in the normal flow, without an empty pinned scroll interval.
+  const hlWords = $$('.sw', split($('.hl__text [data-split]'), false));
+  G.fromTo(hlWords, { opacity: 0.14 }, {
+    opacity: 1, stagger: 0.06, ease: 'none',
+    scrollTrigger: { trigger: '#care', start: 'top 85%', end: 'bottom 55%', scrub: true }
+  });
+  }
+  $$('.batch-reveal').forEach(el => G.from(el, { y: 28, opacity: 0, duration: 0.8, scrollTrigger: { trigger: el, start: 'top 95%', once: true } }));
+  // 11 Magnetic buttons and cursor follower (fine pointers only)
+  mm.add('(hover: hover) and (pointer: fine)', () => {
+    const cur = $('.cursor');
+    const mag = $('#booking');
+    const dot = $('.cursor__dot'), ring = $('.cursor__ring');
+    const cx = G.quickTo(dot, 'x', { duration: 0.15, ease: 'power3' });
+    const cy = G.quickTo(dot, 'y', { duration: 0.15, ease: 'power3' });
+    const rx = G.quickTo(ring, 'x', { duration: 0.55, ease: 'power3' });
+    const ry = G.quickTo(ring, 'y', { duration: 0.55, ease: 'power3' });
+    const move = e => { cx(e.clientX); cy(e.clientY); rx(e.clientX); ry(e.clientY); };
+    const enter = () => cur.classList.add('is-on');
+    const leave = () => cur.classList.remove('is-on');
+    mag.addEventListener('pointermove', move);
+    mag.addEventListener('pointerenter', enter);
+    mag.addEventListener('pointerleave', leave);
+    const cleanups = $$('[data-magnetic]').map(btn => {
+      const t = $('.btn__t', btn);
+      const bx = G.quickTo(btn, 'x', { duration: 0.6, ease: 'power3' });
+      const by = G.quickTo(btn, 'y', { duration: 0.6, ease: 'power3' });
+      const tx = G.quickTo(t, 'x', { duration: 0.6, ease: 'power3' });
+      const ty = G.quickTo(t, 'y', { duration: 0.6, ease: 'power3' });
+      const mv = e => {
+        const r = btn.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        bx(dx * 0.35); by(dy * 0.35); tx(dx * 0.15); ty(dy * 0.15);
+      };
+      const ent = () => cur.classList.add('is-hover');
+      const lv = () => {
+        cur.classList.remove('is-hover');
+        G.to([btn, t], { x: 0, y: 0, duration: 1, ease: 'elastic.out(1, .35)', overwrite: 'auto' });
+      };
+      btn.addEventListener('pointermove', mv);
+      btn.addEventListener('pointerenter', ent);
+      btn.addEventListener('pointerleave', lv);
+      return () => { btn.removeEventListener('pointermove', mv); btn.removeEventListener('pointerenter', ent); btn.removeEventListener('pointerleave', lv); };
+    });
+    return () => {
+      mag.removeEventListener('pointermove', move);
+      mag.removeEventListener('pointerenter', enter);
+      mag.removeEventListener('pointerleave', leave);
+      cleanups.forEach(f => f());
+      leave();
+    };
+  });
+  // 12 Theme morph between panels
+  const morph = $('#contacts');
+  const panels = $$('.morph__panel');
+  const read = p => { const cs = getComputedStyle(p); return { bg: cs.getPropertyValue('--p-bg').trim(), fg: cs.getPropertyValue('--p-fg').trim(), ac: cs.getPropertyValue('--p-ac').trim() }; };
+  const first = read(panels[0]);
+  G.set(morph, { '--m-bg': first.bg, '--m-fg': first.fg, '--m-ac': first.ac });
+  panels.forEach(p => {
+    const c = read(p);
+    ST.create({
+      trigger: p, start: 'top 55%', end: 'bottom 55%',
+      onToggle: s => { if (s.isActive) G.to(morph, { '--m-bg': c.bg, '--m-fg': c.fg, '--m-ac': c.ac, duration: 0.9, ease: 'power2.out', overwrite: 'auto' }); }
+    });
+    G.from($('.morph__map', p), { yPercent: 5, ease: 'none', scrollTrigger: { trigger: p, start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+  addEventListener('load', () => { ST.refresh(); onScroll(); });
+  if (document.fonts) document.fonts.ready.then(() => ST.refresh());
+  $$('.hs__track img, .split__img img').forEach(img => img.addEventListener('load', () => ST.refresh(), { once: true }));
+})();</script></body></html>
