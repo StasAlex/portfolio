@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Атмосфера — салон краси у Львові</title>
+<meta name="description" content="Салон краси Атмосфера у Львові: дві адреси — Т. Шевченка 15-17 і Залізнична 9. Макіяж, зачіски, фарбування волосся. Запис у Viber або телефоном.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#2b1533;
+  --plum-soft:#4a2a55;
+  --orchid:#a8478f;
+  --pearl:#f6f1f7;
+  --mist:#dfe3f1;
+  --champagne:#d9b98c;
+  --line:rgba(43,21,51,.14);
+  --text:#2b1533;
+  --muted:#6d5a73;
+  --display:"Unbounded",system-ui,sans-serif;
+  --body:"Manrope",system-ui,sans-serif;
+  --wrap:1120px;
+  --gutter:clamp(16px,4vw,40px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--pearl);color:var(--text);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;padding-bottom:84px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--orchid);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.1;margin:0}
+h2{font-size:clamp(28px,4.4vw,44px);letter-spacing:-.01em}
+p{margin:0}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(246,241,247,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.logo{font-family:var(--display);font-weight:700;font-size:20px;text-decoration:none;letter-spacing:.02em}
+.top nav{display:flex;gap:24px;font-size:15px}
+.top nav a{text-decoration:none;color:var(--muted)}
+.top nav a:hover{color:var(--text)}
+
+.switch{display:inline-flex;padding:4px;border-radius:999px;background:#fff;border:1px solid var(--line);gap:2px}
+.switch button{font:500 14px/1 var(--body);border:0;background:transparent;color:var(--muted);padding:10px 16px;border-radius:999px;cursor:pointer;transition:background .25s,color .25s;white-space:nowrap}
+.switch button[aria-pressed="true"]{background:var(--plum);color:var(--pearl)}
+
+.hero{position:relative;overflow:hidden;padding:clamp(48px,9vw,110px) 0 clamp(56px,8vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.shot{position:relative;margin:0 0 32px;width:min(100%,400px);aspect-ratio:4/5;justify-self:center}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 18%;border-radius:999px 999px 28px 28px;box-shadow:0 40px 80px -30px rgba(122,58,122,.55)}
+.shot::after{content:"";position:absolute;inset:-14px;border-radius:999px 999px 40px 40px;border:1px solid rgba(168,71,143,.35);pointer-events:none}
+.shot figcaption{position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);font-family:var(--display);font-size:13px;color:var(--muted);white-space:nowrap}
+.slogan{font-family:var(--display);font-weight:300;font-size:clamp(40px,7.4vw,92px);line-height:.98;letter-spacing:-.02em}
+.slogan b{display:block;font-weight:700;letter-spacing:.04em}
+.hero .lead{margin-top:24px;max-width:34ch;font-size:19px;color:var(--muted)}
+.hero .pick{margin-top:32px}
+.hero .pick p{font-size:14px;color:var(--muted);margin-bottom:10px}
+.hero .facts{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px}
+.hero .facts strong{font-family:var(--display);font-weight:500;font-size:22px;display:block}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:700 15px/1 var(--body);text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-viber{background:#7360f2;color:#fff}
+.btn-viber:hover{background:#5f4ce0}
+.btn-call{background:transparent;border-color:var(--plum);color:var(--plum)}
+.btn-call:hover{background:var(--plum);color:var(--pearl)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+
+.section{padding:clamp(56px,8vw,100px) 0;border-top:1px solid var(--line)}
+.section .head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.section .head p{max-width:46ch;color:var(--muted)}
+
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.service{padding:28px 24px 32px 0;border-bottom:1px solid var(--line)}
+.service:not(:nth-child(3n)){border-right:1px solid var(--line)}
+.service:not(:nth-child(3n+1)){padding-left:24px}
+.service h3{font-size:22px;margin-bottom:10px}
+.service p{color:var(--muted);font-size:15px}
+.service.ph h3{color:var(--muted);font-weight:300}
+.ph-tag{display:inline-block;margin-top:12px;font-size:12px;padding:3px 10px;border-radius:999px;background:var(--mist);color:var(--plum-soft)}
+
+.price{background:var(--plum);color:var(--pearl);border-top:0}
+.price .head p{color:#cdb9d3}
+.price-note{font-size:14px;color:var(--champagne);margin-bottom:20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.tabs button{font:500 14px/1 var(--body);background:transparent;color:#cdb9d3;border:1px solid rgba(246,241,247,.25);padding:10px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--pearl);color:var(--plum);border-color:var(--pearl)}
+.plist{list-style:none;margin:0;padding:0;max-width:760px}
+.plist li{display:flex;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px solid rgba(246,241,247,.14)}
+.plist li .n{flex:0 1 auto}
+.plist li .d{flex:1;border-bottom:1px dotted rgba(246,241,247,.3);transform:translateY(-4px)}
+.plist li .v{font-family:var(--display);font-weight:300;font-size:15px;color:var(--champagne);white-space:nowrap}
+.price .branch-hint{margin-top:24px;font-size:15px;color:#cdb9d3}
+.price .branch-hint b{color:var(--pearl)}
+
+.branches{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.branch{border:1px solid var(--line);border-radius:28px;overflow:hidden;background:#fff;transition:border-color .3s,box-shadow .3s}
+.branch.is-active{border-color:var(--orchid);box-shadow:0 0 0 3px rgba(168,71,143,.15)}
+.branch iframe{display:block;width:100%;height:240px;border:0;filter:saturate(.6) hue-rotate(-10deg)}
+.branch .body{padding:24px}
+.branch h3{font-size:22px}
+.branch .addr{margin-top:6px;color:var(--muted)}
+.branch dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:18px 0 0;font-size:15px}
+.branch dt{color:var(--muted)}
+.branch dd{margin:0}
+.branch .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.branch .links .btn{min-height:42px;padding:0 18px;font-size:14px}
+.badge{font-size:12px;color:var(--orchid);font-weight:700;margin-left:8px;opacity:0;transition:opacity .3s}
+.branch.is-active .badge{opacity:1}
+
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.works figure{position:relative;margin:0;border-radius:24px;overflow:hidden;background:var(--mist);aspect-ratio:4/5}
+.works img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.works figure:hover img{transform:scale(1.04)}
+.works figcaption{position:absolute;left:14px;bottom:14px;padding:6px 12px;border-radius:999px;background:rgba(246,241,247,.92);font-size:13px;font-weight:500;color:var(--plum)}
+
+.mood{background:var(--plum);color:var(--pearl);border-top:0}
+.mood .head p{color:#cdb9d3}
+.strip{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
+.strip figure{margin:0;border-radius:24px;overflow:hidden;height:clamp(300px,38vw,460px)}
+.strip img{display:block;width:100%;height:100%;object-fit:cover}
+.strip figure:first-child img{object-position:50% 70%}
+
+.proof{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,72px);align-items:center}
+.score{font-family:var(--display);font-weight:300;font-size:clamp(80px,14vw,160px);line-height:.9;letter-spacing:-.04em}
+.score small{display:block;font-family:var(--body);font-size:15px;letter-spacing:0;color:var(--muted);margin-top:12px}
+.proof .slots{display:grid;gap:12px}
+.slot{border:1px dashed rgba(43,21,51,.3);border-radius:20px;padding:20px 22px;color:var(--muted);font-size:15px}
+
+.ig{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px}
+.ig a.handle{font-family:var(--display);font-size:clamp(24px,4vw,40px);text-decoration:none}
+.ig a.handle:hover{color:var(--orchid)}
+
+footer{padding:40px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(43,21,51,.96);color:var(--pearl);backdrop-filter:blur(10px)}
+.dock .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:72px}
+.dock .where{font-size:14px;line-height:1.3;min-width:0}
+.dock .where b{display:block;font-family:var(--display);font-weight:500;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dock .where span{color:#cdb9d3}
+.dock .acts{display:flex;gap:8px;flex-shrink:0}
+.dock .btn{min-height:44px;padding:0 18px}
+.dock .btn-call{border-color:rgba(246,241,247,.5);color:var(--pearl)}
+.dock .btn-call:hover{background:var(--pearl);color:var(--plum)}
+
+@media (max-width:900px){
+  .top nav{display:none}
+  .hero .wrap{grid-template-columns:1fr}
+  .shot{width:min(72vw,320px);order:-1}
+  .works{grid-template-columns:1fr 1fr;gap:12px}
+  .strip{grid-template-columns:1fr 1fr;gap:12px}
+  .strip figure{height:260px}
+  .strip figure:first-child{grid-column:1/-1;height:340px}
+  .services{grid-template-columns:1fr 1fr}
+  .service,.service:not(:nth-child(3n+1)){padding:24px 16px 24px 0;border-right:0}
+  .service:nth-child(odd){border-right:1px solid var(--line)}
+  .service:nth-child(even){padding-left:16px}
+  .branches{grid-template-columns:1fr}
+  .proof{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .top .switch button{padding:8px 11px;font-size:13px}
+  .logo{font-size:17px}
+  .services{grid-template-columns:1fr}
+  .service:nth-child(n){border-right:0;padding:22px 0}
+  .dock .where span{display:none}
+  .dock .btn{padding:0 14px;font-size:14px}
+  .dock .btn-call .t{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#">Атмосфера</a>
+    <nav aria-label="Розділи">
+      <a href="#services">Послуги</a>
+      <a href="#works">Роботи</a>
+      <a href="#price">Прайс</a>
+      <a href="#branches">Адреси</a>
+      <a href="#reviews">Відгуки</a>
+    </nav>
+    <div class="switch" role="group" aria-label="Оберіть салон">
+      <button type="button" data-pick="shev" aria-pressed="true">Шевченка</button>
+      <button type="button" data-pick="zal" aria-pressed="false">Залізнична</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero: slogan + branch picker + booking for the active branch -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1 class="slogan">Твоя <b>BEAUTY</b> сфера</h1>
+        <p class="lead">Салон краси у Львові. Макіяж, зачіски і фарбування волосся — у двох салонах неподалік центру.</p>
+        <div class="pick">
+          <p>Куди вам зручніше прийти?</p>
+          <div class="switch" role="group" aria-label="Оберіть салон">
+            <button type="button" data-pick="shev" aria-pressed="true">вул. Т. Шевченка, 15-17</button>
+            <button type="button" data-pick="zal" aria-pressed="false">вул. Залізнична, 9</button>
+          </div>
+        </div>
+        <div class="cta">
+          <a class="btn btn-viber" data-bind="viber" href="viber://chat?number=%2B380685010441">Записатися у Viber</a>
+          <a class="btn btn-call" data-bind="tel" href="tel:+380685010441"><span data-bind="phone">068 501 0441</span></a>
+        </div>
+        <div class="facts">
+          <div><strong data-bind="rating">4.9</strong>рейтинг у Google</div>
+          <div><strong data-bind="reviews">274</strong>відгуки</div>
+          <div><strong>2</strong>салони у Львові</div>
+        </div>
+      </div>
+      <figure class="shot">
+        <img src="img/01.webp" width="361" height="640" alt="Стіна з логотипом Atmosfera Beauty Lounge і букет троянд на стійці рецепції" fetchpriority="high">
+        <figcaption data-bind="short">Шевченка 15-17</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Services: real ones from Instagram, haircuts is a placeholder -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="head">
+        <h2>Послуги</h2>
+        <p>Те, що ви показуєте в Instagram. Решту напрямів додамо, коли надішлете список.</p>
+      </div>
+      <div class="services">
+        <article class="service">
+          <h3>Макіяж</h3>
+          <p>Денний, вечірній, на весілля чи фотосесію.</p>
+        </article>
+        <article class="service">
+          <h3>Зачіски</h3>
+          <p>Укладки та зачіски для подій.</p>
+        </article>
+        <article class="service">
+          <h3>Фарбування волосся</h3>
+          <p>Hair Coloring: зміна кольору, освіження тону.</p>
+        </article>
+        <article class="service ph">
+          <h3>Стрижки</h3>
+          <p>Опис послуги від вас.</p>
+          <span class="ph-tag">тут буде ваша послуга</span>
+        </article>
+        <article class="service">
+          <h3>Манікюр і педикюр</h3>
+          <p>Покриття, дизайн нігтів, апаратний педикюр.</p>
+        </article>
+        <article class="service">
+          <h3>Брови</h3>
+          <p>Оформлення та фарбування брів.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Atmosphere strip: team and interior -->
+  <section class="section mood">
+    <div class="wrap">
+      <div class="head">
+        <h2>Атмосфера</h2>
+        <p>Команда салону, рожеві крісла й світла зала манікюру.</p>
+      </div>
+      <div class="strip">
+        <figure><img src="img/02.webp" width="361" height="640" loading="lazy" alt="Команда салону Атмосфера в світлому холі"></figure>
+        <figure><img src="img/08.webp" width="360" height="640" loading="lazy" alt="Майстриня педикюру за роботою в рожевому кріслі"></figure>
+        <figure><img src="img/10.webp" width="360" height="400" loading="lazy" alt="Зала манікюру: майстрині працюють з клієнтками за білими столами"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works gallery: real photos from @atmosfera_lv -->
+  <section class="section" id="works">
+    <div class="wrap">
+      <div class="head">
+        <h2>Наші роботи</h2>
+        <p>Фото з Instagram салону: фарбування, укладки, нігті й брови.</p>
+      </div>
+      <div class="works">
+        <figure><img src="img/06.webp" width="361" height="640" loading="lazy" alt="Мідне фарбування волосся: результат на довгому волоссі клієнтки"><figcaption>Фарбування</figcaption></figure>
+        <figure><img src="img/03.webp" width="361" height="640" loading="lazy" alt="Довге світле волосся після фарбування і укладки, вигляд зі спини в кріслі салону"><figcaption>Блонд</figcaption></figure>
+        <figure><img src="img/07.webp" width="360" height="640" loading="lazy" alt="Манікюр: нюдове покриття з перламутровим блиском на квадратних нігтях"><figcaption>Манікюр</figcaption></figure>
+        <figure><img src="img/04.webp" width="360" height="640" loading="lazy" alt="Майстер робить укладку довгого світлого волосся"><figcaption>Укладка</figcaption></figure>
+        <figure><img src="img/05.webp" width="361" height="640" loading="lazy" alt="Майстер наносить фарбу на брови клієнтки пензлем"><figcaption>Брови</figcaption></figure>
+        <figure><img src="img/09.webp" width="360" height="640" loading="lazy" alt="Майстер і клієнтка після процедури біля неонової корони в салоні"><figcaption>Волосся</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Price list: structure only, prices are placeholders -->
+  <section class="section price" id="price">
+    <div class="wrap">
+      <div class="head">
+        <h2>Прайс</h2>
+        <p>Один прайс замість хайлайтів у сторіз. Ціни можна вказати окремо для кожного салону.</p>
+      </div>
+      <p class="price-note">Ціни не заповнені — тут буде ваш прайс.</p>
+      <div class="tabs" role="tablist" aria-label="Категорії прайсу">
+        <button type="button" role="tab" aria-selected="true" data-tab="mk">Макіяж</button>
+        <button type="button" role="tab" aria-selected="false" data-tab="hair">Зачіски</button>
+        <button type="button" role="tab" aria-selected="false" data-tab="color">Фарбування</button>
+      </div>
+      <ul class="plist" data-panel="mk">
+        <li><span class="n">Денний макіяж</span><span class="d"></span><span class="v">від … грн</span></li>
+        <li><span class="n">Вечірній макіяж</span><span class="d"></span><span class="v">від … грн</span></li>
+        <li><span class="n">Весільний макіяж</span><span class="d"></span><span class="v">від … грн</span></li>
+      </ul>
+      <ul class="plist" data-panel="hair" hidden>
+        <li><span class="n">Укладка</span><span class="d"></span><span class="v">від … грн</span></li>
+        <li><span class="n">Вечірня зачіска</span><span class="d"></span><span class="v">від … грн</span></li>
+        <li><span class="n">Весільна зачіска</span><span class="d"></span><span class="v">від … грн</span></li>
+      </ul>
+      <ul class="plist" data-panel="color" hidden>
+        <li><span class="n">Фарбування в один тон</span><span class="d"></span><span class="v">від … грн</span></li>
+        <li><span class="n">Складне фарбування</span><span class="d"></span><span class="v">від … грн</span></li>
+        <li><span class="n">Тонування</span><span class="d"></span><span class="v">від … грн</span></li>
+      </ul>
+      <p class="branch-hint">Показано для салону: <b data-bind="short">Шевченка 15-17</b></p>
+    </div>
+  </section>
+
+  <!-- Branches: both salons, active one highlighted -->
+  <section class="section" id="branches">
+    <div class="wrap">
+      <div class="head">
+        <h2>Два салони</h2>
+        <p>Оберіть адресу — кнопки запису по всьому сайту переключаться на телефон цього салону.</p>
+      </div>
+      <div class="branches">
+        <article class="branch is-active" data-branch="shev">
+          <iframe title="Карта: вул. Тараса Шевченка, 15-17" loading="lazy" src="https://maps.google.com/maps?q=49.8441987,24.0096542&z=16&output=embed"></iframe>
+          <div class="body">
+            <h3>Шевченка<span class="badge">обрано</span></h3>
+            <p class="addr">вул. Тараса Шевченка, 15-17, Львів</p>
+            <dl>
+              <dt>Телефон</dt><dd>068 501 0441</dd>
+              <dt>Google</dt><dd>4.9 · 274 відгуки</dd>
+              <dt>Графік</dt><dd>тут буде ваш графік роботи</dd>
+            </dl>
+            <div class="links">
+              <a class="btn btn-viber" href="viber://chat?number=%2B380685010441">Viber</a>
+              <a class="btn btn-call" href="tel:+380685010441">Подзвонити</a>
+              <a class="btn btn-call" href="https://maps.google.com/?cid=17152343705439185928" target="_blank" rel="noopener">Маршрут</a>
+            </div>
+            <div class="cta"><button type="button" class="btn btn-call" data-pick="shev" aria-pressed="true">Обрати цей салон</button></div>
+          </div>
+        </article>
+        <article class="branch" data-branch="zal">
+          <iframe title="Карта: вул. Залізнична, 9" loading="lazy" src="https://maps.google.com/maps?q=49.8469924,23.9956796&z=16&output=embed"></iframe>
+          <div class="body">
+            <h3>Залізнична<span class="badge">обрано</span></h3>
+            <p class="addr">вул. Залізнична, 9, Львів</p>
+            <dl>
+              <dt>Телефон</dt><dd>097 320 6020</dd>
+              <dt>Google</dt><dd>4.6 · 48 відгуків</dd>
+              <dt>Графік</dt><dd>тут буде ваш графік роботи</dd>
+            </dl>
+            <div class="links">
+              <a class="btn btn-viber" href="viber://chat?number=%2B380973206020">Viber</a>
+              <a class="btn btn-call" href="tel:+380973206020">Подзвонити</a>
+              <a class="btn btn-call" href="https://maps.google.com/?cid=2809068338458280887" target="_blank" rel="noopener">Маршрут</a>
+            </div>
+            <div class="cta"><button type="button" class="btn btn-call" data-pick="zal" aria-pressed="false">Обрати цей салон</button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews: real rating, review texts left as placeholders -->
+  <section class="section" id="reviews">
+    <div class="wrap proof">
+      <div class="score">4.9<small>274 відгуки в Google · салон на Шевченка</small></div>
+      <div class="slots">
+        <h2>Що кажуть клієнти</h2>
+        <div class="slot">Тут будуть ваші відгуки з Google — підтягнемо справжні, з іменами та датами.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap ig">
+      <div>
+        <p style="color:var(--muted)">Роботи майстрів і новини</p>
+        <a class="handle" href="https://www.instagram.com/atmosfera_lv/" target="_blank" rel="noopener">@atmosfera_lv</a>
+      </div>
+      <a class="btn btn-call" href="https://www.instagram.com/atmosfera_lv/" target="_blank" rel="noopener">Відкрити Instagram</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Салон краси «Атмосфера», Львів</span>
+  </div>
+</footer>
+
+<!-- Booking dock: always shows contacts of the active branch -->
+<div class="dock">
+  <div class="wrap">
+    <div class="where"><b data-bind="addr">вул. Т. Шевченка, 15-17</b><span>Запис у цей салон</span></div>
+    <div class="acts">
+      <a class="btn btn-viber" data-bind="viber" href="viber://chat?number=%2B380685010441">Viber</a>
+      <a class="btn btn-call" data-bind="tel" href="tel:+380685010441" aria-label="Подзвонити"><span aria-hidden="true">☎</span><span class="t">Подзвонити</span></a>
+    </div>
+  </div>
+</div>
+
+<script>
+const B={
+  shev:{short:"Шевченка 15-17",addr:"вул. Т. Шевченка, 15-17",phone:"068 501 0441",tel:"tel:+380685010441",viber:"viber://chat?number=%2B380685010441",rating:"4.9",reviews:"274"},
+  zal:{short:"Залізнична 9",addr:"вул. Залізнична, 9",phone:"097 320 6020",tel:"tel:+380973206020",viber:"viber://chat?number=%2B380973206020",rating:"4.6",reviews:"48"}
+};
+/* Switches every booking control and highlight to the chosen branch */
+function pick(id){
+  const b=B[id];if(!b)return;
+  document.querySelectorAll("[data-pick]").forEach(el=>el.setAttribute("aria-pressed",el.dataset.pick===id));
+  document.querySelectorAll("[data-branch]").forEach(el=>el.classList.toggle("is-active",el.dataset.branch===id));
+  document.querySelectorAll("[data-bind]").forEach(el=>{
+    const k=el.dataset.bind;
+    if(k==="tel"||k==="viber")el.href=b[k];else el.textContent=b[k];
+  });
+  try{localStorage.setItem("atm-branch",id)}catch(e){}
+}
+document.querySelectorAll("[data-pick]").forEach(el=>el.addEventListener("click",()=>pick(el.dataset.pick)));
+/* Price tabs */
+document.querySelectorAll("[data-tab]").forEach(t=>t.addEventListener("click",()=>{
+  document.querySelectorAll("[data-tab]").forEach(x=>x.setAttribute("aria-selected",x===t));
+  document.querySelectorAll("[data-panel]").forEach(p=>p.hidden=p.dataset.panel!==t.dataset.tab);
+}));
+try{const s=localStorage.getItem("atm-branch");if(s)pick(s)}catch(e){}
+</script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kres_bora — студія колористики у Львові</title>
+<meta name="description" content="Студія колористики Kres_bora, Львів, вул. Кульпарківська, 93. Airtouch, блонд, складне фарбування, консультація трихолога. Запис на консультацію.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Commissioner:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --porcelain:#F3F1F4;
+  --paper:#FBFAFB;
+  --ink:#231B26;
+  --muted:#6B6170;
+  --toner:#6E4F84;
+  --toner-soft:#E6DDEC;
+  --blonde:#D8B878;
+  --rule:#DCD5DF;
+  --display:"Prata",Georgia,serif;
+  --body:"Commissioner",system-ui,sans-serif;
+  --wrap:1180px;
+  --gutter:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--porcelain);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--toner);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,4.6vw,3.4rem);max-width:16ch}
+h3{font-size:1.55rem}
+p{max-width:60ch}
+.lead{font-size:1.15rem;color:var(--muted)}
+
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--porcelain) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.mark{font-family:var(--display);font-size:1.45rem;text-decoration:none}
+.mark small{font:400 .8rem var(--body);color:var(--muted);margin-left:10px}
+.top nav{display:flex;gap:28px;font-size:.95rem}
+.top nav a{text-decoration:none;color:var(--muted)}
+.top nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;font:500 1rem var(--body);text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:var(--toner);border-color:var(--toner)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.btn.small{min-height:40px;padding:0 18px;font-size:.92rem}
+.btn svg{width:18px;height:18px}
+
+.hero{padding:clamp(48px,8vw,104px) 0 0}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:end}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5.4rem);max-width:12ch}
+.hero .lead{margin:28px 0 36px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px}
+.proof{display:flex;flex-wrap:wrap;gap:32px;margin-top:48px;padding-top:24px;border-top:1px solid var(--rule)}
+.proof div{font-size:.92rem;color:var(--muted)}
+.proof strong{display:block;font:400 2rem/1.1 var(--display);color:var(--ink)}
+
+.swatch{position:relative;display:grid;grid-template-columns:repeat(10,1fr);gap:clamp(4px,.8vw,10px);height:clamp(340px,52vw,560px);align-items:start}
+.strand{position:relative;height:100%;border-radius:999px 999px 40% 40%/24px 24px 60% 60%;background:linear-gradient(180deg,var(--root) 0%,var(--root) var(--melt,30%),var(--end) 100%);transform-origin:top;animation:fall 1.4s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 70ms)}
+.strand:nth-child(even){height:92%}
+.strand:nth-child(3n){height:86%}
+.strand span{position:absolute;top:12px;left:50%;transform:translateX(-50%);font-size:.72rem;color:rgba(255,255,255,.82)}
+.strand.light span{color:rgba(35,27,38,.6)}
+.swatch figcaption{position:absolute;right:0;bottom:-34px;font-size:.82rem;color:var(--muted)}
+.hero-visual{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:clamp(12px,2.4vw,28px);align-items:stretch;padding-bottom:48px}
+.hero-visual .swatch{height:100%;margin:0}
+.hero-visual .swatch figcaption{left:0;right:0;bottom:auto;top:calc(100% + 12px)}
+.hero-photo{margin:0;aspect-ratio:3/4;border-radius:999px 999px 20px 20px;overflow:hidden;background:var(--toner-soft)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+@keyframes fall{from{transform:scaleY(.08);opacity:0}to{transform:scaleY(1);opacity:1}}
+
+section{padding:clamp(80px,11vw,140px) 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:end;margin-bottom:56px}
+.sec-head p{color:var(--muted)}
+
+.tech{display:grid;grid-template-columns:1.3fr 1fr 1fr;border-top:1px solid var(--ink)}
+.tech article{padding:32px 32px 40px 0;border-right:1px solid var(--rule)}
+.tech article+article{padding-left:32px}
+.tech article:last-child{border-right:0}
+.tech .tone{height:10px;border-radius:999px;margin-bottom:28px}
+.tech h3{margin-bottom:14px}
+.tech p{color:var(--muted);font-size:.98rem}
+.tech .note{margin-top:20px;font-size:.85rem;color:var(--toner)}
+.tricho{margin-top:40px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;padding:28px 32px;background:var(--toner-soft);border-radius:20px}
+.tricho p{max-width:52ch}
+.tricho strong{font-family:var(--display);font-weight:400;font-size:1.3rem;display:block;margin-bottom:4px}
+
+.works{background:var(--paper)}
+.ph{aspect-ratio:3/4;display:flex;align-items:flex-end;padding:14px;font-size:.82rem;color:var(--muted);background:repeating-linear-gradient(135deg,var(--porcelain) 0 10px,#ECE8EE 10px 20px)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;border-radius:999px 999px 16px 16px;background:var(--toner-soft)}
+.gallery figcaption{font-size:.88rem;color:var(--muted);margin-top:12px}
+.studio-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
+.studio-grid img{width:100%;height:clamp(260px,32vw,420px);object-fit:cover;border-radius:16px;background:var(--toner-soft)}
+
+.masters{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,4vw,56px)}
+.master{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:end}
+.master .ph{border-radius:999px 999px 16px 16px;aspect-ratio:3/4}
+.master h3{font-size:2rem}
+.master p{color:var(--muted);font-size:.95rem;margin-top:8px}
+
+.book{background:var(--ink);color:var(--paper)}
+.book .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px)}
+.book h2{color:var(--paper)}
+.book .lead{color:#BFB4C4;margin:24px 0 40px}
+.steps{list-style:none;counter-reset:s;display:grid;gap:22px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:16px;color:#D8D0DB}
+.steps li::before{content:counter(s);font-family:var(--display);font-size:1.6rem;color:var(--blonde);line-height:1.1}
+.steps b{display:block;color:var(--paper);font-weight:500}
+form{display:grid;gap:18px;background:#2E2432;padding:clamp(24px,4vw,40px);border-radius:24px}
+label{display:grid;gap:8px;font-size:.9rem;color:#BFB4C4}
+input,select,textarea{font:inherit;color:var(--paper);background:transparent;border:0;border-bottom:1px solid #5A4C60;padding:10px 0;border-radius:0}
+select option{color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--blonde)}
+textarea{resize:vertical;min-height:80px}
+form .btn{background:var(--blonde);border-color:var(--blonde);color:var(--ink);margin-top:8px}
+form .btn:hover{background:var(--paper);border-color:var(--paper)}
+.or{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+.or .btn{background:transparent;border-color:#5A4C60;color:var(--paper);margin:0}
+.or .btn:hover{border-color:var(--paper)}
+.done{display:none;padding:14px 16px;border-radius:12px;background:#3A2F3F;color:var(--paper);font-size:.95rem}
+.done.show{display:block}
+
+.care .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.shelf{display:flex;align-items:flex-end;gap:14px;height:280px;padding:0 24px;border-bottom:1px solid var(--ink)}
+.shelf i{flex:1;border-radius:14px 14px 4px 4px;background:var(--toner-soft)}
+.shelf i:nth-child(1){height:62%;background:var(--toner)}
+.shelf i:nth-child(2){height:84%}
+.shelf i:nth-child(3){height:48%;background:var(--blonde)}
+.shelf i:nth-child(4){height:70%;background:#CFC6D4}
+.care p{color:var(--muted);margin-top:20px}
+.care ul{list-style:none;margin-top:28px;display:grid;gap:12px}
+.care li{padding-left:22px;position:relative}
+.care li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:10px;border-radius:50%;background:var(--blonde)}
+
+.contacts{padding-bottom:0}
+.contacts .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(32px,5vw,72px)}
+dl{display:grid;gap:22px;margin-top:36px}
+dt{font-size:.85rem;color:var(--muted)}
+dd{font-size:1.15rem}
+dd a{text-decoration:none;border-bottom:1px solid var(--rule)}
+dd a:hover{border-color:var(--ink)}
+.map{border-radius:24px;overflow:hidden;min-height:420px;background:var(--paper)}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;filter:grayscale(.6) contrast(1.05)}
+
+footer{padding:64px 0 40px;margin-top:clamp(80px,10vw,120px);border-top:1px solid var(--rule);font-size:.88rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+
+.mobile-cta{display:none}
+
+@media (max-width:900px){
+  .top nav{display:none}
+  .hero .wrap,.sec-head,.book .wrap,.care .wrap,.contacts .wrap{grid-template-columns:1fr}
+  .swatch{height:300px;margin-bottom:24px}
+  .tech{grid-template-columns:1fr}
+  .tech article,.tech article+article{padding:28px 0;border-right:0;border-bottom:1px solid var(--rule)}
+  .gallery{grid-template-columns:1fr 1fr}
+  .studio-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .studio-grid figure:first-child{grid-column:1/-1}
+  .studio-grid img{height:240px}
+  .masters{grid-template-columns:1fr}
+  .shelf{height:200px}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .gallery{gap:12px}
+  .master{grid-template-columns:120px 1fr;gap:18px}
+  .master h3{font-size:1.6rem}
+  .mark small{display:none}
+  .top .btn{display:none}
+  .mobile-cta{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:30;box-shadow:0 10px 30px rgba(35,27,38,.25)}
+  footer{padding-bottom:96px}
+}
+@media (prefers-reduced-motion:reduce){
+  .strand{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#">Kres_bora<small>студія колористики</small></a>
+    <nav aria-label="Розділи">
+      <a href="#tech">Техніки</a>
+      <a href="#works">Роботи</a>
+      <a href="#team">Майстри</a>
+      <a href="#care">Догляд</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <a class="btn small" href="#book">Записатися на консультацію</a>
+  </div>
+</header>
+
+<main>
+  <!-- Hero: own slogan + strand swatch (tone levels 1–10, root to ends like Airtouch) -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap">
+      <div>
+        <h1 id="h1">Тут ти зможеш отримати колір волосся своєї мрії</h1>
+        <p class="lead">Студія колористики на Кульпарківській, 93 у Львові. Airtouch, блонд і складне фарбування, консультація трихолога та підбір домашнього догляду.</p>
+        <div class="actions">
+          <a class="btn" href="#book">Записатися на консультацію</a>
+          <a class="btn ghost" href="viber://chat?number=%2B380630344615">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3c5 0 8 2.6 8 7.5S17 18 12 18c-.8 0-1.6-.1-2.3-.2L6 20.5v-3.6C4.7 15.6 4 13.6 4 10.5 4 5.6 7 3 12 3Z"/><path d="M9.5 8.5c.4 2.3 1.9 3.8 4.2 4.3"/></svg>
+            Написати у Viber
+          </a>
+        </div>
+        <div class="proof">
+          <div><strong>5,0</strong>рейтинг у Google</div>
+          <div><strong>183</strong>відгуки на картах</div>
+          <div><strong>5,8 тис.</strong>підписників в Instagram</div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <figure class="swatch" aria-label="Палітра тонів від темного до світлого блонду">
+          <div class="strand" style="--i:0;--root:#2A1D19;--end:#3A2820"><span>1</span></div>
+          <div class="strand" style="--i:1;--root:#3A2820;--end:#4E3526"><span>2</span></div>
+          <div class="strand" style="--i:2;--root:#4A3122;--end:#6A4A31"><span>3</span></div>
+          <div class="strand" style="--i:3;--root:#4A3122;--end:#86603E"><span>4</span></div>
+          <div class="strand" style="--i:4;--root:#55392A;--end:#A27D55;--melt:40%"><span>5</span></div>
+          <div class="strand" style="--i:5;--root:#5A3E2C;--end:#BC9A6C;--melt:35%"><span>6</span></div>
+          <div class="strand light" style="--i:6;--root:#6A4C36;--end:#D2B585;--melt:30%"><span>7</span></div>
+          <div class="strand light" style="--i:7;--root:#6A4C36;--end:#E3CDA2;--melt:25%"><span>8</span></div>
+          <div class="strand light" style="--i:8;--root:#7A5D45;--end:#EFE2C6;--melt:22%"><span>9</span></div>
+          <div class="strand light" style="--i:9;--root:#8A6E58;--end:#F6EEE0;--melt:18%"><span>10</span></div>
+          <figcaption>Рівні тону від 1 до 10</figcaption>
+        </figure>
+        <figure class="hero-photo"><img src="img/07.webp" width="360" height="470" alt="Клієнтка з довгим світлим блондом після фарбування в студії Kres_bora" fetchpriority="high"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="tech" aria-labelledby="tech-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="tech-h">Техніки, з якими ми працюємо</h2>
+        <p>Кожне фарбування починається з консультації: колорист дивиться на стан волосся, попередні фарбування і бажаний результат.</p>
+      </div>
+      <div class="tech">
+        <article>
+          <div class="tone" style="background:linear-gradient(90deg,#5A3E2C,#E3CDA2)"></div>
+          <h3>Airtouch</h3>
+          <p>Розтяжка кольору від коренів до кінчиків без різких меж. Короткі волоски видуваються феном, тому перехід виходить м’яким і відростає непомітно.</p>
+          <p class="note">Тривалість і вартість: тут будуть ваші дані</p>
+        </article>
+        <article>
+          <div class="tone" style="background:linear-gradient(90deg,#E3CDA2,#F6EEE0)"></div>
+          <h3>Блонд</h3>
+          <p>Освітлення і тонування до потрібного відтінку: теплого, бежевого чи холодного.</p>
+          <p class="note">Тривалість і вартість: тут будуть ваші дані</p>
+        </article>
+        <article>
+          <div class="tone" style="background:linear-gradient(90deg,#3A2820,#86603E,#D2B585)"></div>
+          <h3>Складне фарбування</h3>
+          <p>Багатотонові техніки, вихід з темного, корекція попереднього кольору.</p>
+          <p class="note">Тривалість і вартість: тут будуть ваші дані</p>
+        </article>
+      </div>
+      <div class="tricho">
+        <div>
+          <strong>Консультація трихолога</strong>
+          <p>Перед освітленням корисно знати стан шкіри голови і волосся. У студії працює трихолог.</p>
+        </div>
+        <a class="btn ghost small" href="#book">Записатися на консультацію</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="works" class="works" aria-labelledby="works-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="works-h">Наші роботи</h2>
+        <p>Фото з Instagram студії. Клієнтка бачить результат ще до того, як напише.</p>
+      </div>
+      <div class="gallery">
+        <figure><img src="img/06.webp" width="360" height="640" loading="lazy" alt="Холодний світлий блонд до плечей: майстриня розправляє пасма клієнтки"><figcaption>Холодний блонд</figcaption></figure>
+        <figure><img src="img/05.webp" width="360" height="640" loading="lazy" alt="Пряме волосся з переходом від темнішого кореня до світлих кінчиків, вигляд збоку"><figcaption>Перехід від кореня до кінчиків</figcaption></figure>
+        <figure><img src="img/01.webp" width="360" height="640" loading="lazy" alt="Бежевий блонд з об’ємними локонами, майстриня поправляє волосся клієнтки"><figcaption>Бежевий блонд, локони</figcaption></figure>
+        <figure><img src="img/08.webp" width="360" height="420" loading="lazy" alt="Довге пряме волосся насиченого червоно-каштанового відтінку"><figcaption>Червоно-каштановий</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="studio" aria-labelledby="studio-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="studio-h">Студія на Кульпарківській</h2>
+        <p>Світла зала з великими вікнами, дзеркала з підсвіткою і неоновий знак BORA на цегляній стіні.</p>
+      </div>
+      <div class="studio-grid">
+        <figure><img src="img/02.webp" width="640" height="400" loading="lazy" alt="Робоче місце колориста: дзеркало з підсвіткою, крісло і панорамне вікно"></figure>
+        <figure><img src="img/04.webp" width="360" height="640" loading="lazy" alt="Неоновий логотип BORA на білій цегляній стіні студії"></figure>
+        <figure><img src="img/03.webp" width="360" height="640" loading="lazy" alt="Два келихи ігристого на тлі неонового знака BORA"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" aria-labelledby="team-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="team-h">Майстри</h2>
+        <p>До кого саме записатися, клієнтка обирає по роботах. Кожен майстер отримає свою сторінку з портфоліо.</p>
+      </div>
+      <div class="masters">
+        <div class="master">
+          <div class="ph">тут буде фото</div>
+          <div>
+            <h3>Марта Бедненко</h3>
+            <p>Спеціалізація і досвід: тут буде ваш опис.</p>
+          </div>
+        </div>
+        <div class="master">
+          <div class="ph">тут буде фото</div>
+          <div>
+            <h3>Вікторія</h3>
+            <p>Спеціалізація і досвід: тут буде ваш опис.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" class="book" aria-labelledby="book-h">
+    <div class="wrap">
+      <div>
+        <h2 id="book-h">Записатися на консультацію</h2>
+        <p class="lead">Зараз запис іде через Direct в Instagram. Тут заявку можна залишити за хвилину, а відповідь прийде у Viber.</p>
+        <ol class="steps">
+          <li><div><b>Заявка</b>Ім’я, телефон і що хочеться змінити.</div></li>
+          <li><div><b>Консультація</b>Колорист оцінює волосся і пропонує техніку.</div></li>
+          <li><div><b>Фарбування</b>У зручний день, у майстра, якого ви обрали.</div></li>
+          <li><div><b>Домашній догляд</b>Підбір засобів, щоб колір тримався довше.</div></li>
+        </ol>
+      </div>
+      <form id="form" novalidate>
+        <label>Ім’я<input name="name" autocomplete="given-name" required></label>
+        <label>Телефон<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+380" required></label>
+        <label>Що цікавить
+          <select name="service">
+            <option>Airtouch</option>
+            <option>Блонд</option>
+            <option>Складне фарбування</option>
+            <option>Консультація трихолога</option>
+            <option>Ще не знаю, потрібна порада</option>
+          </select>
+        </label>
+        <label>До кого
+          <select name="master">
+            <option>Без різниці</option>
+            <option>Марта</option>
+            <option>Вікторія</option>
+          </select>
+        </label>
+        <label>Коментар<textarea name="msg" placeholder="Наприклад: зараз темно-русе, хочу світлий бежевий блонд"></textarea></label>
+        <button class="btn" type="submit">Надіслати заявку</button>
+        <div class="done" id="done" role="status">Заявку надіслано. У робочій версії сайту вона одразу прийде студії у Viber або Telegram.</div>
+        <div class="or">
+          <a class="btn small" href="viber://chat?number=%2B380630344615">Viber</a>
+          <a class="btn small" href="tel:+380630344615">Подзвонити</a>
+          <a class="btn small" href="https://ig.me/m/kres_bora" target="_blank" rel="noopener">Instagram Direct</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="care" class="care" aria-labelledby="care-h">
+    <div class="wrap">
+      <div class="shelf" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div>
+        <h2 id="care-h">Колір вдома</h2>
+        <p>Після фарбування майстер підбирає домашній догляд під ваше волосся і ваш відтінок. Тут може бути список засобів, які є в студії.</p>
+        <ul>
+          <li>Засоби, які є в наявності: тут буде ваш перелік</li>
+          <li>Поради для блонду і Airtouch між візитами: тут буде ваш текст</li>
+          <li>Як часто оновлювати тон: тут буде ваш текст</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="contacts" aria-labelledby="contacts-h">
+    <div class="wrap">
+      <div>
+        <h2 id="contacts-h">Як нас знайти</h2>
+        <dl>
+          <div><dt>Адреса</dt><dd><a href="https://maps.google.com/?cid=16130688680108734792" target="_blank" rel="noopener">вул. Кульпарківська, 93, Львів</a></dd></div>
+          <div><dt>Телефон і Viber</dt><dd><a href="tel:+380630344615">+380 63 034 4615</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/kres_bora/" target="_blank" rel="noopener">@kres_bora</a></dd></div>
+          <div><dt>Години роботи</dt><dd>тут будуть ваші години</dd></div>
+        </dl>
+      </div>
+      <div class="map">
+        <iframe title="Kres_bora на карті" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=%D0%9A%D1%83%D0%BB%D1%8C%D0%BF%D0%B0%D1%80%D0%BA%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0%2093%2C%20%D0%9B%D1%8C%D0%B2%D1%96%D0%B2&z=16&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kres_bora — студія колористики, вул. Кульпарківська, 93, Львів</span>
+  </div>
+</footer>
+
+<a class="btn mobile-cta" href="#book">Записатися на консультацію</a>
+
+<script>
+document.getElementById('form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const f = this.elements;
+  if (!f.name.value.trim() || !f.phone.value.trim()) {
+    (f.name.value.trim() ? f.phone : f.name).focus();
+    return;
+  }
+  document.getElementById('done').classList.add('show');
+  this.reset();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gomziak Studio — студія краси у Львові</title>
+<meta name="description" content="Манікюр, педикюр, вії, брови, перманент і курси манікюру у Львові. вул. Шевченка, 111а. Онлайн-запис, гарантія на манікюр 14 днів.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#b3122e;
+  --red-deep:#8a0c22;
+  --ink:#231c1e;
+  --mute:#6d6366;
+  --paper:#f3f1f1;
+  --white:#ffffff;
+  --line:#ddd7d8;
+  --blush:#f7e3e5;
+  --display:"Tenor Sans",Georgia,serif;
+  --body:"Onest",system-ui,sans-serif;
+  --wrap:1120px;
+  --gut:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--body);padding-bottom:76px}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.1;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(30px,6vw,46px);margin-bottom:12px}
+p{margin:0 0 12px;max-width:62ch}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.lead{color:var(--mute);font-size:17px}
+section{padding:64px 0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:500 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer}
+.btn-red{background:var(--red);color:var(--white)}
+.btn-red:hover{background:var(--red-deep)}
+.btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--white)}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(243,241,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font-family:var(--display);font-size:22px;letter-spacing:.14em;text-decoration:none;color:var(--red)}
+.logo small{display:block;font:500 10px/1 var(--body);letter-spacing:.3em;color:var(--ink);margin-top:2px}
+.nav{display:none;gap:26px;font-size:15px}
+.nav a{text-decoration:none;color:var(--mute)}
+.nav a:hover{color:var(--ink)}
+.top .btn{min-height:40px;padding:0 18px;font-size:14px}
+
+.hero{padding:0}
+.hero-grid{display:grid}
+.hero-photo{position:relative;aspect-ratio:4/3;background:#cfc9ca;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 62%}
+.hero-text{padding:28px var(--gut) 40px}
+.hero h1{font-size:clamp(38px,9vw,72px);margin-bottom:16px}
+.hero .addr{font-size:16px;color:var(--mute);margin-bottom:22px}
+.rating{display:inline-flex;align-items:center;gap:10px;font-size:15px;text-decoration:none;margin-bottom:26px}
+.stars{color:var(--red);letter-spacing:2px;font-size:17px}
+.rating b{font-weight:700}
+
+.book{background:var(--white);border-radius:20px;padding:22px;border:1px solid var(--line);max-width:520px}
+.book h2{font-size:24px;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;padding:0;border:0}
+.chips legend{font-size:14px;color:var(--mute);margin-bottom:10px;padding:0}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:9px 15px;border-radius:999px;border:1.5px solid var(--line);font-size:15px;cursor:pointer;user-select:none}
+.chip input:checked+span{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.chip input:focus-visible+span{outline:3px solid var(--red);outline-offset:2px}
+.book .btn{width:100%}
+.book .alt{display:flex;justify-content:center;gap:18px;margin-top:14px;font-size:15px}
+.book .alt a{color:var(--mute)}
+
+.services{background:var(--white)}
+.svc{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--line)}
+.svc li{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.svc h3{font-size:22px}
+.svc p{grid-column:1/-1;color:var(--mute);margin:0;font-size:15px}
+.svc .price{font-size:14px;color:var(--red);align-self:center;text-align:right;white-space:nowrap}
+.note{font-size:14px;color:var(--mute);background:var(--blush);border-radius:10px;padding:10px 14px;margin-top:20px;display:inline-block}
+
+.guarantee{background:var(--red);color:var(--white);padding:0;overflow:hidden}
+.g-grid{display:grid;align-items:center;gap:8px;padding:48px 0}
+.g-num{font-family:var(--display);font-size:clamp(150px,40vw,300px);line-height:.8;letter-spacing:-.05em}
+.g-num sub{font-size:.16em;letter-spacing:0;vertical-align:baseline;margin-left:8px;font-family:var(--body)}
+.guarantee h2{color:var(--white)}
+.guarantee p{color:#fbdfe3}
+.guarantee .btn{background:var(--white);color:var(--red);margin-top:8px}
+.guarantee .btn:hover{background:var(--blush)}
+
+.team-list{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:28px 16px}
+.team-list li{display:grid;align-content:start;gap:4px}
+.team-list img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px;background:var(--blush);margin-bottom:8px}
+.team-list b{font-family:var(--display);font-weight:400;font-size:21px}
+.team-list em{font-style:normal;font-size:14px;color:var(--red)}
+.team-list span{color:var(--mute);font-size:14px;line-height:1.45}
+
+.works{background:var(--paper)}
+.works-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.works-grid figure{position:relative;margin:0;border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:var(--blush)}
+.works-grid img{width:100%;height:100%;object-fit:cover}
+.works-grid figcaption{position:absolute;left:10px;bottom:10px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.92);font-size:13px}
+
+.studio{background:var(--white)}
+.studio-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.studio-grid figure{margin:0;border-radius:16px;overflow:hidden;height:240px;background:var(--line)}
+.studio-grid figure:first-child{grid-column:1/-1;height:280px}
+.studio-grid img{width:100%;height:100%;object-fit:cover}
+
+.courses{background:var(--ink);color:var(--white)}
+.courses .lead{color:#c8bfc1}
+.course-list{margin-top:32px;display:grid;gap:14px}
+.course{border:1px solid #4a3f42;border-radius:18px;padding:22px}
+.course.main{background:var(--white);color:var(--ink);border-color:var(--white)}
+.course-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.course h3{font-size:24px}
+.course .cost{font:700 22px/1 var(--body);white-space:nowrap}
+.course.main .cost{color:var(--red)}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:#c8bfc1;margin-bottom:10px}
+.course.main .facts{color:var(--mute)}
+.course p{font-size:15px;margin:0}
+.course.main p{margin-bottom:16px}
+.course-more{margin-top:28px;font-size:15px;color:#c8bfc1}
+.course-more b{color:var(--white);font-weight:500}
+.cert{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+.courses .btn-line{color:var(--white);box-shadow:inset 0 0 0 1.5px var(--white)}
+.courses .btn-line:hover{background:var(--white);color:var(--ink)}
+
+.reviews .wrap{display:grid;gap:28px}
+.score{display:flex;align-items:flex-end;gap:18px}
+.score-num{font-family:var(--display);font-size:clamp(96px,22vw,150px);line-height:.85;color:var(--red)}
+.score-txt{padding-bottom:8px}
+.score-txt .stars{font-size:22px;display:block}
+.score-txt b{font-size:18px}
+.rev-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.placeholder{border:1.5px dashed #c9bfc1;border-radius:16px;padding:20px;color:var(--mute);font-size:15px}
+
+.faq{background:var(--white)}
+.faq details{border-bottom:1px solid var(--line);padding:4px 0}
+.faq details:first-of-type{border-top:1px solid var(--line);margin-top:24px}
+.faq summary{cursor:pointer;list-style:none;padding:16px 36px 16px 0;font-size:18px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:12px;font-size:26px;color:var(--red);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--mute);padding-bottom:12px}
+
+.contact-grid{display:grid;gap:28px;margin-top:24px}
+.contact dl{margin:0;display:grid;gap:18px}
+.contact dt{font-size:14px;color:var(--mute)}
+.contact dd{margin:2px 0 0;font-size:18px}
+.contact dd a{text-decoration:none}
+.contact dd a:hover{color:var(--red)}
+.map{border-radius:18px;overflow:hidden;min-height:320px;background:#ddd7d8}
+.map iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
+
+footer{padding:32px 0 40px;font-size:14px;color:var(--mute);border-top:1px solid var(--line)}
+footer .wrap{display:grid;gap:8px}
+.demo{color:var(--red)}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--line)}
+.dock .btn{flex:1;min-height:48px}
+.dock .btn-line{flex:0 0 auto;padding:0 18px}
+
+@media (min-width:720px){
+  .team-list{grid-template-columns:repeat(4,1fr);gap:36px 24px}
+  .works-grid{grid-template-columns:repeat(3,1fr);gap:16px}
+  .course-list{grid-template-columns:1fr 1fr}
+  .course.main{grid-column:1/-1;padding:30px}
+  .g-grid{grid-template-columns:auto 1fr;gap:48px;padding:56px 0}
+}
+@media (min-width:960px){
+  body{padding-bottom:0}
+  .dock{display:none}
+  .nav{display:flex}
+  section{padding:96px 0}
+  .hero-grid{grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 61px)}
+  .hero-photo{aspect-ratio:auto;order:2}
+  .hero-text{padding:64px 48px 64px max(var(--gut),calc((100vw - var(--wrap))/2 + var(--gut)));align-self:center}
+  .svc{columns:2;column-gap:48px;border-top:0}
+  .svc li{break-inside:avoid;border-top:1px solid var(--line);border-bottom:0}
+  .reviews .wrap{grid-template-columns:1fr 1fr;align-items:center}
+  .contact-grid{grid-template-columns:1fr 1.3fr}
+  .studio-grid{grid-template-columns:1.8fr 1fr 1fr;gap:16px}
+  .studio-grid figure,.studio-grid figure:first-child{grid-column:auto;height:440px}
+}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+html.motion{scroll-behavior:auto}
+body{overflow-x:clip}
+.progress{position:fixed;inset:0 0 auto;height:3px;z-index:40;pointer-events:none;display:none;
+  & span{display:block;height:100%;background:var(--red);transform-origin:0 50%;transform:scaleX(0)}
+}
+.motion .progress{display:block}
+.sw{display:inline-block;overflow:hidden;padding-block:.1em .16em;margin-block:-.1em -.16em;vertical-align:top}
+.sc{display:inline-block}
+.count{display:inline-block;font-variant-numeric:tabular-nums}
+
+.mq{overflow:hidden;background:var(--paper);border-block:1px solid var(--line);padding:18px 0;
+  & .mq__track{display:flex;width:max-content}
+  & .mq__group{display:flex;align-items:center;flex:none}
+  & .mq__item{display:flex;align-items:center;gap:clamp(18px,3vw,40px);padding-right:clamp(18px,3vw,40px);font:400 clamp(34px,6vw,72px)/1.1 var(--display);white-space:nowrap;color:var(--ink)}
+  & .mq__item::after{content:"";width:.2em;height:.2em;border-radius:50%;background:var(--red)}
+}
+html:not(.motion) .mq{padding-inline:var(--gut);
+  & .mq__track,& .mq__group{width:auto;flex-wrap:wrap}
+  & .mq__item{font-size:clamp(20px,4vw,30px);white-space:normal}
+}
+
+.motion .services .svc{display:grid;gap:14px;columns:auto;max-width:760px;border-top:0;
+  & li{position:sticky;top:calc(76px + var(--i,0) * 10px);min-height:150px;align-content:start;padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--paper);box-shadow:0 18px 40px rgba(35,28,30,.08);transform-origin:50% 0}
+  & li:nth-child(even){background:var(--blush)}
+}
+
+@media (max-width:899px){
+  .works .works-grid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;margin-inline:calc(var(--gut) * -1);padding-inline:var(--gut);scroll-padding-inline:var(--gut);
+    & figure{flex:none;width:min(72vw,300px);scroll-snap-align:start}
+    &::-webkit-scrollbar{display:none}
+  }
+}
+@media (min-width:900px){
+  .motion .works{overflow:hidden;padding-bottom:56px;
+    & .works-grid{display:flex;gap:16px;width:max-content;
+      & figure{flex:none;width:calc(min(56svh,520px) * .8)}
+    }
+  }
+}
+
+.tm{--m-bg:#231c1e;--m-fg:#ffffff;--m-mute:#c8bfc1;--m-line:#4a3f42}
+.motion .tm{background:var(--m-bg);color:var(--m-fg);
+  & .courses,& .reviews{background:transparent;color:inherit}
+  & .courses .lead,& .reviews .lead,& .course:not(.main) .facts,& .course-more{color:var(--m-mute)}
+  & .course-more b{color:var(--m-fg)}
+  & .course:not(.main){border-color:var(--m-line)}
+  & .courses .btn-line{color:var(--m-fg);box-shadow:inset 0 0 0 1.5px var(--m-fg)}
+  & .courses .btn-line:hover{background:var(--m-fg);color:var(--m-bg)}
+  & .placeholder{border-color:var(--m-line);color:var(--m-mute)}
+}
+
+.cursor{position:fixed;left:0;top:0;z-index:70;pointer-events:none;opacity:0;transition:opacity .3s;
+  & span{position:absolute;width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:50%;border:1.5px solid var(--red);transition:transform .35s cubic-bezier(.2,.7,.1,1),background-color .35s}
+  &.is-on{opacity:1}
+  &.is-hover span{transform:scale(2);background-color:rgba(179,18,46,.12)}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#">GOMZIAK<small>beauty studio</small></a>
+    <nav class="nav" aria-label="Розділи">
+      <a href="#services">Послуги</a>
+      <a href="#works">Роботи</a>
+      <a href="#team">Майстри</a>
+      <a href="#courses">Курси</a>
+      <a href="#reviews">Відгуки</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <a class="btn btn-red" href="https://n609965.alteg.io/" target="_blank" rel="noopener" data-magnetic>Записатися</a>
+  </div>
+</header>
+
+<main>
+<!-- Hero: interior photo + quick booking -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-photo">
+      <img src="img/hero.webp" alt="Зала манікюру Gomziak Studio: білі столи, червоні крісла і лампи" width="900" height="1196" fetchpriority="high">
+    </div>
+    <div class="hero-text">
+      <h1>Студія краси у Львові, де важливий результат</h1>
+      <p class="addr">Манікюр, педикюр, вії, брови і перманент на Шевченка, 111а. Безкоштовна парковка поруч.</p>
+      <a class="rating" href="https://maps.google.com/?cid=13233138375043997672" target="_blank" rel="noopener">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span><b>5,0</b> у Google, 535 відгуків</span>
+      </a>
+
+      <form class="book" id="book" action="https://n609965.alteg.io/" target="_blank">
+        <h2>Онлайн-запис за хвилину</h2>
+        <fieldset class="chips">
+          <legend>Що будемо робити?</legend>
+          <label class="chip"><input type="radio" name="s" value="manicure" checked><span>Манікюр</span></label>
+          <label class="chip"><input type="radio" name="s" value="pedicure"><span>Педикюр</span></label>
+          <label class="chip"><input type="radio" name="s" value="nails"><span>Нарощення нігтів</span></label>
+          <label class="chip"><input type="radio" name="s" value="lashes"><span>Вії</span></label>
+          <label class="chip"><input type="radio" name="s" value="brows"><span>Брови</span></label>
+          <label class="chip"><input type="radio" name="s" value="pmu"><span>Перманент</span></label>
+          <label class="chip"><input type="radio" name="s" value="tan"><span>Миттєва засмага</span></label>
+          <label class="chip"><input type="radio" name="s" value="hair"><span>Волосся</span></label>
+        </fieldset>
+        <a class="btn btn-red" id="bookBtn" href="https://n609965.alteg.io/" target="_blank" rel="noopener" data-magnetic>Обрати майстра і час</a>
+        <div class="alt">
+          <a href="tel:+380676013614">Подзвонити</a>
+          <a href="viber://chat?number=%2B380676013614">Написати у Viber</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Services marquee: speed follows scroll velocity -->
+<div class="mq" aria-hidden="true">
+  <div class="mq__track"><div class="mq__group">
+    <span class="mq__item">Манікюр</span><span class="mq__item">Педикюр</span><span class="mq__item">Нарощення нігтів</span><span class="mq__item">Вії</span><span class="mq__item">Брови</span><span class="mq__item">Перманент</span><span class="mq__item">Миттєва засмага</span><span class="mq__item">Волосся</span><span class="mq__item">Курси</span>
+  </div></div>
+</div>
+
+<!-- Services: real list, prices to be filled from the salon's price list -->
+<section class="services" id="services">
+  <div class="wrap">
+    <h2>Послуги</h2>
+    <p class="lead">Перед процедурою майстер дивиться на стан нігтів, вій чи волосся і підказує, що підійде саме вам.</p>
+    <ul class="svc">
+      <li><h3>Манікюр</h3><span class="price">від ___ грн</span><p>Комбінований манікюр, покриття гель-лаком, ремонт і укріплення.</p></li>
+      <li><h3>Нарощення нігтів</h3><span class="price">від ___ грн</span><p>Гелеві типси та нижні форми, корекція.</p></li>
+      <li><h3>Педикюр</h3><span class="price">від ___ грн</span><p>Апаратна та комбінована обробка стопи, покриття, дизайн.</p></li>
+      <li><h3>Вії</h3><span class="price">від ___ грн</span><p>Нарощення, креативні ефекти та об'єми, ламінування.</p></li>
+      <li><h3>Брови</h3><span class="price">від ___ грн</span><p>Оформлення, ламінування, висвітлення.</p></li>
+      <li><h3>Перманентний макіяж</h3><span class="price">від ___ грн</span><p>Брови та губи.</p></li>
+      <li><h3>Миттєва засмага</h3><span class="price">від ___ грн</span><p>Рівний колір без солярію.</p></li>
+      <li><h3>Волосся і косметологія</h3><span class="price">від ___ грн</span><p>Перукарські та косметологічні послуги, догляд.</p></li>
+    </ul>
+    <p class="note">Тут буде ваш актуальний прайс: ціни підтягуються з таблиці, змінюєте їх самі за хвилину.</p>
+  </div>
+</section>
+
+<!-- Works gallery: real photos from @gomziak_studio_ and the studio's site -->
+<section class="works" id="works">
+  <div class="wrap">
+    <h2>Наші роботи</h2>
+    <p class="lead">Фото з Instagram студії.</p>
+    <div class="works-grid">
+      <figure><img src="img/work-before-after.webp" width="512" height="640" loading="lazy" alt="Нігті до і після: зверху натуральні, знизу довгий мигдаль з бордовим покриттям"><figcaption>До і після</figcaption></figure>
+      <figure><img src="img/work-black-gold.webp" width="515" height="640" loading="lazy" alt="Довгі чорні глянцеві нігті з золотою поталлю"><figcaption>Нарощення</figcaption></figure>
+      <figure><img src="img/work-autumn.webp" width="480" height="640" loading="lazy" alt="Манікюр в осінніх відтінках: шоколадний, теракотовий і зелений на коротких нігтях"><figcaption>Манікюр</figcaption></figure>
+      <figure><img src="img/work-brows.webp" width="480" height="640" loading="lazy" alt="Брови до і після оформлення: порівняння двох фото клієнтки"><figcaption>Брови</figcaption></figure>
+      <figure><img src="img/work-nude.webp" width="360" height="640" loading="lazy" alt="Нюдовий манікюр на руках, що тримають чорну картку Gomziak"><figcaption>Нюд</figcaption></figure>
+      <figure><img src="img/work-master.webp" width="700" height="1052" loading="lazy" alt="Майстриня в масці і рукавичках працює апаратом за робочим столом"><figcaption>За роботою</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Guarantee band -->
+<section class="guarantee" id="guarantee">
+  <div class="wrap g-grid">
+    <div class="g-num" aria-hidden="true">14<sub>днів</sub></div>
+    <div>
+      <h2>Гарантія на манікюр 14 днів</h2>
+      <p>Якщо покриття підвело раніше, напишіть адміністратору. Умови гарантії вкажемо тут разом із вами.</p>
+      <a class="btn" href="https://n609965.alteg.io/" target="_blank" rel="noopener" data-magnetic>Записатися на манікюр</a>
+    </div>
+  </div>
+</section>
+
+<!-- Team: names and specialisations from the studio's own master cards -->
+<section class="team" id="team">
+  <div class="wrap">
+    <h2>Майстри</h2>
+    <p class="lead"><span class="count" data-to="8">8</span> майстрів, у кожного своя спеціалізація. Можна записатися до конкретної людини.</p>
+    <ul class="team-list">
+      <li><img src="img/m-natalia.webp" width="390" height="520" loading="lazy" alt="Майстриня Наталя, Gomziak Studio"><b>Наталя</b><em>11 років досвіду</em><span>Нарощення вій, креативні ефекти та об'єми</span></li>
+      <li><img src="img/m-roksolana.webp" width="390" height="520" loading="lazy" alt="Майстриня Роксолана, Gomziak Studio"><b>Роксолана</b><em>5 років</em><span>Нарощення нігтів, манікюр, педикюр, реставрація</span></li>
+      <li><img src="img/m-svitlana.webp" width="390" height="520" loading="lazy" alt="Майстриня Світлана, Gomziak Studio"><b>Світлана</b><em>топ-майстер</em><span>Манікюр, педикюр, реставрація</span></li>
+      <li><img src="img/m-marta.webp" width="390" height="520" loading="lazy" alt="Майстриня Марта, Gomziak Studio"><b>Марта</b><em>топ-майстер</em><span>Нарощення нігтів, манікюр, педикюр</span></li>
+      <li><img src="img/m-oksana.webp" width="390" height="520" loading="lazy" alt="Майстриня Оксана, Gomziak Studio"><b>Оксана</b><em>3 роки</em><span>Нарощення нігтів, манікюр, корекція</span></li>
+      <li><img src="img/m-anastasiia.webp" width="390" height="520" loading="lazy" alt="Майстриня Анастасія, Gomziak Studio"><b>Анастасія</b><em>3 роки</em><span>Перманентний макіяж, брови, ламінування вій</span></li>
+      <li><img src="img/m-yuliia.webp" width="390" height="520" loading="lazy" alt="Майстриня Юлія, Gomziak Studio"><b>Юлія</b><em>3 роки</em><span>Брови, ламінування вій, висвітлення</span></li>
+      <li><img src="img/m-mariia.webp" width="390" height="520" loading="lazy" alt="Майстриня Марія, Gomziak Studio"><b>Марія</b><em>1,5 року</em><span>Манікюр, педикюр</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Studio strip: interior photos from the studio's site -->
+<section class="studio" id="studio">
+  <div class="wrap">
+    <h2>Студія</h2>
+    <p class="lead">Перший поверх бізнес-центру на Шевченка, 111а: зала манікюру, зона очікування і робочі місця майстрів.</p>
+    <div class="studio-grid">
+      <figure><img src="img/studio-hall.webp" width="1200" height="798" loading="lazy" alt="Зала Gomziak Studio з робочими місцями майстрів"></figure>
+      <figure><img src="img/studio-sofa.webp" width="900" height="1194" loading="lazy" alt="Червоний диван у зоні очікування студії"></figure>
+      <figure><img src="img/studio-station.webp" width="700" height="1052" loading="lazy" alt="Робоче місце манікюру з лампою і червоним кріслом"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Theme morph zone: courses and reviews share one animated background -->
+<div class="tm">
+<!-- Courses: real programs and prices from the current site -->
+<section class="courses" id="courses" data-tm="#231c1e,#ffffff,#c8bfc1,#4a3f42">
+  <div class="wrap">
+    <h2>Курси манікюру і педикюру</h2>
+    <p class="lead">Після навчання можна одразу працювати з клієнтами. Практика на моделях, сертифікат українською та англійською.</p>
+    <div class="course-list">
+      <article class="course main">
+        <div class="course-head"><h3>Базовий курс манікюру</h3><span class="cost">12 000 грн</span></div>
+        <div class="facts"><span>4 дні, 09:00–18:00</span><span>група до 2 осіб</span><span>моделі щодня</span></div>
+        <p>Фрезер, комбінований манікюр, опил форм, гель-лак, кутикула, стерилізація. Окремо: ціноутворення, робота з клієнтами і портфоліо.</p>
+        <a class="btn btn-red" href="viber://chat?number=%2B380676013614" data-magnetic>Записатися на курс</a>
+      </article>
+      <article class="course">
+        <div class="course-head"><h3>Сам собі майстер</h3><span class="cost">4 500 грн</span></div>
+        <div class="facts"><span>1 день, 10:00–18:00</span><span>індивідуально</span></div>
+        <p>Під ваш рівень: для себе або точковий розбір технік для майстра.</p>
+      </article>
+      <article class="course">
+        <div class="course-head"><h3>Нарощення нігтів</h3><span class="cost">6 500 грн</span></div>
+        <div class="facts"><span>1 день</span><span>група</span><span>2 моделі</span></div>
+        <p>Гелеві типси та нижні форми, квадрат і овал, робота з відшаруваннями.</p>
+      </article>
+      <article class="course">
+        <div class="course-head"><h3>Базовий педикюр</h3><span class="cost">5 000 грн</span></div>
+        <div class="facts"><span>1 день</span><span>група</span></div>
+        <p>Класична та апаратна чистка, безпечна обробка стопи, покриття.</p>
+      </article>
+      <article class="course">
+        <div class="course-head"><h3>Професійний педикюр</h3><span class="cost">4 500 грн</span></div>
+        <div class="facts"><span>1 день</span><span>група</span><span>1 модель</span></div>
+        <p>Для майстрів: апаратна обробка, комбіновані техніки, дизайн, френч.</p>
+      </article>
+    </div>
+    <p class="course-more">Також є <b>курси миттєвої засмаги</b> (базовий, PRO, BUSINESS/VIP) і <b>курси бровиста</b> (базовий, PRO). Після навчання інструктор лишається на зв'язку.</p>
+    <div class="cert">
+      <a class="btn btn-line" href="tel:+380676013614">Спитати про найближчу групу</a>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews: only the real Google rating, no invented texts -->
+<section class="reviews" id="reviews" data-tm="#f3f1f1,#231c1e,#6d6366,#c9bfc1">
+  <div class="wrap">
+    <div class="score">
+      <div class="score-num count" data-to="5" data-dec="1">5,0</div>
+      <div class="score-txt"><span class="stars" aria-hidden="true">★★★★★</span><b><span class="count" data-to="535">535</span> відгуків у Google</b></div>
+    </div>
+    <div>
+      <h2>Що кажуть клієнтки</h2>
+      <p class="lead">Середня оцінка 5 із 5 на понад п'ятистах відгуках.</p>
+      <div class="placeholder">Тут будуть 3–4 справжні відгуки з Google, які ви оберете самі.</div>
+      <div class="rev-actions">
+        <a class="btn btn-red" href="https://maps.google.com/?cid=13233138375043997672" target="_blank" rel="noopener" data-magnetic>Читати відгуки</a>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- FAQ: answers from the current site -->
+<section class="faq">
+  <div class="wrap">
+    <h2>Часті питання</h2>
+    <details>
+      <summary>Де студія і чи є парковка?</summary>
+      <p>Бізнес-центр на вул. Тараса Шевченка, 111а, перший поверх. Для клієнтів поруч безкоштовна парковка.</p>
+    </details>
+    <details>
+      <summary>Як записатися?</summary>
+      <p>Онлайн: обираєте послугу, майстра і час. Або дзвоните адміністратору: +38 067 601 36 14, +38 063 635 06 41.</p>
+    </details>
+    <details>
+      <summary>Можна проконсультуватися перед процедурою?</summary>
+      <p>Так, онлайн або в студії: розкажемо про формат роботи й очікуваний результат.</p>
+    </details>
+    <details>
+      <summary>Курси підійдуть, якщо я ніколи не робила манікюр?</summary>
+      <p>Так. Базовий курс розрахований на старт у професії, а індивідуальний формат підлаштовується під ваш рівень.</p>
+    </details>
+    <details>
+      <summary>Можна купити косметику без запису?</summary>
+      <p>Так, інтернет-магазин працює окремо: догляд для волосся і власна лінійка Gomziak.</p>
+    </details>
+  </div>
+</section>
+
+<!-- Contacts + map -->
+<section class="contact" id="contacts">
+  <div class="wrap">
+    <h2>Контакти</h2>
+    <div class="contact-grid">
+      <dl>
+        <div><dt>Адреса</dt><dd>Львів, вул. Тараса Шевченка, 111а<br>бізнес-центр, 1-й поверх</dd></div>
+        <div><dt>Телефони</dt><dd><a href="tel:+380676013614">+38 067 601 36 14</a><br><a href="tel:+380636350641">+38 063 635 06 41</a></dd></div>
+        <div><dt>Графік</dt><dd>Пн–Сб 09:00–20:00<br>Нд 09:00–18:00</dd></div>
+        <div><dt>Соцмережі</dt><dd><a href="https://www.instagram.com/gomziak_studio_/" target="_blank" rel="noopener">Instagram</a>, <a href="https://www.tiktok.com/@gomziak_studio" target="_blank" rel="noopener">TikTok</a></dd></div>
+      </dl>
+      <div class="map">
+        <iframe title="Gomziak Studio на карті" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=%D0%B2%D1%83%D0%BB.%20%D0%A2%D0%B0%D1%80%D0%B0%D1%81%D0%B0%20%D0%A8%D0%B5%D0%B2%D1%87%D0%B5%D0%BD%D0%BA%D0%B0%2C%20111%D0%B0%2C%20%D0%9B%D1%8C%D0%B2%D1%96%D0%B2&z=16&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Gomziak Studio, Львів</span>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="btn btn-red" href="https://n609965.alteg.io/" target="_blank" rel="noopener">Записатися онлайн</a>
+  <a class="btn btn-line" href="tel:+380676013614" aria-label="Подзвонити">Дзвінок</a>
+</div>
+
+<div class="cursor" aria-hidden="true"><span></span></div>
+
+<script>
+document.getElementById('book').addEventListener('change',function(e){
+  var t=e.target.closest('.chip');
+  if(!t)return;
+  document.getElementById('bookBtn').textContent=t.textContent.trim()+': обрати майстра і час';
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/*MOTION*/
+</script>
+</body>
+</html>
