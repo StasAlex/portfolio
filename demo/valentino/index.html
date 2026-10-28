@@ -61,20 +61,35 @@ ol,ul{padding:0;list-style:none}
 .fx__head--over{position:absolute;inset:0 0 auto;margin:0;max-width:none;color:var(--porcelain)}
 .sw{display:inline-block;overflow:hidden;padding-block:.1em .16em;margin-block:-.1em -.16em;vertical-align:top}
 .sc{display:inline-block;will-change:transform}
-.hero{height:100svh;min-height:560px;overflow:hidden;background:var(--ink);color:var(--porcelain);
-  & .hero__bg{position:absolute;inset:-6% 0 0;will-change:transform;
-    & img{width:100%;height:100%;object-fit:cover}
-  }
-  & .hero__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,34,54,.55) 0%,rgba(27,34,54,.1) 40%,rgba(27,34,54,.75) 100%)}
-  & .hero__card{position:absolute;right:clamp(16px,8vw,140px);bottom:14vh;width:clamp(150px,20vw,320px);aspect-ratio:3/4;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 30px 80px rgba(10,12,24,.45);will-change:transform;
-    & img{width:100%;height:100%;object-fit:cover}
-  }
-  & .hero__text{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(32px,8vh,80px);will-change:transform}
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;color:var(--porcelain);
+  background:radial-gradient(60% 70% at 78% 45%,color-mix(in srgb,var(--brass-2) 22%,transparent),transparent 70%),var(--ink);
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:center;gap:clamp(16px,3vw,48px);padding:96px var(--gut) 72px;
+  & .hero__text{position:relative;z-index:2;will-change:transform}
   & .hero__title{font:400 var(--fs-display)/.82 var(--display);letter-spacing:-.02em}
-  & .hero__sub{margin-top:18px;max-width:30ch;font-size:var(--fs-lead);opacity:.85}
+  & .hero__sub{margin-top:18px;font-size:var(--fs-lead);opacity:.85}
+  & .hero__collage{position:relative;height:min(78svh,760px);margin:0;padding:0;list-style:none;touch-action:pan-y}
+  & .hero__tile{position:absolute;aspect-ratio:3/4;padding:6px;background:var(--porcelain);border-radius:14px;box-shadow:0 24px 60px rgba(8,10,20,.45);will-change:transform;rotate:var(--r,0deg);
+    & img{width:100%;height:100%;object-fit:cover;border-radius:9px}
+    &:nth-child(1){left:24%;top:16%;width:38%;--r:-3deg;z-index:3}
+    &:nth-child(2){left:62%;top:4%;width:27%;--r:6deg;z-index:2}
+    &:nth-child(3){left:2%;top:50%;width:25%;--r:-8deg;z-index:4}
+    &:nth-child(4){left:60%;top:50%;width:31%;--r:4deg;z-index:4}
+    &:nth-child(5){left:36%;top:66%;width:22%;--r:9deg;z-index:5}
+    &:nth-child(6){left:84%;top:30%;width:17%;--r:-6deg;z-index:1}
+    &:nth-child(7){left:4%;top:6%;width:18%;--r:5deg;z-index:1}
+    &:nth-child(n+8){display:none}
+  }
 }
-@media (max-width:640px){
-  .hero .hero__card{top:44%;bottom:auto;right:16px;width:38vw}
+@media(max-width:767px){
+  .hero{display:flex;flex-direction:column;justify-content:flex-end;gap:12px;height:auto;min-height:100svh;padding:76px var(--gut) 64px;
+    & .hero__collage{order:-1;width:100%;height:46svh;min-height:300px;flex:none}
+    & .hero__tile:nth-child(1){left:28%;top:8%;width:42%}
+    & .hero__tile:nth-child(2){left:68%;top:0;width:30%}
+    & .hero__tile:nth-child(3){left:0;top:40%;width:30%}
+    & .hero__tile:nth-child(4){left:64%;top:48%;width:34%}
+    & .hero__tile:nth-child(5){left:30%;top:62%;width:28%}
+    & .hero__tile:nth-child(n+6){display:none}
+  }
 }
 .split{background:var(--espresso);color:var(--powder-2);overflow:hidden;
   & .split__body{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,5vw,80px);align-items:end;padding-bottom:clamp(56px,10vh,120px)}
@@ -250,15 +265,11 @@ main>section{scroll-margin-top:0}
   & span::after{content:"✦";margin-inline:.8em;font-size:.42em;color:var(--brass-2)}
   & span:nth-child(even){color:transparent;-webkit-text-stroke:1px var(--porcelain)}
 }
-.hero .hero__text{right:25%;bottom:9vh}
-.hero .hero__title{font-size:clamp(64px,12vw,190px);line-height:.86}
-.hero .hero__sub{max-width:42ch;margin-bottom:26px}
-.hero .hero__card{bottom:24vh;width:clamp(140px,21vw,320px);transform:rotate(7deg);border:6px solid var(--porcelain)}
-.hero .hero__shade{background:linear-gradient(90deg,#101726a6,transparent),linear-gradient(0deg,#101726e6,transparent 85%)}
-.hero .hero__bg img{object-position:50% 38%}
+.hero .hero__title{font-size:clamp(56px,8vw,150px);line-height:.88}
+.hero .hero__sub{max-width:40ch;margin-bottom:26px}
 .hero .btn{color:white;border-color:#ffffff99;min-height:54px;background:#ffffff12;backdrop-filter:blur(8px)}
-.hero-scroll{position:absolute;right:var(--gut);bottom:40px;color:white;text-decoration:none;font-size:13px;writing-mode:vertical-rl;letter-spacing:.04em}
-.hero-scroll::after{content:'↓';margin-top:18px;font-size:24px}
+.hero-scroll{position:absolute;right:var(--gut);bottom:32px;color:white;text-decoration:none;font-size:13px;writing-mode:vertical-rl;letter-spacing:.04em}
+.hero-scroll::after{content:'↓';margin-top:18px;font-size:24px;writing-mode:horizontal-tb}
 .split .service-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .service-list li{padding:8px 14px;border:1px solid #f4ddd74d;border-radius:999px;font-size:14px}
 .split .split__headline{font-size:clamp(50px,7.5vw,120px)}
@@ -301,11 +312,9 @@ main>section{scroll-margin-top:0}
 .foot .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
 @media(max-width:760px){
  .site-header{padding:10px 12px}.site-brand{font-size:21px}.site-header .header-cta{padding:10px 14px}.site-brand small{display:none}
- .hero{min-height:740px;height:100svh}.hero .hero__text{right:var(--gut);bottom:64px}
- .hero .hero__title{font-size:clamp(60px,15vw,108px);max-width:90%}
- .hero .hero__sub{font-size:15px;max-width:31ch}.hero .hero__card{top:20%;bottom:auto;right:7%;width:29vw;max-width:160px}
- .hero-scroll{display:none}.hero .hero__bg img{object-position:48% 40%}
- .hero .hero__shade{background:linear-gradient(0deg,#101726f5 0%,#10172666 65%,#10172666)}
+ .hero .hero__title{font-size:clamp(52px,14vw,96px)}
+ .hero .hero__sub{font-size:15px;max-width:34ch;margin-bottom:20px}
+ .hero-scroll{display:none}
  .hero .btn{min-height:50px;padding:0 20px;font-size:14px}
  .split .split__img{aspect-ratio:4/3}.fx__head{padding-top:72px}
  .hs .hs__inner{min-height:auto}.hs .hs__track{padding-bottom:36px}
@@ -335,14 +344,14 @@ main>section{scroll-margin-top:0}
 .course-more{display:grid;gap:24px;padding-top:28px;padding-bottom:64px}
 .branch-actions{display:grid;gap:14px}.branch-actions h3{font:400 28px var(--display)}
 .morph__title small{display:block;font:300 16px/1.5 var(--body);margin-top:16px}
-.hero-highlights{position:absolute;left:var(--gut);bottom:22px;display:flex;gap:16px;color:white;font-size:12px;flex-wrap:wrap;padding-right:var(--gut)}
+.hero-highlights{display:flex;gap:8px 16px;margin-top:28px;color:white;font-size:12px;flex-wrap:wrap;opacity:.8}
 .hero .hero__title{overflow-wrap:anywhere}
 .btn--round{background:var(--ink)!important;border-color:var(--ink)!important;color:var(--porcelain)!important}
 @media(max-width:1023px){.site-header nav{display:none}.site-header .site-header__bar{grid-template-columns:minmax(0,1fr) auto}.menu-toggle{display:inline-grid}.site-header .site-header__bar{padding-left:18px}}
 @media(min-width:1024px){.menu{display:none}}
 @media(min-width:1024px) and (max-width:1199px){.site-brand small{display:none}}
 .motion .hs .fx__head{padding-top:clamp(84px,11svh,104px)}
-@media(max-width:760px){.people-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}.course-grid{grid-template-columns:1fr}.hero-highlights{font-size:11px;gap:6px 12px;bottom:16px}.hero .hero__title{font-size:clamp(46px,13vw,88px)}}
+@media(max-width:760px){.people-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}.course-grid{grid-template-columns:1fr}.hero-highlights{font-size:11px;gap:6px 12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style></head><body>
 <div class="progress" aria-hidden="true"><span></span></div>
@@ -350,10 +359,8 @@ main>section{scroll-margin-top:0}
 <div class="menu" id="menu" aria-label="Меню"><a href="#services">Послуги</a><a href="#works">Роботи</a><a href="#reviews">Відгуки</a><a href="#contacts">Контакти</a><a class="menu__cta" href="viber://chat?number=%2B380971159217">Записатися у Viber →</a></div>
 <main>
 <section class="fx hero" id="top" aria-labelledby="hero-title">
- <div class="hero__bg"><img src="img/hero.webp" width="1215" height="2160" alt="Майстриня укладає хвилясте волосся клієнтки в салоні Valentino" fetchpriority="high"></div><div class="hero__shade"></div>
- <figure class="hero__card"><img src="img/hero-detail.webp" width="1215" height="2160" alt="Нарощене волосся крупним планом на проділі"></figure>
- <div class="hero__text"><h1 class="hero__title" id="hero-title">Valentino</h1><p class="hero__sub">Нарощення волосся, фарбування та зачіски, а також манікюр, брови й макіяж. Салон у Львові на проспекті Чорновола, 16д.</p><a class="btn" href="viber://chat?number=%2B380971159217">Записатися у Viber</a></div>
- <ul class="hero-highlights"><li>Нарощення волосся</li><li>Фарбування й зачіски</li></ul>
+ <div class="hero__text"><h1 class="hero__title" id="hero-title">Valentino</h1><p class="hero__sub">Нарощення волосся, фарбування та зачіски, а також манікюр, брови й макіяж. Салон у Львові на проспекті Чорновола, 16д.</p><a class="btn" href="viber://chat?number=%2B380971159217">Записатися у Viber</a><ul class="hero-highlights"><li>Нарощення волосся</li><li>Фарбування й зачіски</li></ul></div>
+ <ul class="hero__collage" aria-label="Фото з Instagram салону"><li class="hero__tile"><img src="img/hero.webp" width="1215" height="2160" alt="Майстриня укладає хвилясте волосся клієнтки в салоні Valentino" fetchpriority="high"></li><li class="hero__tile"><img src="img/hero-detail.webp" width="1215" height="2160" alt="Нарощене волосся крупним планом на проділі"></li><li class="hero__tile"><img src="img/04.webp" width="360" height="640" alt="Довге хвилясте каштанове волосся клієнтки перед нарощенням, вигляд ззаду"></li><li class="hero__tile"><img src="img/03.webp" width="360" height="640" alt="Рівне гладке волосся русявого відтінку, вигляд ззаду"></li><li class="hero__tile"><img src="img/05.webp" width="360" height="640" alt="Світле волосся з м’якими переливами, техніка Airtouch"></li><li class="hero__tile"><img src="img/06.webp" width="360" height="640" alt="Світле каре з акуратною укладкою"></li><li class="hero__tile"><img src="img/08.webp" width="360" height="640" alt="Клієнтка у чорному халаті Valentino на тлі штор"></li><li class="hero__tile"><img src="img/09.webp" width="360" height="640" alt="Брюнетка у чорному халаті салону на тлі бордового крісла"></li></ul>
  <a class="hero-scroll" href="#services">Відкрийте Valentino</a>
 </section>
 <div class="ticker" aria-hidden="true"><div class="ticker__row"><span>Нарощення волосся</span><span>Фарбування</span><span>Зачіски</span><span>Манікюр, брови, макіяж</span></div></div>
@@ -577,14 +584,26 @@ main>section{scroll-margin-top:0}
   }));
   const mm = G.matchMedia();
   // 01 Hero parallax
-  G.set('.hero__bg', { scale: 1.18 });
+  const tiles = $$('.hero__tile');
+  const depth = [24, 46, 64, 38, 80, 96, 110];
   G.timeline({ scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: true } })
-    .to('.hero__bg', { scale: 1, yPercent: 16, ease: 'none' }, 0)
-    .to('.hero__card', { yPercent: -90, ease: 'none' }, 0)
-    .to('.hero__text', { yPercent: -60, opacity: 0, ease: 'none' }, 0)
+    .to(tiles, { y: i => -depth[i % 7] * 4, x: i => (i % 2 ? 1 : -1) * depth[i % 7], rotate: i => (i % 2 ? 1 : -1) * 10, ease: 'none' }, 0)
+    .to('.hero__text', { yPercent: -40, opacity: 0, ease: 'none' }, 0)
     .to('#top .fx__head', { yPercent: -30, opacity: 0, ease: 'none' }, 0);
-  G.from('.hero__card', { opacity: 0, rotate: -5, duration: 1.6, ease: 'expo.out', delay: 0.3 });
-  G.from('.hero__sub, .hero__text .btn', { opacity: 0, y: 24, stagger: 0.15, duration: 1.2, delay: 0.45 });
+  G.from(tiles, { scale: 0.2, opacity: 0, x: (i, el) => el.parentElement.clientWidth / 2 - el.offsetLeft - el.offsetWidth / 2, y: (i, el) => el.parentElement.clientHeight / 2 - el.offsetTop - el.offsetHeight / 2, rotate: i => (i % 2 ? 30 : -30), duration: 1.4, ease: 'expo.out', stagger: 0.08, delay: 0.2 });
+  // Collage tiles follow the cursor or finger with different depth, and float when idle
+  const tileMoves = tiles.map(t => ({ x: G.quickTo(t, 'xPercent', { duration: 1.1, ease: 'power3' }), y: G.quickTo(t, 'yPercent', { duration: 1.1, ease: 'power3' }) }));
+  const steer = (cx, cy) => {
+    const b = $('#top').getBoundingClientRect();
+    const nx = (cx - b.left) / b.width - 0.5, ny = (cy - b.top) / b.height - 0.5;
+    tileMoves.forEach((m, i) => { const d = depth[i % 7] / 3; m.x(nx * d); m.y(ny * d); });
+  };
+  $('#top').addEventListener('pointermove', e => steer(e.clientX, e.clientY));
+  $('#top').addEventListener('touchstart', e => { const t = e.touches[0]; if (t) steer(t.clientX, t.clientY); }, { passive: true });
+  $('#top').addEventListener('touchmove', e => { const t = e.touches[0]; if (t) steer(t.clientX, t.clientY); }, { passive: true });
+  $('#top').addEventListener('pointerleave', () => tileMoves.forEach(m => { m.x(0); m.y(0); }));
+  $$('.hero__tile img').forEach((img, i) => G.to(img, { y: i % 2 ? 8 : -8, rotate: i % 2 ? 1.5 : -1.5, duration: 2.6 + (i % 3) * 0.6, ease: 'sine.inOut', yoyo: true, repeat: -1 }));
+  G.from('.hero__sub, .hero__text .btn, .hero-highlights', { opacity: 0, y: 24, stagger: 0.15, duration: 1.2, delay: 0.45 });
   G.from($$('.sc', split($('.hero__title'), true)), { yPercent: 120, rotate: 10, duration: 1.3, ease: 'expo.out', stagger: 0.035, delay: 0.15 });
   // 02 Split-text reveal
   const headline = split($('.split__headline'), true);
@@ -616,8 +635,12 @@ main>section{scroll-margin-top:0}
     });
     return () => { galleryPin = null; updateGalleryMeter(); };
   });
-  // Hero photo opens like a curtain on load
-  G.from('.hero__bg', { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.6, ease: 'expo.inOut' });
+  // Section headers slide sideways while scrolling past
+  $$('.fx__head').forEach((h, i) => { if (h.closest('#top')) return; G.fromTo(h, { x: i % 2 ? 60 : -60 }, { x: 0, ease: 'none', scrollTrigger: { trigger: h, start: 'top bottom', end: 'top 40%', scrub: true } }); });
+  // Service chips ride in a wave with the scroll
+  $$('.service-list li').forEach((li, i) => G.fromTo(li, { x: (i % 2 ? 1 : -1) * 40 }, { x: 0, ease: 'none', scrollTrigger: { trigger: '.service-list', start: 'top bottom', end: 'top 50%', scrub: true } }));
+  // Booking buttons rise in a staggered wave
+  if ($('.mag__row')) G.fromTo('.mag__row .btn', { yPercent: 120, rotate: i => (i % 2 ? 4 : -4) }, { yPercent: 0, rotate: 0, ease: 'none', stagger: 0.1, scrollTrigger: { trigger: '#booking', start: 'top bottom', end: 'top 35%', scrub: true } });
   // Phones: works gallery becomes a deck of cards stacking over each other
   mm.add('(max-width: 767px)', () => {
     const cards = $$('.hs__card');
@@ -760,7 +783,7 @@ main>section{scroll-margin-top:0}
       });
       area.addEventListener('pointerleave', () => qs.forEach(q => { q.x(0); q.y(0); if (q.r) q.r(0); }));
     }
-    follow($('#top'), [['.hero__bg img', -30], ['.hero__card', 70, 8], ['.hero__title', 18], ['.hero-highlights', -14]]);
+    follow($('#top'), [['.hero__title', 18], ['.hero-highlights', -14]]);
     follow($('#services'), [['.split__img', 26], ['.split__headline', -12], ['.service-list', 10]]);
     follow($('#studio'), [['.zoom__frame img', -40], ['.zoom__caption', 24]]);
     follow($('#reviews'), [['.stats__big', 30, -4], ['.stats__stars', 14]]);
